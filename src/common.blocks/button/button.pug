@@ -1,0 +1,14 @@
+include __content/__content.pug
+
+mixin button(options)
+  -
+    let buttonMix = options.mix ? ' '+options.mix : ''
+    let buttonText = options.text ? options.text : ''
+    let buttonType = options.type ? ' button__content_theme_'+options.type : ''
+  button(class='button'+buttonMix)
+    +buttonContent({
+      text: buttonText,
+      type: buttonType
+    })
+    
+    

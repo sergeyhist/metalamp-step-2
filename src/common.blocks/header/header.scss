@@ -1,0 +1,23 @@
+.header {
+  $margin: 20px;
+
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: 70px;
+  padding-inline: 140px;
+
+  &__logo {
+    width: fit-content;
+    height: auto;
+    margin-right: auto;
+  }
+
+  &__buttons {
+    margin-left: $margin;
+  }
+
+  &__buttons > .button:not(:last-child) {
+    margin-right: $margin;
+  }
+}
