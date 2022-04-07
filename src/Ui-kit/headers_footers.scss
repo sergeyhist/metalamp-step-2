@@ -1,6 +1,7 @@
 @use '../common.blocks/header/header.scss';
 @use '../common.blocks/menu/menu.scss';
 @use '../common.blocks/button/button.scss';
+@use '../common.blocks/account/account.scss';
 
 *,
 *::before,
@@ -35,6 +36,8 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   font-family: 'Montserrat', Helvetica, sans-serif;
+  color: #1F204180;
+  font-size: 14px;
 }
 
 ul[class],

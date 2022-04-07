@@ -1,4 +1,7 @@
-mixin header()
+mixin header(options)
+  -
+    let isLogged = options?.logged ? options.logged : false
+
   header(class='header')
     div(class='header__logo')
       +logo()
@@ -27,12 +30,16 @@ mixin header()
         arrow: true
       }
     ])
-    div(class='header__buttons')
-      +button({
-        text: 'войти',
-        type: 'white'
-      })
-      +button({
-        text: 'Зарегистрироваться'
+    if (isLogged === false)
+      div(class='header__buttons')
+        +button({
+          text: 'войти',
+          type: 'white'
         })
+        +button({
+          text: 'Зарегистрироваться'
+          })
+    else
+      div(class='header__account')
+        +account()
   

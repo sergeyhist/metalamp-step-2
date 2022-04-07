@@ -20,4 +20,8 @@
   &__buttons > .button:not(:last-child) {
     margin-right: $margin;
   }
+
+  &__account {
+    margin-left: $margin;
+  }
 }

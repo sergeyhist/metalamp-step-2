@@ -2,6 +2,7 @@ include ../common.blocks/header/header.pug
 include ../common.blocks/menu/menu.pug
 include ../common.blocks/logo/logo.pug
 include ../common.blocks/button/button.pug
+include ../common.blocks/account/account.pug
 
 doctype html
 html(lang="ru")
@@ -13,5 +14,8 @@ html(lang="ru")
     link(rel="stylesheet", href="main.css")
     link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat")
     link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
-  body 
-    +header()
+  body
+    +header() 
+    +header({
+      logged: true
+    })
