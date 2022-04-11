@@ -1,0 +1,53 @@
+@use 'sass:map';
+
+$colors: (
+  'dark-shade_100': #1F2041,
+  'dark-shade_75': #1F2041BF,
+  'dark-shade_50': #1F204180,
+  'dark-shade_25': #1F204140,
+  'dark-shade_5': #1F20410D,
+  'purple': #BC9CFF,
+  'green': #6FCF97
+);
+
+@each $name, $value in $colors {
+  .colors{
+    &__example_#{$name} {
+      background-color: #{$value}
+    }
+  }
+}
+
+.colors {
+
+  &__color {
+    display: flex;
+  }
+
+  &__color:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  &__example {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+  }
+
+  &__description, &__title {
+    color: map.get($colors, 'dark-shade_100');
+  }
+
+  &__description {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    font-size: 19px;
+  }
+
+  &__title {
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+}

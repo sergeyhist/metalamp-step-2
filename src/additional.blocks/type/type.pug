@@ -1,0 +1,10 @@
+mixin type(type)
+  div(class='type')
+    - for (let item of type)
+      div(class='type__item')
+        if item.title != 'body'
+          #{item.title}(class='type__title') #{item.title}
+          #{item.title}(class='type__example') #{item.text}
+        else
+          p(class='type__title') #{item.title}
+          p(class='type__example') #{item.text}

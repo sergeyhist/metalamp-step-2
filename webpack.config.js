@@ -6,20 +6,25 @@ module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    static: './dist'
+    static: '../Sites/mls2/'
   },
-  entry: [
-    './src/Ui-kit/headers_footers.pug',
-    './src/Ui-kit/headers_footers.scss'
-  ],
+  entry: {
+    index: './src/Ui-kit/index.pug',
+    headers_footers: [
+      './src/Ui-kit/headers-and-footers.pug',
+      './src/Ui-kit/headers-and-footers.scss'
+    ],
+    colors_type: [
+      './src/Ui-kit/colors-and-type.pug',
+      './src/Ui-kit/colors-and-type.scss'
+    ]
+  },
   output: {
-    path: path.join(__dirname, '../Sites/mls2/'),
+    path: path.join(__dirname, '../Sites/mls2/Ui-kit/'),
     publicPath: '/'
   },
   plugins: [
-    new PugPlugin({
-      filename: 'index.html'
-    }),
+    new PugPlugin(),
     new MiniCssExtractPlugin()
   ],
   module: {

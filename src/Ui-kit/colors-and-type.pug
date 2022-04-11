@@ -1,0 +1,70 @@
+include ../additional.blocks/colors/colors.pug
+include ../additional.blocks/type/type.pug
+include ../additional.blocks/icon/icon.pug
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Colors & Type
+    link(rel="stylesheet", href="colors_type.css")
+  body
+    +icon()
+    div(class='colors-and-type__content')
+      +colors([
+        {
+          title: 'dark shade 100%',
+          value: '#1F2041',
+          css: 'dark-shade_100'
+        },
+        {
+          title: 'dark shade 75%',
+          value: '#1F2041',
+          css: 'dark-shade_75'
+        },
+        {
+          title: 'dark shade 50%',
+          value: '#1F2041',
+          css: 'dark-shade_50'
+        },
+        {
+          title: 'dark shade 25%',
+          value: '#1F2041',
+          css: 'dark-shade_25'
+        },
+        {
+          title: 'dark shade 5%',
+          value: '#1F2041',
+          css: 'dark-shade_5'
+        },
+        {
+          title: 'purple',
+          value: '#BC9CFF',
+          css: 'purple'
+        },
+        {
+          title: 'green',
+          value: '#6FCF97',
+          css: 'green'
+        }
+      ])
+      +type([
+        {
+          title: 'h1',
+          text: 'This one is the sub-section or widget title'
+        },
+        {
+          title: 'h2',
+          text: 'Next one is the item title inside widgets'
+        },
+        {
+          title: 'h3',
+          text: 'This is a label or CTA text'
+        },
+        {
+          title: 'body',
+          text: 'This is the body text which is used for most of the design, like paragraphs, lists, etc.'
+        }
+      ])

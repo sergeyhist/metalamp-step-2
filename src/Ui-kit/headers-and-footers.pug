@@ -3,6 +3,32 @@ include ../common.blocks/menu/menu.pug
 include ../common.blocks/logo/logo.pug
 include ../common.blocks/button/button.pug
 include ../common.blocks/account/account.pug
+-
+  let menuItems = [
+    {
+      name: 'о нас',
+      link: '#',
+      focused: true
+    },
+    {
+      name: 'услуги',
+      link: '#',
+      arrow: true
+    },
+    {
+      name: 'вакансии',
+      link: '#'
+    },
+    {
+      name: 'новости',
+      link: '#'
+    },
+    {
+      name: 'соглашения',
+      link: '#',
+      arrow: true
+    }
+  ]
 
 doctype html
 html(lang="ru")
@@ -11,11 +37,14 @@ html(lang="ru")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title TOXIN Hotel
-    link(rel="stylesheet", href="main.css")
+    link(rel="stylesheet", href="headers_footers.css")
     link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat")
     link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
   body
-    +header() 
     +header({
+      menuItems: menuItems
+    }) 
+    +header({
+      menuItems: menuItems,
       logged: true
     })

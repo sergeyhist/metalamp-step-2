@@ -1,0 +1,19 @@
+@use '../additional.blocks/colors/colors.scss';
+@use '../additional.blocks/type/type.scss';
+
+body {
+  font-family: 'Montserrat', Helvetica, sans-serif;
+}
+
+.icon {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.colors-and-type__content {
+  display: grid;
+  grid-template-columns: 415px 1fr;
+  margin-inline: 150px;
+  margin-block: 140px;
+}
