@@ -1,11 +1,7 @@
 @use '../additional.blocks/colors/colors.scss';
 @use '../additional.blocks/type/type.scss';
 
-body {
-  font-family: 'Montserrat', Helvetica, sans-serif;
-}
-
-.icon {
+.colors-and-type__icon {
   position: absolute;
   top: 30px;
   left: 30px;

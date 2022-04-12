@@ -1,31 +1,38 @@
 const path = require('path');
+const fs = require('fs');
 const PugPlugin = require('pug-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+let uiKitPages = [];
+fs.readdirSync('./src/Ui-kit/').forEach(file => file.includes('.pug') ? uiKitPages.push(file) : '');
+
 
 module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    static: '../Sites/mls2/'
+    static: './dist'
   },
-  entry: {
-    index: './src/Ui-kit/index.pug',
-    headers_footers: [
-      './src/Ui-kit/headers-and-footers.pug',
-      './src/Ui-kit/headers-and-footers.scss'
-    ],
-    colors_type: [
-      './src/Ui-kit/colors-and-type.pug',
-      './src/Ui-kit/colors-and-type.scss'
-    ]
-  },
+  entry: './src/index.js',
   output: {
-    path: path.join(__dirname, '../Sites/mls2/Ui-kit/'),
+    filename: '[name].[fullhash].js',
+    path: path.join(__dirname, './dist'),
     publicPath: '/'
   },
   plugins: [
-    new PugPlugin(),
-    new MiniCssExtractPlugin()
+    ...uiKitPages.map(page => new HtmlWebpackPlugin ({
+      template: './src/Ui-kit/'+page,
+      filename: 'Ui-kit-'+page.replace('.pug','.html')
+    })),
+    new HtmlWebpackPlugin ({
+      template: './src/index.pug',
+      filename: 'index.html'
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].[fullhash].css'
+    }),
+    new CleanWebpackPlugin()
   ],
   module: {
     rules: [
@@ -45,7 +52,10 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif|jpeg)$/,
-        type: 'asset/resource'
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/images/[name].[hash].[ext]'
+        }
       }
     ]
   }
