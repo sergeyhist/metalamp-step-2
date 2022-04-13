@@ -5,8 +5,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 let uiKitPages = [];
-fs.readdirSync('./src/Ui-kit/').forEach(file => file.includes('.pug') ? uiKitPages.push(file) : '');
-
+let uiKitEntries = {
+  main: './src/index.js'
+};
+fs.readdirSync('./src/Ui-kit/').forEach(folder => {
+  fs.readdirSync('./src/Ui-kit/'+folder).forEach(file => 
+    file.includes('.pug') ? uiKitPages.push('./src/Ui-kit/'+folder+'/'+file) : file.includes('.js') ? uiKitEntries[folder] = './src/Ui-kit/'+folder+'/'+file : ''
+  );
+});
 
 module.exports = {
   mode: 'development',
@@ -14,7 +20,7 @@ module.exports = {
   devServer: {
     static: './dist'
   },
-  entry: './src/index.js',
+  entry: uiKitEntries,
   output: {
     filename: '[name].[fullhash].js',
     path: path.join(__dirname, './dist'),
@@ -22,12 +28,14 @@ module.exports = {
   },
   plugins: [
     ...uiKitPages.map(page => new HtmlWebpackPlugin ({
-      template: './src/Ui-kit/'+page,
-      filename: 'Ui-kit-'+page.replace('.pug','.html')
+      template: page,
+      filename: page.replace('.pug','.html').replace('./src/','').replace(/\//g,'-'),
+      chunks: ['main', page.split('/')[3]]
     })),
     new HtmlWebpackPlugin ({
       template: './src/index.pug',
-      filename: 'index.html'
+      filename: 'index.html',
+      chunks: ['main']
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[fullhash].css'
