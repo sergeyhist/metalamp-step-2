@@ -1,3 +1,19 @@
+@use 'assets/variables' as vars;
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: url(./assets/fonts/Montserrat-Regular.woff2) format('woff2')
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(./assets/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+}
+
 *,
 *::before,
 *::after {
@@ -40,6 +56,16 @@ ol[class] {
   list-style: none;
 }
 
+a {
+  line-height: 17.07px;
+
+  &:hover{
+    cursor: pointer;
+    opacity: .75;
+    -webkit-text-stroke: 0.5px #1F2041;
+  }
+}
+
 a:not([class]) {
   text-decoration-skip-ink: auto;
 }
@@ -58,6 +84,14 @@ button,
 textarea,
 select {
   font: inherit;
+  border: 0;
+  border-radius: inherit;
+  background-color: transparent;
+}
+
+input:focus-visible {
+  border: 0;
+  outline: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -67,4 +101,45 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3 {
+  color: vars.$dark-shade-100;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 19px;
+}
+
+h3 {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+body {
+  color: vars.$dark-shade-75;
+  font-size: 14px;
+  line-height: 24px;
 }

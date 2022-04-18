@@ -1,0 +1,18 @@
+@use '../../common.blocks/header/header.scss';
+@use '../../common.blocks/footer/footer.scss';
+
+body {
+  background-color: #E5E5E5;
+}
+
+.headers-footers__icon {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.headers-footers__content {
+  margin-block: 140px;
+  display: grid;
+  row-gap: 40px;
+}

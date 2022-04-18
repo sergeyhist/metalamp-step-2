@@ -1,8 +1,6 @@
+include ../../common.blocks/icon/icon.pug
 include ../../common.blocks/header/header.pug
-include ../../common.blocks/menu/menu.pug
-include ../../common.blocks/logo/logo.pug
-include ../../common.blocks/button/button.pug
-include ../../common.blocks/account/account.pug
+include ../../common.blocks/footer/footer.pug
 -
   let menuItems = [
     {
@@ -37,13 +35,16 @@ html(lang="ru")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title TOXIN Hotel
-    link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat")
-    link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
   body
-    +header({
-      menuItems: menuItems
-    }) 
-    +header({
-      menuItems: menuItems,
-      logged: true
-    })
+    section(class='headers-footers')
+      div(class='headers-footers__icon')
+        +icon()
+      div(class='headers-footers__content')
+        +header({
+          menuItems: menuItems
+        }) 
+        +header({
+          menuItems: menuItems,
+          logged: true
+        })
+        +footer()

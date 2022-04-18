@@ -1,8 +1,0 @@
-mixin colors(colors)
-  div(class='colors')
-    - for (let color of colors)
-        div(class='colors__color')
-          div(class='colors__example'+' colors__example_'+color.css)
-          div(class='colors__description')
-            span(class='colors__title') #{color.title}
-            span(class='colors__value') #{color.value}

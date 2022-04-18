@@ -3,8 +3,8 @@ mixin menu(items)
     - for (let item of items)
       -
         let menuArrow = item.arrow ? item.arrow : false
-        let menuFocus = item.focused === true ? ' menu__item_focused' : ''
-      a(class='menu__item'+menuFocus href=item.link)
-        span(class='menu__item_name') #{item.name}
+        let menuFocus = item.focused === true ? ' menu__link_focused' : ''
+      a(class='menu__link'+menuFocus href=item.link)
+        span(class='menu__name') #{item.name}
         if menuArrow === true
-          span(class='menu__item_icon material-icons') expand_more
+          span(class='material-icons') expand_more

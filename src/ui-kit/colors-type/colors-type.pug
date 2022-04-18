@@ -1,6 +1,24 @@
-include ../../additional.blocks/colors/colors.pug
-include ../../additional.blocks/type/type.pug
-include ../../additional.blocks/icon/icon.pug
+include ../../common.blocks/icon/icon.pug
+
+mixin colors(colors)
+  div(class='colors')
+    - for (let color of colors)
+        div(class='colors__color')
+          div(class='colors__example'+' colors__example_'+color.css)
+          div(class='colors__description')
+            span(class='colors__title') #{color.title}
+            span(class='colors__value') #{color.value}
+            
+mixin type(type)
+  div(class='type')
+    - for (let item of type)
+      div(class='type__item')
+        if item.title != 'body'
+          #{item.title}(class='type__title') #{item.title}
+          #{item.title}(class='type__example') #{item.text}
+        else
+          p(class='type__title') #{item.title}
+          p(class='type__example') #{item.text}
 
 doctype html
 html(lang="en")
@@ -10,9 +28,9 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Colors & Type
   body
-    div(class='colors-and-type__icon')
+    div(class='colors-type__icon')
       +icon()
-    div(class='colors-and-type__content')
+    div(class='colors-type__content')
       +colors([
         {
           title: 'dark shade 100%',

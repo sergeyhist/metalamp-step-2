@@ -1,27 +1,25 @@
-.menu__item {
-  display: inline-flex;
-  align-items: center;
-  color: #1F2041;
-  text-decoration: none;
-  font-size: 14px;
-  opacity: .5;
+.menu {
 
-  &_name::first-letter {
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    color: #1F2041;
+    text-decoration: none;
+    font-size: 14px;
+    opacity: .5;
+  
+    &:nth-child(n):not(:last-child) {
+      margin-right: 20px;
+    }
+  
+    &_focused {
+      opacity: .75;
+      -webkit-text-stroke: 0.5px #1F2041;
+    }
+  }
+
+  &__name::first-letter {
     text-transform: capitalize;
   }
-
-  &:nth-child(n):not(:last-child) {
-    margin-right: 20px;
-  }
-
-  &:hover{
-    cursor: pointer;
-    opacity: .75;
-    -webkit-text-stroke: 0.5px #1F2041;
-  }
-
-  &_focused {
-    opacity: .75;
-    -webkit-text-stroke: 0.5px #1F2041;
-  }
 }
+

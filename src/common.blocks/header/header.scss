@@ -1,3 +1,7 @@
+@use '../menu/menu.scss';
+@use '../button/button.scss';
+@use '../account/account.scss';
+
 .header {
   $margin: 20px;
 
@@ -6,6 +10,7 @@
   width: auto;
   height: 70px;
   padding-inline: 140px;
+  background-color: white;
 
   &__logo {
     width: fit-content;

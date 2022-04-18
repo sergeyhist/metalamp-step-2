@@ -1,0 +1,99 @@
+@use '../../assets/variables' as vars;
+
+.colors-type__icon {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.colors-type__content {
+  display: grid;
+  grid-template-columns: 415px 1fr;
+  margin-inline: 150px;
+  margin-block: 140px;
+}
+
+.colors {
+
+  &__color {
+    display: flex;
+  }
+
+  &__color:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  &__example {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+
+    &_dark-shade_100 {
+      background-color: vars.$dark-shade-100;
+    }
+
+    &_dark-shade_75 {
+      background-color: vars.$dark-shade-75;
+    }
+
+    &_dark-shade_50 {
+      background-color: vars.$dark-shade-50;
+    }
+
+    &_dark-shade_25 {
+      background-color: vars.$dark-shade-25;
+    }
+
+    &_dark-shade_5 {
+      background-color: vars.$dark-shade-5;
+    }
+
+    &_purple {
+      background-color: vars.$purple;
+    }
+
+    &_green {
+      background-color: vars.$green;
+    }
+  }
+
+  &__description, &__title {
+    color: vars.$dark-shade-100;
+  }
+
+  &__description {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    font-size: 19px;
+  }
+
+  &__title {
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+}
+
+.type {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  &__item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+  }
+
+  &__title {
+    text-transform: capitalize;
+    color: vars.$dark-shade_25;
+    text-align: right;
+    font-weight: 400;
+  }
+
+  &__title, &__example {
+    margin-block: 0;
+  }
+}

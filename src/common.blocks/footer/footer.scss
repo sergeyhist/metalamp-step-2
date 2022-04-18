@@ -1,0 +1,35 @@
+@use '../input/input';
+
+.footer {
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  padding-inline: 140px;
+  padding-block: 100px;
+
+  &__text {
+    margin-top: 20px;
+  }
+
+  &__about {
+    width: 260px;
+    margin-right: 40px;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__link {
+    margin-top: 20px;
+  }
+
+  &__link::first-letter {
+    text-transform: capitalize;
+  }
+
+  &__input {
+    margin-top: 20px;
+  }
+}
