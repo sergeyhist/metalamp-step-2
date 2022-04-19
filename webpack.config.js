@@ -49,7 +49,7 @@ module.exports = {
         loader: PugPlugin.loader
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.(s[ac]ss|css)$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       },
       {

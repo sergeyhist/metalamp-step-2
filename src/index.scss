@@ -1,4 +1,4 @@
-@use 'assets/variables' as vars;
+@use 'assets/scss/variables' as vars;
 
 @font-face {
   font-family: 'Montserrat';
@@ -57,12 +57,20 @@ ol[class] {
 }
 
 a {
+  display: inline-block;
   line-height: 17.07px;
+  text-decoration: none;
+  color: vars.$dark-shade-50;
 
-  &:hover{
+  &:hover {
     cursor: pointer;
-    opacity: .75;
-    -webkit-text-stroke: 0.5px #1F2041;
+    color: vars.$dark-shade-75;
+    text-shadow: 0 0 1px vars.$dark-shade-75;
+  }
+
+  &:focus-visible, &:focus {
+    color: vars.$dark-shade-75;
+    text-shadow: 0 0 1px vars.$dark-shade-75;
   }
 }
 
@@ -84,12 +92,13 @@ button,
 textarea,
 select {
   font: inherit;
+  color: inherit;
   border: 0;
   border-radius: inherit;
   background-color: transparent;
 }
 
-input:focus-visible {
+input:focus-visible, a:focus-visible {
   border: 0;
   outline: 0;
 }

@@ -1,25 +1,26 @@
+@use '../../assets/scss/variables.scss' as vars;
+
 .menu {
 
   &__link {
-    display: inline-flex;
-    align-items: center;
-    color: #1F2041;
-    text-decoration: none;
-    font-size: 14px;
-    opacity: .5;
-  
+    display: inline-block;
+
     &:nth-child(n):not(:last-child) {
       margin-right: 20px;
     }
-  
+
+    &::first-letter {
+      text-transform: capitalize;
+    }
+
     &_focused {
-      opacity: .75;
-      -webkit-text-stroke: 0.5px #1F2041;
+      color: vars.$dark-shade-75;
+      text-shadow: 0 0 1px vars.$dark-shade-75;
     }
   }
 
-  &__name::first-letter {
-    text-transform: capitalize;
+  &__arrow {
+    position: relative;
+    top: 7px;
   }
 }
-

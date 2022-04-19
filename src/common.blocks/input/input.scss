@@ -1,10 +1,14 @@
-@use '../../assets/variables' as vars;
+@use '../../assets/scss/variables' as vars;
 
 .input {
   display: flex;
   justify-content: space-between;
   border: 1px solid vars.$dark-shade-25;
   border-radius: 4px;
+
+  &:focus, &:focus-visible {
+    border: 1px solid vars.$dark-shade-100;
+  }
 
   &__text {
     line-height: 44px;
@@ -16,5 +20,10 @@
     line-height: 44px;
     width: 44px;
     text-align: center;
+    @include vars.text-gradient;
+
+    &:hover {
+      opacity: .5;
+    }
   }
 }

@@ -1,7 +1,7 @@
 mixin input(options)
   -
-    let isArrow = options.arrowButton ? true : false
-    let inputPlaceholder = options.type == 'email' ? 'Email' : ''
+    let isArrow = options.arrowButton ? true : false;
+    let inputPlaceholder = options.type == 'email' ? 'Email' : '';
   div(class='input')
     input(type=options.type class='input__text' placeholder=inputPlaceholder)
     if isArrow == true

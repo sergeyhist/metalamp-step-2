@@ -1,11 +1,15 @@
 @use '../input/input';
+@use '../../assets/scss/variables' as vars;
 
 .footer {
-  background-color: white;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  padding-inline: 140px;
-  padding-block: 100px;
+
+  &__navigation {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    padding-inline: 140px;
+    padding-block: 100px;
+  }
 
   &__text {
     margin-top: 20px;
@@ -25,11 +29,40 @@
     margin-top: 20px;
   }
 
-  &__link::first-letter {
+  &__link > a::first-letter {
     text-transform: capitalize;
   }
 
   &__input {
     margin-top: 20px;
+  }
+
+  &__copyright {
+    height: 70px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding-inline: 140px;
+    border-top: 1px solid vars.$dark-shade-5;
+  }
+
+  &__social {
+    display: flex;
+    gap: 20px;
+    justify-content: end;
+
+    & a {
+      @include vars.text-gradient;
+      font-size: 24px;
+      height: 24px;
+      width: 24px;
+      line-height: 23px;
+
+      &:hover {
+        background: none;
+        color: vars.$dark-shade-50;
+      }
+    }
   }
 }

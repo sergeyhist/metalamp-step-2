@@ -5,23 +5,34 @@ mixin footer__menu(title, items)
   nav(class='footer__menu')
     h3(class='footer__title') #{title}
     - for (let item of items)
-      a(class='footer__link') #{item}
+      div(class='footer__link')
+        a #{item}
 
 mixin footer()
   footer(class='footer')
-    div(class='footer__about')
-      div(class='footer__logo')
-        +logo()
-      p(class='footer__text') Бронирование номеров в лучшем отеле 2019 года по версии ассоциации "Отельные взгляды"
-    +footer__menu('навигация',['о нас', 'новости', 'служба поддержки', 'услуги'])
-    +footer__menu('о нас',['о сервисе', 'наша команда', 'вакансии', 'инвесторы'])
-    +footer__menu('служба поддержки',['соглашения', 'сообщества', 'связь с нами'])
-    form(class='footer__subscription')
-      h3(class='footer__title') подписка
-      p(class='footer__text') Получайте специальные предложения и новости сервиса
-      div(class='footer__input')
-        +input({
-          type: 'email',
-          arrowButton: true
-        })
+    div(class='footer__navigation')
+      div(class='footer__about')
+        div(class='footer__logo')
+          +logo()
+        p(class='footer__text') Бронирование номеров в лучшем отеле 2019 года по версии ассоциации "Отельные взгляды"
+      +footer__menu('навигация',['о нас', 'новости', 'служба поддержки', 'услуги'])
+      +footer__menu('о нас',['о сервисе', 'наша команда', 'вакансии', 'инвесторы'])
+      +footer__menu('служба поддержки',['соглашения', 'сообщества', 'связь с нами'])
+      form(class='footer__subscription')
+        h3(class='footer__title') подписка
+        p(class='footer__text') Получайте специальные предложения и новости сервиса
+        div(class='footer__input')
+          +input({
+            type: 'email',
+            arrowButton: true
+          })
+    aside(class='footer__copyright')
+      p Copyright © 2018 Toxin отель. Все права защищены.
+      div(class='footer__social')
+        a(href='#')
+          span(class='fa-brands fa-twitter')
+        a(href='#')
+          span(class='fa-brands fa-facebook-square')
+        a(href='#')
+          span(class='fa-brands fa-instagram')
       

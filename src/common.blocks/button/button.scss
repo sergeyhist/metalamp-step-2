@@ -1,15 +1,16 @@
 @use '__content/__content.scss';
+@use '../../assets/scss/variables' as vars;
 
 .button {
   $border: 1px;
 
   cursor: pointer;
   border: $border solid transparent;
-  border-radius: 22px; 
-  padding: $border; 
-  background: linear-gradient(to bottom,#BC9CFF,#8BA4F9); 
+  border-radius: 22px;
+  padding: $border;
+  background: vars.$primary-gradient;
 
   &:hover {
-    opacity: 0.5;
+    opacity: .5;
   }
 }
