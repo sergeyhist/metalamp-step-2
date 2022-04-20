@@ -1,6 +1,8 @@
 include ../../common.blocks/icon/icon.pug
 include ../../common.blocks/header/header.pug
 include ../../common.blocks/footer/footer.pug
+include ../../common.blocks/footer-mobile/footer-mobile.pug
+
 -
   let menuItems = [
     {
@@ -48,3 +50,4 @@ html(lang="ru")
           logged: true
         })
         +footer()
+        +footer-mobile()

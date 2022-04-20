@@ -47,8 +47,9 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   font-family: 'Montserrat', Helvetica, sans-serif;
-  color: #1F204180;
+  color: rgba(vars.$dark-shade, .75);
   font-size: 14px;
+  line-height: 24px;
 }
 
 ul[class],
@@ -57,20 +58,18 @@ ol[class] {
 }
 
 a {
-  display: inline-block;
-  line-height: 17.07px;
+  display: block;
+  line-height: 17px;
   text-decoration: none;
-  color: vars.$dark-shade-50;
+  color: rgba(vars.$dark-shade, .5);
 
   &:hover {
     cursor: pointer;
-    color: vars.$dark-shade-75;
-    text-shadow: 0 0 1px vars.$dark-shade-75;
   }
 
-  &:focus-visible, &:focus {
-    color: vars.$dark-shade-75;
-    text-shadow: 0 0 1px vars.$dark-shade-75;
+  &:focus-visible, &:focus, &:hover {
+    color: rgba(vars.$dark-shade, .75);
+    font-weight: bold;
   }
 }
 
@@ -130,7 +129,7 @@ input:focus-visible, a:focus-visible {
 }
 
 h1, h2, h3 {
-  color: vars.$dark-shade-100;
+  color: vars.$dark-shade;
   font-weight: bold;
 }
 
@@ -145,10 +144,5 @@ h2 {
 h3 {
   font-size: 12px;
   text-transform: uppercase;
-}
-
-body {
-  color: vars.$dark-shade-75;
-  font-size: 14px;
-  line-height: 24px;
+  line-height: 15px;
 }

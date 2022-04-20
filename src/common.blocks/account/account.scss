@@ -1,13 +1,8 @@
+@use '../../assets/scss/variables.scss' as vars;
+
 .account {
   &__separator {
     margin-right: 20px;
-    opacity: .1;
-    border-right: 1px solid #1F2041;
-  }
-
-  &__name {
-    text-decoration: none;
-    color: #1F2041;
-    opacity: .5;
+    border-right: 1px solid rgba(vars.$dark-shade, .1);
   }
 }

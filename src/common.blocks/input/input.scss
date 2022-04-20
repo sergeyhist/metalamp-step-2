@@ -2,12 +2,12 @@
 
 .input {
   display: flex;
-  justify-content: space-between;
-  border: 1px solid vars.$dark-shade-25;
+  border: 1px solid rgba(vars.$dark-shade, .25);
   border-radius: 4px;
+  height: 44px;
 
-  &:focus, &:focus-visible {
-    border: 1px solid vars.$dark-shade-100;
+  &:focus-within {
+    border: 1px solid rgba(vars.$dark-shade, .5);
   }
 
   &__text {

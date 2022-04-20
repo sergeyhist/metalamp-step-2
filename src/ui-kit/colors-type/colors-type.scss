@@ -29,23 +29,23 @@
     border-radius: 6px;
 
     &_dark-shade_100 {
-      background-color: vars.$dark-shade-100;
+      background-color: vars.$dark-shade;
     }
 
     &_dark-shade_75 {
-      background-color: vars.$dark-shade-75;
+      background-color: rgba(vars.$dark-shade, .75);
     }
 
     &_dark-shade_50 {
-      background-color: vars.$dark-shade-50;
+      background-color: rgba(vars.$dark-shade, .5)
     }
 
     &_dark-shade_25 {
-      background-color: vars.$dark-shade-25;
+      background-color: rgba(vars.$dark-shade, .25);
     }
 
     &_dark-shade_5 {
-      background-color: vars.$dark-shade-5;
+      background-color: rgba(vars.$dark-shade, .05);
     }
 
     &_purple {
@@ -58,7 +58,7 @@
   }
 
   &__description, &__title {
-    color: vars.$dark-shade-100;
+    color: vars.$dark-shade;
   }
 
   &__description {
@@ -88,7 +88,7 @@
 
   &__title {
     text-transform: capitalize;
-    color: vars.$dark-shade_25;
+    color: rgba(vars.$dark-shade, .25);
     text-align: right;
     font-weight: 400;
   }

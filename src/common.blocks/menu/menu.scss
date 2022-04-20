@@ -1,26 +1,26 @@
 @use '../../assets/scss/variables.scss' as vars;
 
 .menu {
+  display: flex;
 
-  &__link {
-    display: inline-block;
+  &__item {
+    display: flex;
+    align-items: center;
 
     &:nth-child(n):not(:last-child) {
       margin-right: 20px;
     }
 
-    &::first-letter {
-      text-transform: capitalize;
-    }
-
     &_focused {
-      color: vars.$dark-shade-75;
-      text-shadow: 0 0 1px vars.$dark-shade-75;
+      color: rgba(vars.$dark-shade, .75);
+      font-weight: bold;
     }
   }
 
-  &__arrow {
-    position: relative;
-    top: 7px;
+  &__name {
+
+    &::first-letter {
+      text-transform: capitalize;
+    }
   }
 }
