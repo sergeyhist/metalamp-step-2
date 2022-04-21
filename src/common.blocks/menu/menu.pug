@@ -1,10 +1,19 @@
 mixin menu(items)
   nav(class='menu')
-    - for (let item of items)
+    each item in items
       -
-        let hasArrow = item.arrow ? item.arrow : false
-        let isFocus = item.focused === true ? ' menu__item_focused' : ''
-      a(class='menu__item'+isFocus href=item.link)
-        span(class='menu__name') #{item.name}
-        if hasArrow === true
-          span(class='menu__arrow material-icons') expand_more
+        let hasSubmenu = item.submenu ? true : false;
+        let isFocus = item.focused === true ? ' menu__link_focused' : '';
+      div(class='menu__content')
+        if hasSubmenu
+          a(class='menu__link'+isFocus)
+            span(class='menu__name') #{item.name}
+            span(class='material-icons') expand_more
+          div(class='menu__submenu')
+            each sub in item.submenu
+              a(href=sub.link) #{sub.name}
+        else
+          a(class='menu__link'+isFocus href=item.link)
+            span(class='menu__name') #{item.name}
+            
+        

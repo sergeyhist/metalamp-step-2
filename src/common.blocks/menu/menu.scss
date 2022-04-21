@@ -2,14 +2,31 @@
 
 .menu {
   display: flex;
+  align-items: center;
+  gap: 20px;
+  
+  &__content {
+    position: relative;
+    display: inline-block;
+  }
 
-  &__item {
+  &__submenu {
+    position: absolute;
+    display: none;
+    z-index: 1;
+    flex-direction: column;
+    width: 140px;
+    gap: 10px;
+    background-color: white;
+    padding: 5px;
+    border: 1px solid rgba(vars.$dark-shade, .25);
+    border-radius: 4px;
+    overflow-wrap: break-word;
+  }
+
+  &__link {
     display: flex;
     align-items: center;
-
-    &:nth-child(n):not(:last-child) {
-      margin-right: 20px;
-    }
 
     &_focused {
       color: rgba(vars.$dark-shade, .75);
@@ -23,4 +40,10 @@
       text-transform: capitalize;
     }
   }
+
+  &__content:hover &__submenu {
+    display: flex;
+  }
 }
+
+
