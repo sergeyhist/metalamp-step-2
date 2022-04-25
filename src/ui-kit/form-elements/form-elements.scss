@@ -1,0 +1,35 @@
+@use 'assets/scss/variables' as vars;
+
+.form-elements {
+  &__icon {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+  }
+
+  &__content {
+    margin-block: 140px;
+    margin-inline: 141px;
+  }
+
+  &__title {
+    grid-area: title;
+  }
+
+  &__mod {
+    grid-area: mod;
+    color: rgba(vars.$dark-shade, .5);
+    text-align: end;
+  }
+
+  &__input {
+    grid-area: input;
+  }
+
+  &__element {
+    width: 320px;
+    display: grid;
+    grid-template-areas: 'title mod' 'input input';
+    row-gap: 5px;
+  }
+}

@@ -1,4 +1,15 @@
 include common/icon/icon.pug
+include common/input/input.pug
+
+mixin element(options)
+  div(class='form-elements__element')
+    h3(class='form-elements__title') #{options.name}
+    h3(class='form-elements__mod') #{options.mod}
+    div(class='form-elements__input')
+      +input({
+        type: 'email'
+      })
+  
 
 doctype html
 html(lang="ru")
@@ -10,3 +21,10 @@ html(lang="ru")
   body
     div(class='form-elements__icon')
       +icon
+    div(class='form-elements__content')
+      +element({
+        name: 'text field',
+        mod: 'default',
+        input: true,
+        type: 'email'
+      })
