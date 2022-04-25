@@ -5,9 +5,14 @@ mixin element(options)
   div(class='form-elements__element')
     h3(class='form-elements__title') #{options.name}
     h3(class='form-elements__mod') #{options.mod}
+    -
+      let isFocused = options.focus === true ? true : false;
+      let inputValue = options.value ? options.value : '';
     div(class='form-elements__input')
       +input({
-        type: 'email'
+        type: options.type,
+        focus: isFocused,
+        value: inputValue
       })
   
 
@@ -22,9 +27,18 @@ html(lang="ru")
     div(class='form-elements__icon')
       +icon
     div(class='form-elements__content')
-      +element({
-        name: 'text field',
-        mod: 'default',
-        input: true,
-        type: 'email'
-      })
+      div(class='form-elements__inputs')
+        +element({
+          name: 'text field',
+          mod: 'default',
+          input: true,
+          type: 'email'
+        })
+        +element({
+          name: 'text field',
+          mod: 'hover/focus',
+          input: true,
+          type: 'text',
+          focus: true,
+          value: 'This is pretty awesome'
+        })

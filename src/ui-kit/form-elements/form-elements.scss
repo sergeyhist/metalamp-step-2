@@ -12,6 +12,12 @@
     margin-inline: 141px;
   }
 
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
   &__title {
     grid-area: title;
   }

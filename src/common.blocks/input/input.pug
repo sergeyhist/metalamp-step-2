@@ -1,8 +1,10 @@
 mixin input(options)
   -
     let isArrow = options.arrowButton ? true : false;
+    let isFocused = options.focus === true ? ' input_focused' : '';
     let inputPlaceholder = options.type == 'email' ? 'Email' : '';
-  div(class='input')
-    input(type=options.type class='input__text' placeholder=inputPlaceholder)
-    if isArrow == true
+    let inputValue = options.value ? options.value : '';
+  div(class='input'+isFocused)
+    input(type=options.type class='input__text' placeholder=inputPlaceholder value=inputValue)
+    if isArrow === true
       input(type='submit' class='input__arrow-button material-icons' value='arrow_forward')
