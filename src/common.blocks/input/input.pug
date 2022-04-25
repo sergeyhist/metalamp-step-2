@@ -2,9 +2,15 @@ mixin input(options)
   -
     let isArrow = options.arrowButton ? true : false;
     let isFocused = options.focus === true ? ' input_focused' : '';
-    let inputPlaceholder = options.type == 'email' ? 'Email' : '';
+    let inputPlaceholder = options.placeholder ? options.placeholder : options.type;
     let inputValue = options.value ? options.value : '';
+
   div(class='input'+isFocused)
-    input(type=options.type class='input__text' placeholder=inputPlaceholder value=inputValue)
-    if isArrow === true
-      input(type='submit' class='input__arrow-button material-icons' value='arrow_forward')
+    case options.type 
+      when 'dropdown'
+        input(type='text' class='input__value' placeholder=inputPlaceholder disabled)
+        span(class='input__arrow material-icons') expand_more
+      default 
+        input(type=options.type class='input__value' placeholder=inputPlaceholder value=inputValue)
+        if isArrow === true
+          input(type='submit' class='input__arrow input__arrow_button material-icons' value='arrow_forward')

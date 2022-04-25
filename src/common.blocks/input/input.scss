@@ -1,7 +1,7 @@
 @use '../../assets/scss/variables' as vars;
 
 .input {
-  display: flex;
+  position: relative;
   border: 1px solid rgba(vars.$dark-shade, .25);
   border-radius: 4px;
   height: 44px;
@@ -10,20 +10,29 @@
     border: 1px solid rgba(vars.$dark-shade, .5);
   }
 
-  &__text {
-    line-height: 44px;
-    padding-left: 15px;
+  &__value {
+    width: 100%;
+    line-height: 43px;
+    padding-inline: 15px;
   }
 
-  &__arrow-button {
-    cursor: pointer;
-    line-height: 44px;
+  &__arrow {
+    z-index: -1;
+    position: absolute;
+    right: 0;
+    cursor: default;
+    line-height: 43px;
     width: 44px;
     text-align: center;
-    @include vars.text-gradient;
 
-    &:hover {
-      opacity: .5;
+    &_button {
+      z-index: 0;
+      cursor: pointer;
+      @include vars.text-gradient;
+  
+      &:hover {
+        opacity: .5;
+      }
     }
   }
 
