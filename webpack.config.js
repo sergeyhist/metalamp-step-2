@@ -26,6 +26,12 @@ module.exports = {
     path: path.join(__dirname, './dist'),
     publicPath: '/'
   },
+  resolve: {
+    alias: {
+      common: path.resolve(__dirname, './src/common.blocks/'),
+      assets: path.resolve(__dirname, './src/assets/')
+    }
+  },
   plugins: [
     ...uiKitPages.map(page => new HtmlWebpackPlugin ({
       template: page,
