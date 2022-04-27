@@ -1,16 +1,24 @@
 mixin input(options)
   -
-    let isArrow = options.arrowButton ? true : false;
-    let isFocused = options.focus === true ? ' input_focused' : '';
+    let hasArrowButton = options.arrowButton === true;
+    let isFocused = options.focus === true ? ' input__field_focused' : '';
     let inputPlaceholder = options.placeholder ? options.placeholder : options.type;
     let inputValue = options.value ? options.value : '';
 
-  div(class='input'+isFocused)
+  div(class='input')
     case options.type 
       when 'dropdown'
-        input(type='text' class='input__value' placeholder=inputPlaceholder disabled)
+        input(type='text' class='input__field'+' input__field_'+options.type+isFocused value=inputValue readonly)
         span(class='input__arrow material-icons') expand_more
+        div(class='input__submenu')
+          - for (let item of options.dropdown)
+            div(class='input__subitem')
+              h3 #{item}
+              div(class='input__buttons')
+                button(class='input__button input__button_minus') -
+                h3(class='input__count') 0
+                button(class='input__button input__button_plus') +
       default 
-        input(type=options.type class='input__value' placeholder=inputPlaceholder value=inputValue)
-        if isArrow === true
+        input(type=options.type class='input__field'+' input__field_'+options.type+isFocused placeholder=inputPlaceholder value=inputValue)
+        if hasArrowButton
           input(type='submit' class='input__arrow input__arrow_button material-icons' value='arrow_forward')

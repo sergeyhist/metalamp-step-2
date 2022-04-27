@@ -47,7 +47,7 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   font-family: 'Montserrat', Helvetica, sans-serif;
-  color: rgba(vars.$dark-shade, .75);
+  color: vars.$dark-shade-75;
   font-size: 14px;
   line-height: 24px;
 }
@@ -61,14 +61,14 @@ a {
   display: block;
   line-height: 17px;
   text-decoration: none;
-  color: rgba(vars.$dark-shade, .5);
+  color: vars.$dark-shade-50;
 
   &:hover {
     cursor: pointer;
   }
 
   &:focus-visible, &:focus, &:hover {
-    color: rgba(vars.$dark-shade, .75);
+    color: vars.$dark-shade-75;
     font-weight: bold;
   }
 }
@@ -98,8 +98,27 @@ select {
   padding: 0;
 }
 
-input::placeholder {
-  text-transform: capitalize;
+button {
+  &:hover:enabled {
+    cursor: pointer;
+    border-color: vars.$dark-shade-50;
+    color: vars.$dark-shade-75;
+  }
+
+  &:disabled {
+    border-color: vars.$dark-shade-5;
+    color: vars.$dark-shade-25;
+  }
+}
+
+input {
+  &:read-only {
+    cursor: default;
+  }
+  &::placeholder {
+    color: vars.$dark-shade-25;
+    text-transform: capitalize;
+  }
 }
 
 input:focus-visible, a:focus-visible {

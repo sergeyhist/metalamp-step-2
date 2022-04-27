@@ -2,18 +2,30 @@
 
 .input {
   position: relative;
-  border: 1px solid rgba(vars.$dark-shade, .25);
-  border-radius: 4px;
   height: 44px;
 
-  &:focus-within {
-    border: 1px solid rgba(vars.$dark-shade, .5);
-  }
-
-  &__value {
+  &__field {
     width: 100%;
     line-height: 43px;
     padding-inline: 15px;
+    border: 1px solid vars.$dark-shade-25;
+    border-radius: 4px;
+
+    &:focus-within, &:focus-visible, &:focus {
+      border: 1px solid vars.$dark-shade-50;
+    }
+
+    &_focused {
+      border: 1px solid vars.$dark-shade-50;
+    }
+
+    &_dropdown {
+      border-radius: 4px 4px 0 0;
+
+      &:hover {
+        border: 1px solid vars.$dark-shade-50;
+      }
+    }
   }
 
   &__arrow {
@@ -21,7 +33,7 @@
     position: absolute;
     right: 0;
     cursor: default;
-    line-height: 43px;
+    line-height: 45px;
     width: 44px;
     text-align: center;
 
@@ -36,7 +48,42 @@
     }
   }
 
-  &_focused {
-    border: 1px solid rgba(vars.$dark-shade, .5);
+  &__submenu {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding: 7px 7px 7px 15px;
+    border-inline: 1px solid vars.$dark-shade-50;
+    border-bottom: 1px solid vars.$dark-shade-50;
+    border-radius: 0 0 4px 4px;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    background-color: white;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: all .3s ease;
+  }
+
+  &__subitem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__button {
+    color: vars.$dark-shade-50;
+    border: 1px solid vars.$dark-shade-25;
+    border-radius: 22px;
+    width: 33px;
+    height: 33px;
+  }
+
+  &__buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    text-align: center;
   }
 }
