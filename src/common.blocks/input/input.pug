@@ -8,13 +8,14 @@ mixin input(options)
   div(class='input')
     case options.type 
       when 'dropdown'
-        input(type='text' class='input__field'+' input__field_'+options.type+isFocused value=inputValue readonly)
+        - let submenuType = inputPlaceholder == 'Сколько гостей' ? 'guests' : 'items';
+        input(type='text' maxlength=20 class='input__field'+isFocused placeholder=inputPlaceholder readonly data-submenu-type=submenuType)
         span(class='input__arrow material-icons') expand_more
         div(class='input__submenu')
           - for (let item of options.dropdown)
             div(class='input__subitem')
-              h3 #{item}
-              div(class='input__buttons')
+              h3(class='input__title') #{item}
+              div(class='input__counter')
                 button(class='input__button input__button_minus') -
                 h3(class='input__count') 0
                 button(class='input__button input__button_plus') +

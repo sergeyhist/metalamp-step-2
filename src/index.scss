@@ -99,8 +99,13 @@ select {
 }
 
 button {
+  outline: 0;
+
   &:hover:enabled {
     cursor: pointer;
+  }
+
+  &:hover:enabled, &:focus-visible:enabled {
     border-color: vars.$dark-shade-50;
     color: vars.$dark-shade-75;
   }
@@ -117,7 +122,10 @@ input {
   }
   &::placeholder {
     color: vars.$dark-shade-25;
-    text-transform: capitalize;
+    
+    &::first-letter {
+      text-transform: capitalize;
+    }
   }
 }
 
