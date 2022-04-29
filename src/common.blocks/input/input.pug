@@ -1,16 +1,17 @@
 mixin input(options)
   -
     let hasArrowButton = options.arrowButton === true;
-    let isFocused = options.focus === true ? ' input__field_focused' : '';
-    let inputPlaceholder = options.placeholder ? options.placeholder : options.type;
+    let isFocused = (element) => options.focus === true ? ' '+element+'_focused' : '';
+    let inputPlaceholder = options.placeholder ? options.placeholder : options.type.charAt(0).toUpperCase()+options.type.slice(1);
     let inputValue = options.value ? options.value : '';
 
   div(class='input')
     case options.type 
       when 'dropdown'
         - let submenuType = inputPlaceholder == 'Сколько гостей' ? 'guests' : 'items';
-        input(type='text' maxlength=20 class='input__field'+isFocused placeholder=inputPlaceholder readonly data-submenu-type=submenuType)
-        span(class='input__arrow material-icons') expand_more
+        div(class='input__main'+isFocused('input__main'))
+          input(type='text' class='input__field' placeholder=inputPlaceholder disabled data-submenu-type=submenuType)
+          span(class='input__arrow material-icons') expand_more
         div(class='input__submenu')
           - for (let item of options.dropdown)
             div(class='input__subitem')
@@ -19,7 +20,12 @@ mixin input(options)
                 button(class='input__button input__button_minus') -
                 h3(class='input__count') 0
                 button(class='input__button input__button_plus') +
-      default 
-        input(type=options.type class='input__field'+' input__field_'+options.type+isFocused placeholder=inputPlaceholder value=inputValue)
-        if hasArrowButton
-          input(type='submit' class='input__arrow input__arrow_button material-icons' value='arrow_forward')
+          if submenuType == 'guests'
+            div(class='input__buttons')
+              button(class='input__button_clear') очистить
+              button(class='input__button_confirm') применить
+      default
+        div(class='input__main'+isFocused('input__main'))
+          input(type=options.type class='input__field' placeholder=inputPlaceholder value=inputValue)
+          if hasArrowButton
+            input(type='submit' class='input__arrow input__arrow_button material-icons' value='arrow_forward')

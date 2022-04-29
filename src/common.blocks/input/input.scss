@@ -4,19 +4,30 @@
   position: relative;
   height: 44px;
 
-  &__field {
-    width: 100%;
-    line-height: 43px;
-    padding-inline: 15px;
+  &__main {
+    display: flex;
+    height: 44px;
     border: 1px solid vars.$dark-shade-25;
     border-radius: 4px;
 
-    &_focused, &:focus-within, &:focus-visible, &:focus, &[data-submenu-type]:hover {
+    &_focused, &:focus-within, &:focus-visible, &:focus, &:hover {
       border: 1px solid vars.$dark-shade-50;
     }
 
-    &[data-submenu-type] {
+    &_radius_top {
       border-radius: 4px 4px 0 0;
+    }
+  }
+
+  &__field {
+    width: 100%;
+    padding-inline: 15px;
+
+    &[data-submenu-type] {
+      width: 60%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
 
       &::placeholder {
         color: vars.$dark-shade-75;
@@ -47,7 +58,7 @@
   &__submenu {
     display: flex;
     flex-direction: column;
-    gap: 22px;
+    gap: 7px;
     padding: 7px 7px 7px 15px;
     border-inline: 1px solid vars.$dark-shade-50;
     border-bottom: 1px solid vars.$dark-shade-50;
@@ -74,11 +85,34 @@
   }
 
   &__button {
-    color: vars.$dark-shade-50;
-    border: 1px solid vars.$dark-shade-25;
-    border-radius: 22px;
-    width: 33px;
-    height: 33px;
+    &_minus, &_plus {
+      color: vars.$dark-shade-50;
+      border: 1px solid vars.$dark-shade-25;
+      border-radius: 22px;
+      width: 33px;
+      height: 33px;
+    }
+    
+    &_confirm, &_clear {
+      text-transform: uppercase;
+      font-size: 12px;
+      color: vars.$purple;
+      font-weight: bold;
+    }
+
+    &_clear {
+      visibility: hidden;
+    }
+
+    &_visible {
+      visibility: visible;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 6px;
   }
 
   &__counter {

@@ -107,7 +107,7 @@ button {
 
   &:hover:enabled, &:focus-visible:enabled {
     border-color: vars.$dark-shade-50;
-    color: vars.$dark-shade-75;
+    color: vars.$dark-shade-50;
   }
 
   &:disabled {
@@ -117,15 +117,11 @@ button {
 }
 
 input {
-  &:read-only {
+  &:read-only:not([type='submit']) {
     cursor: default;
   }
   &::placeholder {
     color: vars.$dark-shade-25;
-    
-    &::first-letter {
-      text-transform: capitalize;
-    }
   }
 }
 
