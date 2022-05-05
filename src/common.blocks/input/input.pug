@@ -2,8 +2,10 @@ mixin input(options)
   -
     let hasArrowButton = options.arrowButton === true;
     let isFocused = (element) => options.focus === true ? ' '+element+'_focused' : '';
+    let isRequired = options.required === true ? 'required' : '';
     let inputPlaceholder = options.placeholder ? options.placeholder : options.type.charAt(0).toUpperCase()+options.type.slice(1);
     let inputValue = options.value ? options.value : '';
+    let inputPattern = options.pattern ? options.pattern : '';
 
   div(class='input')
     case options.type 
@@ -24,8 +26,13 @@ mixin input(options)
             div(class='input__buttons')
               button(class='input__button_clear') очистить
               button(class='input__button_confirm') применить
+      when 'masked'
+        div(class='input__main'+isFocused('input__main'))
+          input(type='text' class='input__field' placeholder=inputPlaceholder data-masked-type=options.maskedType)
+          if hasArrowButton
+            input(type='submit' class='input__arrow input__arrow_button material-icons' value='arrow_forward')
       default
         div(class='input__main'+isFocused('input__main'))
-          input(type=options.type class='input__field' placeholder=inputPlaceholder value=inputValue)
+          input(type=options.type class='input__field' placeholder=inputPlaceholder value=inputValue pattern=inputPattern)
           if hasArrowButton
             input(type='submit' class='input__arrow input__arrow_button material-icons' value='arrow_forward')

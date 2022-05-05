@@ -19,7 +19,9 @@ mixin element(options)
             focus: isFocused,
             value: inputValue,
             ...(options.placeholder && {placeholder: options.placeholder}),
-            ...(options.dropdown && {dropdown: options.dropdown})
+            ...(options.dropdown && {dropdown: options.dropdown}),
+            ...(options.pattern && {pattern: options.pattern}),
+            ...(elementType[1] == 'masked' && elementType[2] ? {maskedType: elementType[2]} : '')
           })
   
 
@@ -52,6 +54,11 @@ html(lang="ru")
           type: 'input-dropdown',
           placeholder: 'Сколько гостей',
           dropdown: ['взрослые', 'дети', 'младенцы']
+        })
+        +element({
+          name: 'masked text field',
+          type: 'input-masked-date',
+          placeholder: 'ДД.ММ.ГГГГ'
         })
         +element({
           name: 'dropdown',

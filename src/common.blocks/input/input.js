@@ -1,12 +1,35 @@
-let inputElements = document.querySelectorAll('.input')
+import IMask from 'imask';
+
+let inputElements = document.querySelectorAll('.input');
+let dateMask = (element) => IMask(element, {
+  mask: 'ДД.ММ.ГГГГ',
+  blocks: {
+    ГГГГ: {
+      mask: '0000'
+    },
+    ММ: {
+      mask: IMask.MaskedRange,
+      from: 1,
+      to: 12
+    },
+    ДД: {
+      mask: IMask.MaskedRange,
+      from: 1,
+      to: 31
+    }
+  }
+});
 
 for (let element of inputElements) {
   let inputMain = element.querySelector('.input__main');
   let inputField = inputMain.querySelector('.input__field');
+  switch (inputField.dataset.maskedType) {
+    case 'date':
+      dateMask(inputField);
+      break;
+  };
   if (inputField.dataset.submenuType) {
     let inputSubmenu = element.querySelector('.input__submenu');
-    let plusButtons = inputSubmenu.querySelectorAll('.input__button_plus');
-    let minusButtons = inputSubmenu.querySelectorAll('.input__button_minus');
     let countNumbers = inputSubmenu.querySelectorAll('.input__count');
 
     if (inputField.dataset.submenuType == 'guests') {
@@ -52,24 +75,19 @@ for (let element of inputElements) {
       };
     });
 
-    for (let i in plusButtons) {
-      plusButtons[i].onclick = () => {
-        countNumbers[i].textContent++;
-        countNumbers[i].dispatchEvent(new Event('change'));
+    for (let number of countNumbers) {
+      number.nextSibling.onclick = () => {
+        number.textContent++;
+        number.dispatchEvent(new Event('change'));
       };
-    };
-
-    for (let i in minusButtons) {
-      minusButtons[i].onclick = () => {
-        countNumbers[i].textContent > 0 && countNumbers[i].textContent--;
-        countNumbers[i].dispatchEvent(new Event('change'));
+      number.previousSibling.onclick = () => {
+        number.textContent > 0 && number.textContent--;
+        number.dispatchEvent(new Event('change'));
       };
-    };
 
-    for (let i in countNumbers) {
-      if (countNumbers[i].textContent == 0) {minusButtons[i].disabled = true};
-      countNumbers[i].onchange = () => {
-        countNumbers[i].textContent > 0 ? minusButtons[i].disabled = false : minusButtons[i].disabled = true;
+      if (number.textContent == 0) {number.previousSibling.disabled = true};
+      number.onchange = () => {
+        number.textContent > 0 ? number.previousSibling.disabled = false : number.previousSibling.disabled = true;
         let cases = [2,0,1,1,1,2];
         let textVariants = [];
         switch(inputField.dataset.submenuType) {
@@ -77,8 +95,8 @@ for (let element of inputElements) {
             let countSum = 0;
             let clearButton = inputSubmenu.querySelector('.input__button_clear');
             textVariants = [' гость', ' гостя', ' гостей'];
-            for (let number of countNumbers) {
-              countSum += +number.textContent;
+            for (let count of countNumbers) {
+              countSum += +count.textContent;
             };
             countSum > 0 ? clearButton.classList.add('input__button_visible') : clearButton.classList.remove('input__button_visible');
             inputField.dataset.countSum = countSum > 0 ? countSum+textVariants[(countSum % 100 > 4 && countSum %100 < 20) ? 2 : cases[countSum % 10 < 5 ? countSum % 10 : 5]] : '';
