@@ -4,7 +4,6 @@ include common/input/input.pug
 mixin element(options)
   -
     let elementType = options.type.split('-');
-    let isFocused = options.focus === true ? true : false;
     let inputValue = options.value ? options.value : '';
 
   div(class='form-elements__element')
@@ -16,12 +15,13 @@ mixin element(options)
         div(class='form-elements__input')
           +input({
             type: elementType[1],
-            focus: isFocused,
             value: inputValue,
             ...(options.placeholder && {placeholder: options.placeholder}),
             ...(options.dropdown && {dropdown: options.dropdown}),
             ...(options.pattern && {pattern: options.pattern}),
-            ...(elementType[1] == 'masked' && elementType[2] ? {maskedType: elementType[2]} : '')
+            ...(options.focused && {focused: true}),
+            ...(elementType[1] == 'masked' && elementType[2] ? {maskedType: elementType[2]} : ''),
+            ...(elementType[1] == 'dropdown' && elementType[2] ? {dropdownType: elementType[2]} : '')
           })
   
 
@@ -46,12 +46,12 @@ html(lang="ru")
           name: 'text field',
           mod: 'hover/focus',
           type: 'input-text',
-          focus: true,
+          focused: true,
           value: 'This is pretty awesome'
         })
         +element({
           name: 'dropdown',
-          type: 'input-dropdown',
+          type: 'input-dropdown-guests',
           placeholder: 'Сколько гостей',
           dropdown: ['взрослые', 'дети', 'младенцы']
         })
@@ -62,7 +62,7 @@ html(lang="ru")
         })
         +element({
           name: 'dropdown',
-          type: 'input-dropdown',
+          type: 'input-dropdown-items',
           placeholder: 'Количество спален, кроватей и ванных комнат',
           dropdown: ['спальни', 'кровати', 'ванные комнаты']
         })

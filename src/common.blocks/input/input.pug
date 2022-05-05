@@ -1,38 +1,40 @@
 mixin input(options)
   -
+    let isDropdown = options.type == 'dropdown';
+    let isGuests = options.dropdownType == 'guests';
     let hasArrowButton = options.arrowButton === true;
-    let isFocused = (element) => options.focus === true ? ' '+element+'_focused' : '';
-    let isRequired = options.required === true ? 'required' : '';
-    let inputPlaceholder = options.placeholder ? options.placeholder : options.type.charAt(0).toUpperCase()+options.type.slice(1);
-    let inputValue = options.value ? options.value : '';
-    let inputPattern = options.pattern ? options.pattern : '';
+    let inputAttrs = {
+      ...(options.focused === true && {class: 'input__main_focused'}),
+    };
+    let fieldAttrs = {
+      type: options.type,
+      ...(options.value && {value: options.value}),
+      ...(options.placeholder ? {placeholder: options.placeholder} : {placeholder: options.type.charAt(0).toUpperCase()+options.type.slice(1)}),
+      ...(options.pattern && {pattern: options.pattern}),
+      ...(options.dropdownType && {'data-submenu-type': options.dropdownType}),
+      ...(options.maskedType && {'data-masked-type': options.maskedType}),
+      ...(options.required === true && {required: true}),
+      ...(options.disabled === true || options.type == 'dropdown' ? {disabled: true} : '')
+    };
 
   div(class='input')
-    case options.type 
-      when 'dropdown'
-        - let submenuType = inputPlaceholder == 'Сколько гостей' ? 'guests' : 'items';
-        div(class='input__main'+isFocused('input__main'))
-          input(type='text' class='input__field' placeholder=inputPlaceholder disabled data-submenu-type=submenuType)
-          span(class='input__arrow material-icons') expand_more
-        div(class='input__submenu')
-          - for (let item of options.dropdown)
-            div(class='input__subitem')
-              h3(class='input__title') #{item}
-              div(class='input__counter')
-                button(class='input__button input__button_minus') -
-                h3(class='input__count') 0
-                button(class='input__button input__button_plus') +
-          if submenuType == 'guests'
-            div(class='input__buttons')
-              button(class='input__button_clear') очистить
-              button(class='input__button_confirm') применить
-      when 'masked'
-        div(class='input__main'+isFocused('input__main'))
-          input(type='text' class='input__field' placeholder=inputPlaceholder data-masked-type=options.maskedType)
-          if hasArrowButton
-            input(type='submit' class='input__arrow input__arrow_button material-icons' value='arrow_forward')
-      default
-        div(class='input__main'+isFocused('input__main'))
-          input(type=options.type class='input__field' placeholder=inputPlaceholder value=inputValue pattern=inputPattern)
-          if hasArrowButton
-            input(type='submit' class='input__arrow input__arrow_button material-icons' value='arrow_forward')
+    .input__main&attributes(inputAttrs)
+      input.input__field&attributes(fieldAttrs)
+      if isDropdown
+        span.input__arrow.material-icons expand_more
+      if hasArrowButton
+        input.input__arrow.input__arrow_button.material-icons(type='submit' value='arrow_forward')
+    if isDropdown
+      .input__submenu
+        - for (let item of options.dropdown)
+          .input__subitem
+            h3.input__title #{item}
+            .input__counter
+              button.input__button.input__button_minus -
+              h3.input__count 0
+              button.input__button.input__button_plus +
+        if isGuests
+          .input__buttons
+            button.input__button_clear очистить
+            button.input__button_confirm применить
+          
