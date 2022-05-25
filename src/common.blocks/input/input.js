@@ -1,4 +1,7 @@
 import IMask from 'imask';
+import AirDatepicker from 'air-datepicker';
+import 'air-datepicker/air-datepicker.css';
+import './input.scss';
 
 let inputElements = document.querySelectorAll('.input');
 let dateMask = (element) => IMask(element, {
@@ -26,6 +29,26 @@ for (let element of inputElements) {
   switch (inputField.dataset.maskedType) {
     case 'date':
       dateMask(inputField);
+      break;
+  };
+  switch (inputField.dataset.textType) {
+    case 'date':
+      let calendar = new AirDatepicker(inputField);
+      inputMain.onclick = () => {
+        if (calendar.visible !== true) {
+          inputMain.classList.add('input__main_focused');
+          calendar.show();
+        } else {
+          inputMain.classList.remove('input__main_focused');
+          calendar.hide();
+        };
+      };
+      document.body.addEventListener('mousedown', (e) => {
+        if (!calendar.$datepicker.contains(e.target) && !inputMain.contains(e.target)) {
+            inputMain.classList.remove('input__main_focused');
+            calendar.hide();
+        };
+      });
       break;
   };
   if (inputField.dataset.submenuType) {
@@ -57,7 +80,7 @@ for (let element of inputElements) {
         setTimeout(() => {
           inputMain.classList.remove('input__main_radius_top');
           inputMain.classList.remove('input__main_focused');
-        }, 100);;
+        }, 100);
       } else {
         inputMain.classList.add('input__main_focused');
         inputSubmenu.classList.add('input__submenu_visible');

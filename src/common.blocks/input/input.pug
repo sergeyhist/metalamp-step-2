@@ -2,6 +2,7 @@ mixin input(options)
   -
     let isDropdown = options.type == 'dropdown';
     let isGuests = options.dropdownType == 'guests';
+    let isDate = options.textType == 'date';
     let hasArrowButton = options.arrowButton === true;
     let inputAttrs = {
       ...(options.focused === true && {class: 'input__main_focused'}),
@@ -13,14 +14,15 @@ mixin input(options)
       ...(options.pattern && {pattern: options.pattern}),
       ...(options.dropdownType && {'data-submenu-type': options.dropdownType}),
       ...(options.maskedType && {'data-masked-type': options.maskedType}),
+      ...(options.textType && {'data-text-type': options.textType}),
       ...(options.required === true && {required: true}),
-      ...(options.disabled === true || options.type == 'dropdown' ? {disabled: true} : '')
+      ...(options.disabled === true || options.type == 'dropdown' || options.textType == 'date' ? {disabled: true} : '')
     };
 
   div(class='input')
     .input__main&attributes(inputAttrs)
       input.input__field&attributes(fieldAttrs)
-      if isDropdown
+      if isDropdown || isDate
         span.input__arrow.material-icons expand_more
       if hasArrowButton
         input.input__arrow.input__arrow_button.material-icons(type='submit' value='arrow_forward')

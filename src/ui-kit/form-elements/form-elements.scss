@@ -32,10 +32,20 @@
     grid-area: input;
   }
 
-  &__element {
+  &__element { 
     width: 320px;
     display: grid;
-    grid-template-areas: 'title mod' 'input input';
+    grid-template-areas: 'title title' 'input input';
     row-gap: 5px;
+
+    &_mod {
+      grid-template-areas: 'title mod' 'input input';
+    }
+  }
+
+  &__dates {
+    display: flex;
+    width: 320px;
+    gap: 20px;
   }
 }

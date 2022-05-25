@@ -20,8 +20,10 @@ mixin element(options)
             ...(options.dropdown && {dropdown: options.dropdown}),
             ...(options.pattern && {pattern: options.pattern}),
             ...(options.focused && {focused: true}),
+            ...(options.arrowButton && {arrowButton: true}),
             ...(elementType[1] == 'masked' && elementType[2] ? {maskedType: elementType[2]} : ''),
-            ...(elementType[1] == 'dropdown' && elementType[2] ? {dropdownType: elementType[2]} : '')
+            ...(elementType[1] == 'dropdown' && elementType[2] ? {dropdownType: elementType[2]} : ''),
+            ...(elementType[1] == 'text' && elementType[2] ? {textType: elementType[2]} : '')
           })
   
 
@@ -33,10 +35,10 @@ html(lang="ru")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Form Elements
   body
-    div(class='form-elements__icon')
+    .form-elements__icon
       +icon
-    div(class='form-elements__content')
-      div(class='form-elements__inputs')
+    .form-elements__content
+      .form-elements__inputs
         +element({
           name: 'text field',
           mod: 'default',
@@ -65,5 +67,26 @@ html(lang="ru")
           type: 'input-dropdown-items',
           placeholder: 'Количество спален, кроватей и ванных комнат',
           dropdown: ['спальни', 'кровати', 'ванные комнаты']
+        })
+        .form-elements__dates
+          +element({
+            name: 'date dropdown',
+            type: 'input-text-date',
+            value: 'ДД.ММ.ГГГГ'
+          })
+          +element({
+            name: 'date dropdown',
+            type: 'input-text-date',
+            value: 'ДД.ММ.ГГГГ'
+          })
+        +element({
+          name: 'filter date dropdown',
+          type: 'input-text'
+        })
+        +element({
+          name: 'subscription text field',
+          type: 'input-email',
+          placeholder: 'Email',
+          arrowButton: true
         })
         

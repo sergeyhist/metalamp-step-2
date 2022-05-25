@@ -122,3 +122,28 @@
     text-align: center;
   }
 }
+
+.air-datepicker {
+  font-family: 'Montserrat', Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.air-datepicker-nav--title {
+  color: black;
+  font-size: 19px;
+}
+
+.air-datepicker-body--day-name {
+  color: vars.$purple;
+  font-size: 12px;
+}
+
+.air-datepicker-cell.-day- {
+  font-size: 12px;
+}
+
+.air-datepicker-cell.-day-.-current- {
+  border-radius: 22px;
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+  color: white;
+}
