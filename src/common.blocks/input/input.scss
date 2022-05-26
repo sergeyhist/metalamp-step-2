@@ -33,6 +33,18 @@
         color: vars.$dark-shade-75;
       }
     }
+
+    &[data-text-type='dateRange'] {
+      text-transform: lowercase;
+
+      &::placeholder {
+        text-transform: none;
+      }
+    }
+
+    &[data-text-type='date']::placeholder {
+      color: vars.$dark-shade-75;
+    }
   }
 
   &__arrow {
@@ -126,24 +138,71 @@
 .air-datepicker {
   font-family: 'Montserrat', Helvetica, sans-serif;
   font-weight: bold;
-}
 
-.air-datepicker-nav--title {
-  color: black;
-  font-size: 19px;
-}
+  &-nav {
+    border: 0;
+  }
 
-.air-datepicker-body--day-name {
-  color: vars.$purple;
-  font-size: 12px;
-}
+  &-nav--title {
+    color: vars.$dark-shade;
+    font-size: 19px;
+  }
+  
+  &-body--day-name {
+    color: vars.$purple;
+    font-size: 12px;
+  }
+  
+  &-cell.-day- {
+    font-size: 12px;
 
-.air-datepicker-cell.-day- {
-  font-size: 12px;
-}
+    &.-current- {
+      border-radius: 22px;
+      background: vars.$secondary-gradient;
+      color: white;
 
-.air-datepicker-cell.-day-.-current- {
-  border-radius: 22px;
-  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
-  color: white;
+      &.-in-range- {
+        border-radius: 0;
+      }
+    }
+
+    &.-selected-, &.-range-to-, &.-range-from- {
+      background: vars.$primary-gradient;
+      border-radius: 22px;
+      border: 0;
+      color: white;
+    }
+
+    &.-focus-:not(.-range-to-):not(.-range-from-):not(.-selected-) {
+      border-radius: 22px;
+      background: vars.$dark-shade-10;
+
+      &.-in-range- {
+        background: vars.$dark-shade-5;
+        border-radius: 0;
+      }
+    }
+
+    &.-range-from-::after, &.-range-to-::after {
+      content: '';
+      background: vars.$primary-gradient-25;
+      height: 100%;
+      width: 50%;
+      position: absolute;
+    }
+
+    &.-range-from-::after {
+      left: 50%;
+    }
+
+    &.-range-to-::after {
+      right: 50%;
+    }
+
+    &.-in-range-:not(.-current-) {
+      background: vars.$primary-gradient-25;
+      border-radius: 0;
+      color: vars.$dark-shade-50;
+    }
+  }
 }

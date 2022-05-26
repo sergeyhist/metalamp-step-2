@@ -26,6 +26,7 @@ let dateMask = (element) => IMask(element, {
 for (let element of inputElements) {
   let inputMain = element.querySelector('.input__main');
   let inputField = inputMain.querySelector('.input__field');
+  let calendar;
   switch (inputField.dataset.maskedType) {
     case 'date':
       dateMask(inputField);
@@ -33,24 +34,48 @@ for (let element of inputElements) {
   };
   switch (inputField.dataset.textType) {
     case 'date':
-      let calendar = new AirDatepicker(inputField);
-      inputMain.onclick = () => {
-        if (calendar.visible !== true) {
-          inputMain.classList.add('input__main_focused');
-          calendar.show();
-        } else {
-          inputMain.classList.remove('input__main_focused');
-          calendar.hide();
-        };
-      };
-      document.body.addEventListener('mousedown', (e) => {
-        if (!calendar.$datepicker.contains(e.target) && !inputMain.contains(e.target)) {
-            inputMain.classList.remove('input__main_focused');
-            calendar.hide();
-        };
+      calendar = new AirDatepicker(inputField, {
+        navTitles: {days: 'MMMM yyyy'},
+        buttons: ['clear']
+      });
+      break;
+    case 'dateRange':
+      calendar = new AirDatepicker(inputField, {
+        navTitles: {days: 'MMMM yyyy'},
+        range: true,
+        dateFormat: 'dd MMM',
+        multipleDatesSeparator: ' - '
       });
       break;
   };
+  if (inputField.dataset.textType == 'date' || inputField.dataset.textType == 'dateRange') {
+    if (inputField.value) {
+      let dates = [];
+      if (inputField.value.includes('-')) {
+        inputField.value.split('-').forEach((date) => {dates.push(date.split('.').reverse().join(','))})
+      } else {
+        dates.push(inputField.value.split('.').reverse().join(','))
+      };
+      dates.length === 1 ? calendar.selectDate(dates.join('')) : calendar.selectDate(dates);
+    };
+    inputMain.onclick = () => {
+      if (calendar.visible !== true) {
+        inputMain.classList.add('input__main_focused');
+        calendar.show();
+      } else {
+        inputMain.classList.remove('input__main_focused');
+        calendar.hide();
+      };
+    };
+  };
+  document.body.addEventListener('mousedown', (e) => {
+    if (calendar && calendar.visible === true) {
+      if (!calendar.$datepicker.contains(e.target) && !inputMain.contains(e.target)) {
+        inputMain.classList.remove('input__main_focused');
+        calendar.hide();
+      };
+    };
+  });
   if (inputField.dataset.submenuType) {
     let inputSubmenu = element.querySelector('.input__submenu');
     let countNumbers = inputSubmenu.querySelectorAll('.input__count');
