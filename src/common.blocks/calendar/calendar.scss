@@ -1,0 +1,131 @@
+@use 'assets/scss/variables' as vars;
+
+.air-datepicker {
+  font-family: 'Montserrat', Helvetica, sans-serif;
+  font-weight: bold;
+  grid-area: calendar;
+  width: 100%;
+
+  &-nav, &-body--day-names, &--content, &--buttons{
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  &-nav--title {
+    color: vars.$dark-shade;
+    font-size: 19px;
+  }
+
+  &-nav--action {
+    color: vars.$purple;
+    
+    &:hover {
+      background: 0;
+    }
+  } 
+  
+  &-body--day-name {
+    color: vars.$purple;
+    font-size: 12px;
+  }
+
+  &-body--cells {
+    &.-days- {
+      grid-auto-rows: auto;
+      aspect-ratio: 1.4;
+    }
+  }
+  
+  &-cell.-day- {
+    font-size: 12px;
+
+    &.-current- {
+      border-radius: 22px;
+      background: vars.$secondary-gradient;
+      color: white;
+
+      &.-in-range- {
+        border-radius: 0;
+      }
+    }
+
+    &.-selected-, &.-range-to-, &.-range-from- {
+      background: vars.$primary-gradient;
+      border-radius: 22px;
+      color: white;
+      border: 0;
+    }
+
+    &.-focus-:not(.-range-to-):not(.-range-from-):not(.-selected-) {
+      border-radius: 22px;
+      background: vars.$dark-shade-10;
+
+      &.-in-range- {
+        background: vars.$dark-shade-5;
+        border-radius: 0;
+      }
+    }
+
+    &.-range-from-::after, &.-range-to-::after {
+      content: '';
+      background: vars.$primary-gradient-25;
+      height: 100%;
+      width: 50%;
+      position: absolute;
+    }
+
+    &.-range-from-::after {
+      left: 50%;
+    }
+
+    &.-range-to-::after {
+      right: 50%;
+    }
+
+    &.-in-range-:not(.-current-) {
+      background: vars.$primary-gradient-25;
+      border-radius: 0;
+      color: vars.$dark-shade-50;
+    }
+
+    &.-other-month- {
+      color: vars.$dark-shade-25;
+
+      &.-selected- {
+        background: vars.$primary-gradient;
+
+        &.-focus- {
+          background: vars.$primary-gradient;
+        }
+      }
+    }
+  }
+
+  &--navigation, &--buttons, &--content {
+    padding-inline: 20px;
+  }
+
+  &--navigation {
+    padding-block: 20px 30px;
+  }
+
+  &--buttons {
+    padding-block: 20px;
+  }
+
+  &-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-button {
+    color: vars.$purple;
+    font-size: 12px;
+    text-transform: uppercase;
+
+    &:hover, &:focus, &:focus-visible, &:focus-within {
+      background: 0;
+    }
+  }
+}

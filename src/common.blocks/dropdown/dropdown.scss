@@ -1,0 +1,139 @@
+@use 'assets/scss/variables' as vars;
+
+.dropdown {
+  position: relative;
+
+  &[data-dropdown-type='dates'] {
+    display: grid;
+    position: relative;
+    column-gap: 20px;
+    grid-template-areas: 'date-from date-to' 'calendar calendar';
+  }
+
+  &__calendar {
+    z-index: 1;
+    grid-area: calendar;
+    position: absolute;
+    margin-top: 5px;
+    width: 99.4%;
+    opacity: 0;
+    transform: scaleY(0);
+    transition: all 0.3s ease;
+
+    &_visible {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  }
+
+  &__shell {
+    display: flex;
+    justify-content: space-between;
+    height: 44px;
+    border: 1px solid vars.$dark-shade-25;
+    border-radius: 4px;
+    position: relative;
+
+    &_focused, &:focus-within, &:focus-visible, &:focus, &:hover {
+      border: 1px solid vars.$dark-shade-50;
+      outline: 0;
+    }
+
+    &_radius_top {
+      border-radius: 4px 4px 0 0;
+    }
+  }
+
+  &__inside {
+    width: 100%;
+    padding-inline: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &[data-dropdown-type='guests'], &[data-dropdown-type='room'] {
+      width: 73%;
+    }
+
+    &::placeholder {
+      color: vars.$dark-shade-75;
+    }
+  }
+
+  &__arrow {
+    z-index: -1;
+    position: absolute;
+    right: 0;
+    cursor: default;
+    line-height: 45px;
+    width: 44px;
+    text-align: center;
+    color: vars.$dark-shade-50;
+  }
+
+  &__submenu {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 7px 7px 7px 15px;
+    border-inline: 1px solid vars.$dark-shade-50;
+    border-bottom: 1px solid vars.$dark-shade-50;
+    border-radius: 0 0 4px 4px;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    background-color: white;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: all .3s ease;
+  
+    &_visible {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  }
+  
+  &__submenu-element {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 6px;
+  }
+  
+  &__counter {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    text-align: center;
+  }
+  
+  &__button {
+    &-minus, &-plus {
+      color: vars.$dark-shade-50;
+      border: 1px solid vars.$dark-shade-25;
+      border-radius: 22px;
+      width: 33px;
+      height: 33px;
+    }
+    
+    &-confirm, &-clear {
+      text-transform: uppercase;
+      font-size: 12px;
+      color: vars.$purple;
+      font-weight: bold;
+    }
+  
+    &-clear {
+      visibility: hidden;
+    }
+  
+    &_visible {
+      visibility: visible;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+mixin dropdown(options)
+  -
+    let isGuests = options.type == 'guests';
+    let isDates = options.type == 'dates';
+    let isDateRange = options.type == 'date-range';
+    let dropdownAttrs = {
+      ...(options.type && {'data-dropdown-type': options.type})
+    }
+    let shellAttrs = {
+      ...(options.focused === true && {class: 'input__shell_focused'})
+    };
+    let insideAttrs = {
+      ...(options.value && {value: options.value}),
+      ...(options.placeholder ? {placeholder: options.placeholder} : {placeholder: options.type.charAt(0).toUpperCase()+options.type.slice(1)}),
+      ...(options.required === true && {required: true}),
+      ...(options.type && {'data-dropdown-type': options.type}),
+      ...(isDate && {id: options.type})
+    };
+    let dateFromAttrs = {
+      ...(options.valueFrom && {value: options.valueFrom})
+    };
+    let dateToAttrs = {
+      ...(options.valueTo && {value: options.valueTo})
+    };
+
+  .dropdown&attributes(dropdownAttrs)
+    .dropdown__shell(tabindex="0")&attributes(shellAttrs)
+      input.dropdown__inside#date-from(type='text' disabled)&attributes(insideAttrs)&attributes(dateFromAttrs)
+      span.dropdown__arrow.material-icons expand_more
+    if isDates
+      .dropdown__shell(tabindex="-1")&attributes(shellAttrs)
+        input.dropdown__inside#date-to(type='text' disabled)&attributes(insideAttrs)&attributes(dateToAttrs)
+        span.dropdown__arrow.material-icons expand_more
+      .dropdown__calendar
+    if options.items
+      .dropdown__submenu
+        - for (let item of options.items)
+          .dropdown__submenu-element
+            h3.dropdown__title #{item}
+            .dropdown__counter
+              button.dropdown__button.dropdown__button-minus -
+              h3.dropdown__count 0
+              button.dropdown__button.dropdown__button-plus +
+        if isGuests
+          .dropdown__buttons
+            button.dropdown__button-clear очистить
+            button.dropdown__button-confirm применить
+    if isDateRange
+      .dropdown__calendar

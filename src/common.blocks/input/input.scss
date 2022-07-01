@@ -1,11 +1,10 @@
 @use '../../assets/scss/variables' as vars;
 
 .input {
-  position: relative;
-  height: 44px;
 
-  &__main {
+  &__shell {
     display: flex;
+    justify-content: space-between;
     height: 44px;
     border: 1px solid vars.$dark-shade-25;
     border-radius: 4px;
@@ -13,196 +12,25 @@
     &_focused, &:focus-within, &:focus-visible, &:focus, &:hover {
       border: 1px solid vars.$dark-shade-50;
     }
-
-    &_radius_top {
-      border-radius: 4px 4px 0 0;
-    }
   }
 
-  &__field {
+  &__inside {
     width: 100%;
     padding-inline: 15px;
-
-    &[data-submenu-type] {
-      width: 60%;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-
-      &::placeholder {
-        color: vars.$dark-shade-75;
-      }
-    }
-
-    &[data-text-type='dateRange'] {
-      text-transform: lowercase;
-
-      &::placeholder {
-        text-transform: none;
-      }
-    }
-
-    &[data-text-type='date']::placeholder {
-      color: vars.$dark-shade-75;
-    }
-  }
-
-  &__arrow {
-    z-index: -1;
-    position: absolute;
-    right: 0;
-    cursor: default;
-    line-height: 45px;
-    width: 44px;
-    text-align: center;
-
-    &_button {
-      z-index: 0;
-      cursor: pointer;
-      @include vars.text-gradient;
-  
-      &:hover {
-        opacity: .5;
-      }
-    }
-  }
-
-  &__submenu {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-    padding: 7px 7px 7px 15px;
-    border-inline: 1px solid vars.$dark-shade-50;
-    border-bottom: 1px solid vars.$dark-shade-50;
-    border-radius: 0 0 4px 4px;
-    position: absolute;
-    width: 100%;
-    z-index: 1;
-    background-color: white;
-    opacity: 0;
-    transform: scaleY(0);
-    transform-origin: top;
-    transition: all .3s ease;
-
-    &_visible {
-      opacity: 1;
-      transform: scaleY(1);
-    }
-  }
-
-  &__subitem {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__button {
-    &_minus, &_plus {
-      color: vars.$dark-shade-50;
-      border: 1px solid vars.$dark-shade-25;
-      border-radius: 22px;
-      width: 33px;
-      height: 33px;
-    }
-    
-    &_confirm, &_clear {
-      text-transform: uppercase;
-      font-size: 12px;
-      color: vars.$purple;
-      font-weight: bold;
-    }
-
-    &_clear {
-      visibility: hidden;
-    }
-
-    &_visible {
-      visibility: visible;
-    }
-  }
-
-  &__buttons {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 6px;
-  }
-
-  &__counter {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
+    right: 0;
+    line-height: 43px;
+    width: 44px;
     text-align: center;
-  }
-}
+    cursor: pointer;
+    @include vars.text-gradient;
 
-.air-datepicker {
-  font-family: 'Montserrat', Helvetica, sans-serif;
-  font-weight: bold;
-
-  &-nav {
-    border: 0;
-  }
-
-  &-nav--title {
-    color: vars.$dark-shade;
-    font-size: 19px;
-  }
-  
-  &-body--day-name {
-    color: vars.$purple;
-    font-size: 12px;
-  }
-  
-  &-cell.-day- {
-    font-size: 12px;
-
-    &.-current- {
-      border-radius: 22px;
-      background: vars.$secondary-gradient;
-      color: white;
-
-      &.-in-range- {
-        border-radius: 0;
-      }
-    }
-
-    &.-selected-, &.-range-to-, &.-range-from- {
-      background: vars.$primary-gradient;
-      border-radius: 22px;
-      border: 0;
-      color: white;
-    }
-
-    &.-focus-:not(.-range-to-):not(.-range-from-):not(.-selected-) {
-      border-radius: 22px;
-      background: vars.$dark-shade-10;
-
-      &.-in-range- {
-        background: vars.$dark-shade-5;
-        border-radius: 0;
-      }
-    }
-
-    &.-range-from-::after, &.-range-to-::after {
-      content: '';
-      background: vars.$primary-gradient-25;
-      height: 100%;
-      width: 50%;
-      position: absolute;
-    }
-
-    &.-range-from-::after {
-      left: 50%;
-    }
-
-    &.-range-to-::after {
-      right: 50%;
-    }
-
-    &.-in-range-:not(.-current-) {
-      background: vars.$primary-gradient-25;
-      border-radius: 0;
-      color: vars.$dark-shade-50;
+    &:hover {
+      opacity: .5;
     }
   }
 }

@@ -1,10 +1,11 @@
 import './form-elements.scss';
 import 'common/input/input.js';
+import 'common/dropdown/dropdown.js';
 
-let elements = document.querySelectorAll('.form-elements__element');
+let elements = document.querySelectorAll('.page__element');
 
 for (let element of elements) {
-  if (element.querySelector('.form-elements__mod')) {
-    element.classList.add('form-elements__element_mod');
+  if (element.querySelector('.page__element-mod')) {
+    element.classList.add('page__element_mod');
   };
 };

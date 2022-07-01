@@ -1,43 +1,21 @@
 mixin input(options)
   -
-    let isDropdown = options.type == 'dropdown';
-    let isGuests = options.dropdownType == 'guests';
-    let isDate = options.textType == 'date';
-    let isDateRange = options.textType == 'dateRange';
-    let hasArrowButton = options.arrowButton === true;
-    let inputAttrs = {
-      ...(options.focused === true && {class: 'input__main_focused'}),
+    let shellAttrs = {
+      ...(options.focused === true && {class: 'input__shell_focused'})
     };
-    let fieldAttrs = {
+    let insideAttrs = {
       type: options.type,
       ...(options.value && {value: options.value}),
       ...(options.placeholder ? {placeholder: options.placeholder} : {placeholder: options.type.charAt(0).toUpperCase()+options.type.slice(1)}),
-      ...(options.pattern && {pattern: options.pattern}),
-      ...(options.dropdownType && {'data-submenu-type': options.dropdownType}),
-      ...(options.maskedType && {'data-masked-type': options.maskedType}),
-      ...(options.textType && {'data-text-type': options.textType}),
       ...(options.required === true && {required: true}),
-      ...(options.disabled === true || isDropdown || isDate || isDateRange ? {disabled: true} : '')
+      ...(options.mask && {'data-mask': options.mask}),
+      ...(options.button && {style: 'padding-right: 0;'})
     };
 
-  div(class='input')
-    .input__main&attributes(inputAttrs)
-      input.input__field&attributes(fieldAttrs)
-      if isDropdown || isDate || isDateRange
-        span.input__arrow.material-icons expand_more
-      if hasArrowButton
-        input.input__arrow.input__arrow_button.material-icons(type='submit' value='arrow_forward')
-    if isDropdown
-      .input__submenu
-        - for (let item of options.dropdown)
-          .input__subitem
-            h3.input__title #{item}
-            .input__counter
-              button.input__button.input__button_minus -
-              h3.input__count 0
-              button.input__button.input__button_plus +
-        if isGuests
-          .input__buttons
-            button.input__button_clear очистить
-            button.input__button_confirm применить
+  .input
+    .input__shell&attributes(shellAttrs)
+      input.input__inside&attributes(insideAttrs) 
+      if options.button 
+        input.input__button.material-icons(type='submit' value='arrow_forward')
+    
           

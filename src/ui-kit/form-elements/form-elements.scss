@@ -1,51 +1,77 @@
 @use 'assets/scss/variables' as vars;
 
-.form-elements {
+.page {
   &__icon {
     position: absolute;
     top: 30px;
     left: 30px;
   }
 
-  &__content {
+  &__main {
     margin-block: 140px;
     margin-inline: 141px;
+    display: grid;
+    gap: 100px;
   }
 
-  &__inputs {
-    display: flex;
-    flex-direction: column;
+  &__first-block, &__wrapper {
+    display: grid;
+    gap: 40px;
+  }
+
+  &__wrapper, &__dates {
+    width: 320px;
+  }
+
+  &__wrapper {
     gap: 20px;
-  }
-
-  &__title {
-    grid-area: title;
-  }
-
-  &__mod {
-    grid-area: mod;
-    color: rgba(vars.$dark-shade, .5);
-    text-align: end;
-  }
-
-  &__input {
-    grid-area: input;
   }
 
   &__element { 
-    width: 320px;
     display: grid;
-    grid-template-areas: 'title title' 'input input';
+    grid-template-areas: 'title title' 'content content';
     row-gap: 5px;
 
+    &_width {
+      &_266 {
+        width: 266px;
+      }
+
+      &_150 {
+        width: 150px;
+      }
+    }
+
     &_mod {
-      grid-template-areas: 'title mod' 'input input';
+      grid-template-areas: 'title mod' 'content content';
+    }
+
+    &-titles {
+      grid-area: title;
+      display: flex;
+      gap: 20px;
+    }
+
+    &-title {
+      grid-area: title;
+    }
+  
+    &-mod {
+      grid-area: mod;
+      color: rgba(vars.$dark-shade, .5);
+      text-align: end;
+    }
+  
+    &-content {
+      grid-area: content;
     }
   }
+}
 
-  &__dates {
-    display: flex;
-    width: 320px;
-    gap: 20px;
-  }
+#date-from {
+  grid-area: date-from;
+}
+
+#date-to {
+  grid-area: date-to;
 }
