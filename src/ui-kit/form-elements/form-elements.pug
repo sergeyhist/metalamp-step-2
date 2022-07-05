@@ -1,7 +1,7 @@
 include common/icon/icon.pug
 include common/input/input.pug
 include common/dropdown/dropdown.pug
-  
+include common/checkbox/checkbox.pug
 
 doctype html
 html(lang="ru")
@@ -48,16 +48,16 @@ html(lang="ru")
                 placeholder: 'ДД.ММ.ГГГГ',
                 mask: 'date'
               })
-          .page__element
-            .page__element-titles
-              h3.page__element_width_150 date dropdown
-              h3.page__element_width_150 date dropdown
-            .page__element-content 
-              +dropdown({
-                type: 'dates',
-                placeholder: 'ДД.ММ.ГГГГ',
-                valueTo: '19.08.2019'
-              })
+        .page__element
+          .page__element-titles
+            h3.page__element_width_150 date dropdown
+            h3.page__element_width_150 date dropdown
+          .page__element-content 
+            +dropdown({
+              type: 'dates',
+              placeholder: 'ДД.ММ.ГГГГ',
+              valueTo: '19.08.2019'
+            })
         .page__element.page__element_width_266
             h3.page__element-title filter date dropdown
             .page__element-content 
@@ -73,14 +73,28 @@ html(lang="ru")
               type: 'email',
               button: true
             })
-      .page__second-block
-        .page__element.page__element_width_266  
-          h3.page__element-title dropdown 
-          h3.page__element-mod default
-          .page__element-content 
-            +dropdown({
-              type: 'room',
-              items: ['спальни', 'кровати', 'ванные комнаты'],
-              placeholder: 'Количество спален, кроватей и ванных комнат'
+      .page__second-block 
+        .page__element
+          h3.page__element-title checkbox buttons
+          .page__element-content
+            +checkbox({
+              items: [
+                {text: 'Можно курить'},
+                {text: 'Можно с питомцами'},
+                {text: 'Можно пригласить гостей', hint: '(до 10 человек)'}]
             })
+        .page__element 
+          h3.page__element-title radio buttons
+          .page__element-content 
+
+      //- .page__second-block
+      //-   .page__element.page__element_width_266  
+      //-     h3.page__element-title dropdown 
+      //-     h3.page__element-mod default
+      //-     .page__element-content 
+      //-       +dropdown({
+      //-         type: 'room',
+      //-         items: ['спальни', 'кровати', 'ванные комнаты'],
+      //-         placeholder: 'Количество спален, кроватей и ванных комнат'
+      //-       })
         

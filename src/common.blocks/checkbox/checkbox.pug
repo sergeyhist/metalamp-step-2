@@ -1,0 +1,12 @@
+mixin checkbox(options)
+  .checkbox
+    - for (let item of options.items)
+      .checkbox__element
+        label.checkbox__label.unselect #{item.text}<br>#{item.hint}
+          .checkbox__fields
+            input.checkbox__field.checkbox__field_hidden(type='checkbox')
+            .checkbox__field.checkbox__field_visible.unselect
+              .checkbox__flag
+                div
+              
+              

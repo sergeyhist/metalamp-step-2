@@ -7,20 +7,29 @@
     left: 30px;
   }
 
+  &__main, &__first-block, &__wrapper, &__element {
+    display: grid;
+  }
+
   &__main {
     margin-block: 140px;
     margin-inline: 141px;
-    display: grid;
     gap: 100px;
+    grid-template-areas: 'first-block second-block third-block';
   }
 
-  &__first-block, &__wrapper {
-    display: grid;
+  &__first-block {
+    grid-area: first-block;
+    width: 320px;
     gap: 40px;
   }
 
-  &__wrapper, &__dates {
-    width: 320px;
+  &__second-block {
+    grid-area: second-block;
+  }
+
+  &__second-block > &__element {
+    row-gap: 16px;
   }
 
   &__wrapper {
@@ -28,7 +37,6 @@
   }
 
   &__element { 
-    display: grid;
     grid-template-areas: 'title title' 'content content';
     row-gap: 5px;
 

@@ -1,0 +1,70 @@
+@use 'assets/scss/variables' as vars;
+
+.checkbox {
+  display: grid;
+  row-gap: 10px;
+
+  &__element {
+    display: flex;
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    gap: 10px;
+    color: vars.$dark-shade-50;
+  }
+
+  &__fields {
+    display: flex;
+    align-items: center;
+    padding-top: 2px;
+  }
+
+  &__field {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    margin: 0;
+    padding: 0;
+
+    &_hidden {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+    }
+
+    &_visible {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      border: 1px solid vars.$dark-shade-25;
+    }
+
+    &_checked {
+      border-color: vars.$purple;
+      color: vars.$purple;
+    }
+  }
+
+  &__flag {
+    position: absolute;
+    transform: translateZ(1px) rotate(45deg);
+    z-index: -1;
+    background: vars.$primary-gradient;
+    padding: 0 2px 2px 0;
+    top: 4px;
+    opacity: 0;
+
+    &_visible {
+      opacity: 1;
+    }
+
+    & > div {
+      background: white;
+      width: 4px;
+      height: 6px;
+    }
+  }
+}
