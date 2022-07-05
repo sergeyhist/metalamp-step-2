@@ -1,0 +1,13 @@
+mixin radio(options)
+  .radio
+    - for (let item of options.items)
+      -
+        let fieldAttrs = {
+          ...(item.checked === true && {checked: true})
+        };
+      
+      label.radio__label #{item.text}
+        .radio__fields
+          input.radio__field.radio__field_hidden(type='radio' name=options.name)&attributes(fieldAttrs)
+          .radio__field.radio__field_visible
+            .radio__flag

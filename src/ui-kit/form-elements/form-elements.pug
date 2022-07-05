@@ -2,6 +2,7 @@ include common/icon/icon.pug
 include common/input/input.pug
 include common/dropdown/dropdown.pug
 include common/checkbox/checkbox.pug
+include common/radio/radio.pug
 
 doctype html
 html(lang="ru")
@@ -80,13 +81,19 @@ html(lang="ru")
             +checkbox({
               items: [
                 {text: 'Можно курить'},
-                {text: 'Можно с питомцами'},
-                {text: 'Можно пригласить гостей', hint: '(до 10 человек)'}]
+                {text: 'Можно с питомцами', checked: true},
+                {text: 'Можно пригласить гостей', hint: '(до 10 человек)', checked: true}]
             })
         .page__element 
           h3.page__element-title radio buttons
           .page__element-content 
-
+            +radio({
+              name: 'gender',
+              items: [
+                {text: 'Мужчина', checked: true},
+                {text: 'Женщина'}
+              ]
+            })
       //- .page__second-block
       //-   .page__element.page__element_width_266  
       //-     h3.page__element-title dropdown 

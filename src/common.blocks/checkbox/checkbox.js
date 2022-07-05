@@ -1,24 +1,27 @@
 import './checkbox.scss';
 
-let checkboxes = document.querySelectorAll('.checkbox');
+let checkboxElements = document.querySelectorAll('.checkbox');
 
-for (let checkbox of checkboxes) {
-  let checkboxElements = checkbox.querySelectorAll('.checkbox__element');
+for (let element of checkboxElements) {
+  let elementLabels = element.querySelectorAll('.checkbox__label');
 
-  for (let element of checkboxElements) {
-    let hiddenField = element.querySelector('.checkbox__field_hidden');
-    let visibleField = element.querySelector('.checkbox__field_visible');
-    let elementFlag = element.querySelector('.checkbox__flag');
+  for (let label of elementLabels) {
+    let hiddenField = label.querySelector('.checkbox__field_hidden');
+    let visibleField = label.querySelector('.checkbox__field_visible');
+    let labelFlag = label.querySelector('.checkbox__flag');
+
+    if (hiddenField.checked === true) {
+      visibleField.classList.add('checkbox__field_checked');
+      labelFlag.classList.add('checkbox__flag_visible');
+    };
 
     hiddenField.onchange = () => {
-      console.log('change');
-      console.log(hiddenField.checked);
       if (hiddenField.checked) {
         visibleField.classList.add('checkbox__field_checked');
-        elementFlag.classList.add('checkbox__flag_visible');
+        labelFlag.classList.add('checkbox__flag_visible');
       } else {
         visibleField.classList.remove('checkbox__field_checked');
-        elementFlag.classList.remove('checkbox__flag_visible');
+        labelFlag.classList.remove('checkbox__flag_visible');
       };
     };
   };

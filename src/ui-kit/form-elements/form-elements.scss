@@ -26,6 +26,9 @@
 
   &__second-block {
     grid-area: second-block;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
   }
 
   &__second-block > &__element {
