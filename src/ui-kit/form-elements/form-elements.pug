@@ -3,6 +3,7 @@ include common/input/input.pug
 include common/dropdown/dropdown.pug
 include common/checkbox/checkbox.pug
 include common/radio/radio.pug
+include common/toggle/toggle.pug
 
 doctype html
 html(lang="ru")
@@ -18,87 +19,95 @@ html(lang="ru")
       .page__first-block
         .page__wrapper
           .page__element
-            h3.page__element-title text field
-            h3.page__element-mod default
-            .page__element-content
-              +input({
-                type: 'text'
-              })
-          .page__element
-            h3.page__element-title text field
-            h3.page__element-mod hover/focus
-            .page__element-content
-              +input({
-                type: 'text',
-                focused: true,
-                value: 'This is pretty awesome'
-              })
-          .page__element 
-            h3.page__element-title dropdown 
-            .page__element-content 
-              +dropdown({
-                type: 'guests',
-                items: ['взрослые', 'дети', 'младенцы'],
-                placeholder: 'Сколько гостей'
-              })
-          .page__element
-            h3.page__element-title masked text field 
-            .page__element-content
-              +input({
-                type: 'text',
-                placeholder: 'ДД.ММ.ГГГГ',
-                mask: 'date'
-              })
-        .page__element
-          .page__element-titles
-            h3.page__element_width_150 date dropdown
-            h3.page__element_width_150 date dropdown
-          .page__element-content 
-            +dropdown({
-              type: 'dates',
-              placeholder: 'ДД.ММ.ГГГГ',
-              valueTo: '19.08.2019'
-            })
-        .page__element.page__element_width_266
-            h3.page__element-title filter date dropdown
-            .page__element-content 
-              +dropdown({
-                type: 'date-range',
-                placeholder: 'Диапазон дат',
-                value: '19.08.2019-23.08.2019'
-              }) 
-        .page__element.page__element_width_266 
-          h3.page__element-title subscription text field
-          .page__element-content 
+            .page__titles
+              h3 text field
+              h3 default
             +input({
-              type: 'email',
-              button: true
+              type: 'text'
             })
+          .page__element
+            .page__titles
+              h3 text field
+              h3 hover/focus
+            +input({
+              type: 'text',
+              focused: true,
+              value: 'This is pretty awesome'
+            })
+          .page__element
+            .page__titles
+              h3 dropdown 
+            +dropdown({
+              type: 'guests',
+              items: ['взрослые', 'дети', 'младенцы'],
+              placeholder: 'Сколько гостей'
+            })
+          .page__element
+            .page__titles
+              h3 masked text field 
+            +input({
+              type: 'text',
+              placeholder: 'ДД.ММ.ГГГГ',
+              mask: 'date'
+            })
+        .page__element
+          .page__titles
+            h3.page__element_width_150 date dropdown
+            h3.page__element_width_150 date dropdown
+          +dropdown({
+            type: 'dates',
+            placeholder: 'ДД.ММ.ГГГГ',
+            valueTo: '19.08.2019'
+          })
+        .page__element.page__element_width_266
+          .page__titles
+            h3 filter date dropdown
+          +dropdown({
+            type: 'date-range',
+            placeholder: 'Диапазон дат',
+            value: '19.08.2019-23.08.2019'
+          }) 
+        .page__element.page__element_width_266
+          .page__titles
+            h3 subscription text field
+          +input({
+            type: 'email',
+            button: true
+          })
       .page__second-block 
         .page__element
-          h3.page__element-title checkbox buttons
-          .page__element-content
-            +checkbox({
-              items: [
-                {text: 'Можно курить'},
-                {text: 'Можно с питомцами', checked: true},
-                {text: 'Можно пригласить гостей', hint: '(до 10 человек)', checked: true}]
-            })
-        .page__element 
-          h3.page__element-title radio buttons
-          .page__element-content 
-            +radio({
-              name: 'gender',
-              items: [
-                {text: 'Мужчина', checked: true},
-                {text: 'Женщина'}
-              ]
-            })
+          .page__titles
+            h3 checkbox buttons
+          +checkbox({
+            items: [
+              {text: 'Можно курить'},
+              {text: 'Можно с питомцами', checked: true},
+              {text: 'Можно пригласить гостей', hint: '(до 10 человек)', checked: true}]
+          })
+        .page__element
+          .page__titles
+            h3 radio buttons
+          +radio({
+            name: 'gender',
+            items: [
+              {text: 'Мужчина', checked: true},
+              {text: 'Женщина'}
+            ]
+          })
+        .page__element
+          .page__titles
+            h3 toggle
+          +toggle({
+            items: [
+              {text: 'Получать спецпредложения', active: true},
+              {text: 'Получать спецпредложения'}
+            ]
+          })
       //- .page__second-block
       //-   .page__element.page__element_width_266  
-      //-     h3.page__element-title dropdown 
-      //-     h3.page__element-mod default
-      //-     .page__element-content 
+      //-     h3 dropdown 
+      //-     h3 default
+      //-      
       //-       +dropdown({
       //-         type: 'room',
       //-         items: ['спальни', 'кровати', 'ванные комнаты'],

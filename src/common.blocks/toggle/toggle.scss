@@ -1,29 +1,31 @@
 @use 'assets/scss/variables' as vars;
 
-.checkbox {
+.toggle {
   display: flex;
   flex-direction: column;
   gap: 10px;
   align-items: start;
+
+  &__element {
+    display: flex;
+  }
 
   &__label {
     display: flex;
     flex-direction: row-reverse;
     align-items: flex-start;
     gap: 10px;
-    color: vars.$dark-shade-50;
+    color: vars.$dark-shade-75;
   }
 
   &__fields {
-    display: flex;
-    align-items: center;
     padding-top: 2px;
   }
 
   &__field {
-    width: 20px;
+    width: 40px;
     height: 20px;
-    border-radius: 4px;
+    border-radius: 10px;
     margin: 0;
     padding: 0;
 
@@ -35,34 +37,31 @@
 
     &_visible {
       display: flex;
-      justify-content: center;
       position: relative;
       border: 1px solid vars.$dark-shade-25;
     }
 
-    &_checked {
+    &_active {
       border-color: vars.$purple;
-      color: vars.$purple;
     }
   }
 
   &__flag {
+    width: 12px;
+    height: 12px;
+    border: 1px solid transparent;
+    border-radius: 10px;
     position: absolute;
-    transform: translateZ(1px) rotate(45deg);
+    top: 3px;
+    left: 4px;
     z-index: -1;
-    background: vars.$primary-gradient;
-    padding: 0 2px 2px 0;
-    top: 4px;
-    opacity: 0;
+    background: vars.$dark-shade-25;
+    opacity: 1;
+    transition: .3s;
 
-    &_visible {
-      opacity: 1;
-    }
-
-    & > div {
-      background: white;
-      width: 4px;
-      height: 6px;
+    &_active {
+      background: vars.$primary-gradient;
+      left: 22px;
     }
   }
 }

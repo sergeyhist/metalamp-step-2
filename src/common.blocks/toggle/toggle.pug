@@ -1,0 +1,13 @@
+mixin toggle(options)
+  .toggle
+    - for (let item of options.items)
+      -
+        let fieldAttrs = {
+          ...(item.active === true && {checked: true})
+        };
+      
+      label.toggle__label.unselect #{item.text}
+        .toggle__fields
+          input.toggle__field.toggle__field_hidden(type='checkbox')&attributes(fieldAttrs)
+          .toggle__field.toggle__field_visible
+            .toggle__flag

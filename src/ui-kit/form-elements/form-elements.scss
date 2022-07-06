@@ -7,11 +7,8 @@
     left: 30px;
   }
 
-  &__main, &__first-block, &__wrapper, &__element {
-    display: grid;
-  }
-
   &__main {
+    display: grid;
     margin-block: 140px;
     margin-inline: 141px;
     gap: 100px;
@@ -19,6 +16,8 @@
   }
 
   &__first-block {
+    display: flex;
+    flex-direction: column;
     grid-area: first-block;
     width: 320px;
     gap: 40px;
@@ -36,11 +35,14 @@
   }
 
   &__wrapper {
+    display: flex;
+    flex-direction: column;
     gap: 20px;
   }
 
-  &__element { 
-    grid-template-areas: 'title title' 'content content';
+  &__element {
+    display: flex;
+    flex-direction: column;
     row-gap: 5px;
 
     &_width {
@@ -52,37 +54,14 @@
         width: 150px;
       }
     }
+  }
 
-    &_mod {
-      grid-template-areas: 'title mod' 'content content';
-    }
+  &__titles {
+    display: flex;
+    justify-content: space-between;
 
-    &-titles {
-      grid-area: title;
-      display: flex;
-      gap: 20px;
-    }
-
-    &-title {
-      grid-area: title;
-    }
-  
-    &-mod {
-      grid-area: mod;
+    & > h3:nth-child(2):not(.page__element_width_150) {
       color: rgba(vars.$dark-shade, .5);
-      text-align: end;
-    }
-  
-    &-content {
-      grid-area: content;
     }
   }
-}
-
-#date-from {
-  grid-area: date-from;
-}
-
-#date-to {
-  grid-area: date-to;
 }
