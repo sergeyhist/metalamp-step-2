@@ -1,0 +1,38 @@
+@use 'assets/scss/variables' as vars;
+
+.like {
+  display: flex;
+  width: 40px;
+  height: 20px;
+  border: 1px solid vars.$dark-shade-25;
+  border-radius: 10px;
+
+  &_active {
+    border-color: vars.$purple;
+  }
+
+  &__icon, &__counter {
+    font-size: 10px;
+    line-height: 20px;
+    color: vars.$dark-shade-25;
+    text-align: center;
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+
+    &_active {
+      background: vars.$primary-gradient;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  &__counter {
+    &_active {
+      color: vars.$purple;
+    }
+  }
+}

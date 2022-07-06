@@ -4,6 +4,7 @@ include common/dropdown/dropdown.pug
 include common/checkbox/checkbox.pug
 include common/radio/radio.pug
 include common/toggle/toggle.pug
+include common/like/like.pug
 
 doctype html
 html(lang="ru")
@@ -17,7 +18,7 @@ html(lang="ru")
       +icon
     .page__main
       .page__first-block
-        .page__wrapper
+        .page__wrapper_elements
           .page__element
             .page__titles
               h3 text field
@@ -103,6 +104,17 @@ html(lang="ru")
               {text: 'Получать спецпредложения'}
             ]
           })
+        .page__element 
+          .page__titles 
+            h3 like button
+          .page__wrapper_items
+            +like({
+              count: 2
+            })
+            +like({
+              count: 12,
+              active: true
+            })
       //- .page__second-block
       //-   .page__element.page__element_width_266  
       //-     h3 dropdown 

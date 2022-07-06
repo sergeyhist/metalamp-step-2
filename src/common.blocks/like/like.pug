@@ -1,0 +1,9 @@
+mixin like(options)
+  -
+    let likeAttrs = {
+      ...(options.active === true && {'data-active': 'true'})
+    };
+
+  .like&attributes(likeAttrs)
+    span.like__icon.material-icons.unselect favorite_border
+    span.like__counter.unselect #{options.count}
