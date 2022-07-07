@@ -12,7 +12,7 @@
     margin-block: 140px;
     margin-inline: 141px;
     gap: 100px;
-    grid-template-areas: 'first-block second-block third-block';
+    grid-template-areas: 'first-block second-block third-block' 'fourth-block fourth-block fourth-block';
   }
 
   &__first-block {
@@ -26,8 +26,11 @@
   &__second-block {
     grid-area: second-block;
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    align-items: center;
+    height: 92%;
+  }
+
+  &__fourth-block {
+    grid-area: fourth-block;
   }
 
   &__second-block > &__element {
@@ -35,15 +38,14 @@
   }
 
   &__wrapper {
+    display: flex;
+    gap: 20px;
 
-    &_elements {
-      display: flex;
+    &_input {
       flex-direction: column;
-      gap: 20px;
     }
 
-    &_items {
-      display: flex;
+    &_like {
       gap: 10px;
     }
   }

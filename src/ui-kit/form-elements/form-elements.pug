@@ -5,6 +5,7 @@ include common/checkbox/checkbox.pug
 include common/radio/radio.pug
 include common/toggle/toggle.pug
 include common/like/like.pug
+include common/rate/rate.pug
 
 doctype html
 html(lang="ru")
@@ -18,7 +19,7 @@ html(lang="ru")
       +icon
     .page__main
       .page__first-block
-        .page__wrapper_elements
+        .page__wrapper.page__wrapper_input
           .page__element
             .page__titles
               h3 text field
@@ -107,7 +108,7 @@ html(lang="ru")
         .page__element 
           .page__titles 
             h3 like button
-          .page__wrapper_items
+          .page__wrapper.page__wrapper_like
             +like({
               count: 2
             })
@@ -115,14 +116,24 @@ html(lang="ru")
               count: 12,
               active: true
             })
-      //- .page__second-block
-      //-   .page__element.page__element_width_266  
-      //-     h3 dropdown 
-      //-     h3 default
-      //-      
-      //-       +dropdown({
-      //-         type: 'room',
-      //-         items: ['спальни', 'кровати', 'ванные комнаты'],
-      //-         placeholder: 'Количество спален, кроватей и ванных комнат'
-      //-       })
-        
+        .page__element 
+          .page__titles 
+            h3 rate button
+          .page__wrapper
+            +rate({
+              rating: 4
+            })
+            +rate({
+              rating: 5
+            })
+      .page__fourth-block
+        .page__element.page__element_width_266
+          .page__titles
+            h3 dropdown 
+            h3 default
+          +dropdown({
+            type: 'room',
+            items: ['спальни', 'кровати', 'ванные комнаты'],
+            placeholder: 'Количество спален, кроватей и ванных комнат'
+          })
+          

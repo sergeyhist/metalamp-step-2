@@ -17,6 +17,8 @@
   &__fields {
     display: flex;
     align-items: center;
+    justify-content: center;
+    position: relative;
     padding-top: 2px;
   }
 
@@ -24,8 +26,6 @@
     width: 20px;
     height: 20px;
     border-radius: 4px;
-    margin: 0;
-    padding: 0;
 
     &_hidden {
       position: absolute;
@@ -34,9 +34,6 @@
     }
 
     &_visible {
-      display: flex;
-      justify-content: center;
-      position: relative;
       border: 1px solid vars.$dark-shade-25;
     }
 
@@ -49,10 +46,9 @@
   &__flag {
     position: absolute;
     transform: translateZ(1px) rotate(45deg);
-    z-index: -1;
     background: vars.$primary-gradient;
     padding: 0 2px 2px 0;
-    top: 4px;
+    top: 7px;
     opacity: 0;
 
     &_visible {

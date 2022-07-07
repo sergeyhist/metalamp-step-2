@@ -1,0 +1,10 @@
+mixin rate(options)
+  -
+    let rateAttrs = {
+      ...(options.rating ? {'data-rating': options.rating} : {'data-rating': 0})
+    };
+
+  .rate&attributes(rateAttrs)
+    - for (let i = 0; i < 5; i++)
+      span.rate__star.material-icons.unselect(data-number=i) star_border
+    

@@ -5,3 +5,4 @@ import 'common/checkbox/checkbox.js';
 import 'common/radio/radio.js';
 import 'common/toggle/toggle.js';
 import 'common/like/like.js';
+import 'common/rate/rate.js';
