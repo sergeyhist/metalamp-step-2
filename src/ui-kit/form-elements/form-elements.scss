@@ -11,7 +11,7 @@
     display: grid;
     margin-block: 140px;
     margin-inline: 141px;
-    gap: 100px;
+    row-gap: 100px;
     grid-template-areas: 'first-block second-block third-block' 'fourth-block fourth-block fourth-block';
   }
 
@@ -27,6 +27,13 @@
     grid-area: second-block;
     display: grid;
     height: 92%;
+  }
+
+  &__third-block {
+
+    & > div:nth-child(1) {
+      row-gap: 20px;
+    }
   }
 
   &__fourth-block {

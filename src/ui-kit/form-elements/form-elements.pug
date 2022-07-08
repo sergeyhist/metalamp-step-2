@@ -6,6 +6,7 @@ include common/radio/radio.pug
 include common/toggle/toggle.pug
 include common/like/like.pug
 include common/rate/rate.pug
+include common/range/range.pug
 
 doctype html
 html(lang="ru")
@@ -126,6 +127,17 @@ html(lang="ru")
             +rate({
               rating: 5
             })
+      .page__third-block 
+        .page__element.page__element_width_266 
+          .page__titles 
+            h3 range slider
+            h3#range-value 0₽ - 0₽
+          +range({
+            max: 20000,
+            step: 1000,
+            defMin: 5000,
+            defMax: 10000
+          })
       .page__fourth-block
         .page__element.page__element_width_266
           .page__titles

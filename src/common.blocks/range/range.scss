@@ -1,0 +1,22 @@
+@use 'assets/scss/variables' as vars;
+
+.ui-slider {
+  border-radius: 3px;
+  height: 6px;
+
+  &.ui-widget-content {
+    border-color: vars.$dark-shade-25;
+  }
+
+  & > &-range {
+    background: vars.$secondary-gradient;
+  }
+
+  & > &-handle {
+    width: 12px;
+    height: 12px;
+    border: 2px solid white;
+    border-radius: 10px;
+    background: vars.$secondary-gradient;
+  }
+}

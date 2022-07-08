@@ -1,0 +1,11 @@
+mixin range(options)
+  -
+    let rangeAttrs = {
+      ...(options.min ? {'data-min': options.min} : {'data-min': 0}),
+      ...(options.max ? {'data-max': options.max} : {'data-max': 100}),
+      ...(options.step ? {'data-step': options.step} : {'data-step': 1}),
+      ...(options.defMin ? {'data-default-min': options.defMin} : {'data-default-min': options.min}),
+      ...(options.defMax ? {'data-default-max': options.defMax} : {'data-default-max': options.max})
+    };
+  .range&attributes(rangeAttrs)
+  
