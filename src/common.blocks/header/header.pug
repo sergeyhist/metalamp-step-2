@@ -15,12 +15,13 @@ mixin header(options)
       div(class='header__buttons')
         +button({
           text: 'войти',
-          type: 'white'
+          theme: 'white',
+          height: 34
         })
         +button({
-          text: 'Зарегистрироваться'
+          text: 'Зарегистрироваться',
+          height: 34
           })
     else
       div(class='header__account')
         +account()
-  

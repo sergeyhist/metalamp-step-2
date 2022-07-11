@@ -14,7 +14,7 @@ for (let element of rangeElements) {
     max: $(element).data('max'),
     step: $(element).data('step'),
     values: [$(element).data('default-min'), $(element).data('default-max')],
-    change: (event, ui) => {
+    slide: (event, ui) => {
       $(rangeValue).html(ui.values[0]+'₽ - '+ui.values[1]+'₽')
     }
   });

@@ -27,9 +27,19 @@
     grid-area: second-block;
     display: grid;
     height: 92%;
+
+    & > div {
+      row-gap: 16px;
+    }
   }
 
   &__third-block {
+    display: grid;
+    height: 92%;
+
+    & > div {
+      row-gap: 16px;
+    }
 
     & > div:nth-child(1) {
       row-gap: 20px;
@@ -38,10 +48,6 @@
 
   &__fourth-block {
     grid-area: fourth-block;
-  }
-
-  &__second-block > &__element {
-    row-gap: 16px;
   }
 
   &__wrapper {
@@ -54,6 +60,11 @@
 
     &_like {
       gap: 10px;
+    }
+
+    &_buttons {
+      gap: 30px;
+      flex-direction: column;
     }
   }
 

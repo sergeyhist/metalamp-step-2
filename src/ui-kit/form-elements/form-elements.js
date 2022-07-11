@@ -7,3 +7,4 @@ import 'common/toggle/toggle.js';
 import 'common/like/like.js';
 import 'common/rate/rate.js';
 import 'common/range/range.js';
+import 'common/button/button.js';

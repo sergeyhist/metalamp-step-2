@@ -1,16 +1,35 @@
-@use '__content/__content.scss';
 @use '../../assets/scss/variables' as vars;
 
 .button {
-  $border: 1px;
-
   cursor: pointer;
-  border: $border solid transparent;
+  border-inline: 2px solid transparent;
   border-radius: 22px;
-  padding: $border;
   background: vars.$primary-gradient;
+  width: fit-content;
+  height: 44px;
 
   &:hover {
-    opacity: .5;
+    background: vars.$primary-gradient-50;
+  }
+
+  &_active {
+    background: vars.$primary-gradient-50;
+  }
+
+  &__content {
+    border-radius: 22px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 40px;
+    padding-inline: 20px;
+
+    &_theme {
+      &_white {
+      background-color: white;
+      color: #BC9CFF;
+      }     
+    }
   }
 }

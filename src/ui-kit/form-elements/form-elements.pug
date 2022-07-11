@@ -7,6 +7,7 @@ include common/toggle/toggle.pug
 include common/like/like.pug
 include common/rate/rate.pug
 include common/range/range.pug
+include common/button/button.pug
 
 doctype html
 html(lang="ru")
@@ -138,6 +139,30 @@ html(lang="ru")
             defMin: 5000,
             defMax: 10000
           })
+        .page__element
+          .page__titles
+            h3 buttons
+          .page__wrapper.page__wrapper_buttons
+            .page__wrapper
+              +button({
+                text: 'click me'
+              })
+              +button({
+                text: 'click me',
+                active: true
+              })
+            .page__wrapper
+              +button({
+                text: 'click me',
+                theme: 'white'
+              })
+              +button({
+                text: 'click me',
+                theme: 'white',
+                active: true
+              })
+            .page__wrapper
+              a click me
       .page__fourth-block
         .page__element.page__element_width_266
           .page__titles
@@ -147,5 +172,4 @@ html(lang="ru")
             type: 'room',
             items: ['спальни', 'кровати', 'ванные комнаты'],
             placeholder: 'Количество спален, кроватей и ванных комнат'
-          })
-          
+          })  

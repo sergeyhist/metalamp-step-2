@@ -1,14 +1,14 @@
-include __content/__content.pug
-
 mixin button(options)
   -
-    let buttonMix = options.mix ? ' '+options.mix : ''
-    let buttonText = options.text ? options.text : ''
-    let buttonType = options.type ? ' button__content_theme_'+options.type : ''
-  button(class='button'+buttonMix)
-    +buttonContent({
-      text: buttonText,
-      type: buttonType
-    })
-    
-    
+    let buttonAttrs = {
+      ...(options.active && {class: 'button_active'}),
+      ...(options.mix && {class: options.mix}),
+      ...(options.height && {style: 'height:'+options.height+'px'})
+    }
+    let contentAttrs = {
+      ...(options.theme == 'white' && {class: 'button__content_theme_white'}),
+      ...(options.height && {style: 'line-height:'+(+options.height-4)+'px'})
+    }
+
+  button.button&attributes(buttonAttrs)
+    .button__content&attributes(contentAttrs) #{options.text}

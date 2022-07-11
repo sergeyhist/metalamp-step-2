@@ -5,13 +5,15 @@
   gap: 20px;
 
   & a {
-    @include vars.text-gradient;
+    background: vars.$primary-gradient;
     font-size: 24px;
     line-height: 23px;
+    @include vars.text-gradient;
 
     &:hover {
-      background: none;
-      -webkit-text-fill-color: rgba(vars.$dark-shade, .5);
+      font-weight: normal;
+      background: vars.$dark-shade-50;
+      @include vars.text-gradient;
     }
   }
 }

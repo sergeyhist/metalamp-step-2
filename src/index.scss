@@ -78,11 +78,6 @@ button {
     cursor: pointer;
   }
 
-  &:hover:enabled, &:focus-visible:enabled {
-    border-color: vars.$dark-shade-50;
-    color: vars.$dark-shade-50;
-  }
-
   &:disabled {
     border-color: vars.$dark-shade-5;
     color: vars.$dark-shade-25;

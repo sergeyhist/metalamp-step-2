@@ -1,8 +1,4 @@
-mixin social()
-  div(class='social')
-      a(href='#')
-        span(class='fa-brands fa-twitter')
-      a(href='#')
-        span(class='fa-brands fa-facebook-square')
-      a(href='#')
-        span(class='fa-brands fa-instagram')
+mixin social(options)
+  .social
+    - for (let item of options.items)
+      a.fa-brands(class='fa-'+item.name href=item.link)

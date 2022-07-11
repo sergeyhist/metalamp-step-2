@@ -27,10 +27,12 @@
     width: 44px;
     text-align: center;
     cursor: pointer;
+    background: vars.$primary-gradient;
     @include vars.text-gradient;
 
     &:hover {
-      opacity: .5;
+      background: vars.$primary-gradient-50;
+      @include vars.text-gradient;
     }
   }
 }
