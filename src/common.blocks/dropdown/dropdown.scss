@@ -60,13 +60,15 @@
   }
 
   &__arrow {
-    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
+    top: 0;
     right: 0;
-    cursor: default;
-    line-height: 45px;
+    height: 42px;
     width: 44px;
-    text-align: center;
+    cursor: default;
     color: vars.$dark-shade-50;
   }
 
@@ -113,12 +115,19 @@
   }
   
   &__button {
+    
+
     &-minus, &-plus {
       color: vars.$dark-shade-50;
       border: 1px solid vars.$dark-shade-25;
       border-radius: 22px;
       width: 33px;
       height: 33px;
+
+      &:hover, &:focus, &:focus-visible {
+        color: vars.$dark-shade-75;
+        border-color: vars.$dark-shade-50;
+      }
     }
     
     &-confirm, &-clear {
@@ -126,6 +135,10 @@
       font-size: 12px;
       color: vars.$purple;
       font-weight: bold;
+
+      &:hover, &:focus, &:focus-visible {
+        color: vars.$dark-shade-50;
+      }
     }
   
     &-clear {

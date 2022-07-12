@@ -1,0 +1,13 @@
+@use 'assets/scss/variables' as vars;
+
+.icon-link {
+  color: vars.$purple;
+  font-size: 12px;
+  line-height: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  &:hover, &_active {
+    color: vars.$dark-shade-50;
+  }
+}

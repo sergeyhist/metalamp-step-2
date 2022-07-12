@@ -20,8 +20,9 @@
   &-nav--action {
     color: vars.$purple;
     
-    &:hover {
+    &:hover, &:focus, &:focus-visible, &:focus-within {
       background: 0;
+      color: vars.$dark-shade-50;
     }
   } 
   
@@ -126,6 +127,7 @@
 
     &:hover, &:focus, &:focus-visible, &:focus-within {
       background: 0;
+      color: vars.$dark-shade-50;
     }
   }
 }

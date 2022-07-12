@@ -1,0 +1,7 @@
+mixin icon-link(options)
+  -
+    let linkAttrs = {
+      ...(options.active === true && {class: 'icon-link_active'})
+    };
+
+  a.icon-link(href=options.link)&attributes(linkAttrs) #{options.text}

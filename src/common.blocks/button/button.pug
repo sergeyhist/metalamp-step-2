@@ -1,14 +1,17 @@
 mixin button(options)
   -
+    let isArrowButton = options.theme == 'arrow';
     let buttonAttrs = {
       ...(options.active && {class: 'button_active'}),
       ...(options.mix && {class: options.mix}),
       ...(options.height && {style: 'height:'+options.height+'px'})
-    }
+    };
     let contentAttrs = {
-      ...(options.theme == 'white' && {class: 'button__content_theme_white'}),
+      ...(options.theme && {class: 'button__content_theme_'+options.theme}),
       ...(options.height && {style: 'line-height:'+(+options.height-4)+'px'})
-    }
+    };
 
   button.button&attributes(buttonAttrs)
     .button__content&attributes(contentAttrs) #{options.text}
+    if isArrowButton
+      span.button__arrow.material-icons arrow_forward

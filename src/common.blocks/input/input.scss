@@ -5,6 +5,7 @@
   &__shell {
     display: flex;
     justify-content: space-between;
+    position: relative;
     height: 44px;
     border: 1px solid vars.$dark-shade-25;
     border-radius: 4px;
@@ -22,10 +23,14 @@
   }
 
   &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
     right: 0;
-    line-height: 43px;
+    height: 42px;
     width: 44px;
-    text-align: center;
     cursor: pointer;
     background: vars.$primary-gradient;
     @include vars.text-gradient;

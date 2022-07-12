@@ -9,7 +9,7 @@ mixin input(options)
       ...(options.placeholder ? {placeholder: options.placeholder} : {placeholder: options.type.charAt(0).toUpperCase()+options.type.slice(1)}),
       ...(options.required === true && {required: true}),
       ...(options.mask && {'data-mask': options.mask}),
-      ...(options.button && {style: 'padding-right: 0;'})
+      ...(options.button && {style: 'padding-right: 0; margin-right: 44px;'})
     };
 
   .input
@@ -17,5 +17,3 @@ mixin input(options)
       input.input__inside&attributes(insideAttrs) 
       if options.button 
         input.input__button.material-icons(type='submit' value='arrow_forward')
-    
-          

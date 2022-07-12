@@ -8,6 +8,7 @@ include common/like/like.pug
 include common/rate/rate.pug
 include common/range/range.pug
 include common/button/button.pug
+include common/icon-link/icon-link.pug
 
 doctype html
 html(lang="ru")
@@ -162,7 +163,19 @@ html(lang="ru")
                 active: true
               })
             .page__wrapper
-              a click me
+              +icon-link({
+                text: 'click me',
+                link: '#'
+              }) 
+              +icon-link({
+                text: 'click me',
+                link: '#',
+                active: true
+              })
+            +button({
+              text: 'перейти к оплате',
+              theme: 'arrow'
+            })
       .page__fourth-block
         .page__element.page__element_width_266
           .page__titles

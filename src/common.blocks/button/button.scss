@@ -1,6 +1,7 @@
 @use '../../assets/scss/variables' as vars;
 
 .button {
+  position: relative;
   cursor: pointer;
   border-inline: 2px solid transparent;
   border-radius: 22px;
@@ -23,13 +24,29 @@
     font-size: 12px;
     font-weight: bold;
     line-height: 40px;
-    padding-inline: 20px;
+    padding-inline: 18px;
 
     &_theme {
       &_white {
-      background-color: white;
-      color: #BC9CFF;
-      }     
+        background-color: white;
+        color: #BC9CFF;
+      }
+
+      &_arrow {
+        width: 316px;
+      }
     }
+  }
+
+  &__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 44px;
+    height: 44px;
+    color: white;
   }
 }
