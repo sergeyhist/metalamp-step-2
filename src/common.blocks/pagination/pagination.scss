@@ -1,0 +1,57 @@
+@use 'assets/scss/variables' as vars;
+
+.pagination {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  width: fit-content;
+  align-items: center;
+
+  &__pages {
+    display: flex;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+  }
+
+  &__number {
+    font-size: 12px;
+
+    &_current {
+      border-radius: 22px;
+      background: vars.$primary-gradient;
+      color: white;
+
+      &:hover, &:focus, &:focus-visible {
+        color: white;
+        background: vars.$primary-gradient-50;
+        font-weight: normal;
+      }
+    }
+
+    &_hidden {
+      display: none;
+    }
+
+    &_fake {
+      &::after {
+        content: '...';
+      }
+    }
+  }
+
+  &__arrow {
+    background: vars.$secondary-gradient;
+    color: white;
+    border-radius: 22px;
+
+    &:hover, &:focus-visible {
+      background: vars.$secondary-gradient-50;
+    }
+  }
+}

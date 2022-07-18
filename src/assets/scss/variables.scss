@@ -6,10 +6,12 @@ $dark-shade-10: rgba($dark-shade, .1);
 $dark-shade-5: rgba($dark-shade, .05);
 $purple: #BC9CFF;
 $green: #6FCF97;
-$primary-gradient: linear-gradient(to bottom,#BC9CFF,#8BA4F9);
-$primary-gradient-25: linear-gradient(to bottom,rgba(#BC9CFF, .25), rgba(#8BA4F9, .25));
-$primary-gradient-50: linear-gradient(to bottom,rgba(#BC9CFF, .5), rgba(#8BA4F9, .5));
-$secondary-gradient: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+$primary-gradient: linear-gradient(to bottom, #BC9CFF, #8BA4F9);
+$primary-gradient-25: linear-gradient(to bottom, rgba(#BC9CFF, .25), rgba(#8BA4F9, .25));
+$primary-gradient-50: linear-gradient(to bottom, rgba(#BC9CFF, .5), rgba(#8BA4F9, .5));
+$secondary-gradient: linear-gradient(to bottom, #6FCF97, #66D2EA);
+$secondary-gradient-25: linear-gradient(to bottom, rgba(#6FCF97, .25), rgba(#66D2EA, .25));
+$secondary-gradient-50: linear-gradient(to bottom, rgba(#6FCF97, .5), rgba(#66D2EA, .5));
 
 @mixin text-gradient {
   -webkit-background-clip: text;

@@ -9,6 +9,7 @@ include common/rate/rate.pug
 include common/range/range.pug
 include common/button/button.pug
 include common/icon-link/icon-link.pug
+include common/pagination/pagination.pug
 
 doctype html
 html(lang="ru")
@@ -176,6 +177,13 @@ html(lang="ru")
               text: 'перейти к оплате',
               theme: 'arrow'
             })
+        .page__element
+          .page__titles
+            h3 pagination
+          +pagination({
+            allItemsCount: 172,
+            pageItemsCount: 12
+          })
       .page__fourth-block
         .page__element.page__element_width_266
           .page__titles

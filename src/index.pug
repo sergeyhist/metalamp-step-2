@@ -7,12 +7,27 @@ html(lang="en")
     title Main page
   body 
     nav
-      ul Ui-Kit 
-        li
-          a(href='./headers-footers.html') Headers & Footers
-        li
-          a(href='./colors-type.html') Colors & Type
-        li 
-          a(href='./cards.html') Cards
-        li 
-          a(href='./form-elements.html') Form Elements
+      -
+        let uiKitItems = [
+          {
+            name: 'Headers & Footers',
+            link: './headers-footers.html'
+          },
+          {
+            name: 'Colors & Type',
+            link: './colors-type.html'
+          },
+          {
+            name: 'Cards',
+            link: './cards.html'
+          },
+          {
+            name: 'Form Elements',
+            link: './form-elements.html'
+          }
+        ];
+
+      ul.main__menu Ui-Kit
+        - for (let item of uiKitItems)
+          li.main__element
+            a.main__link(href=item.link) #{item.name}
