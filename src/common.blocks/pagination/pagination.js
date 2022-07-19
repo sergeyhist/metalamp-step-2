@@ -6,12 +6,25 @@ for (let element of paginationElements) {
   let paginationNumbers = element.querySelectorAll('.pagination__number');
   let currentNumber = element.querySelector('.pagination__number_current');
   let nextButton = element.querySelector('.pagination__arrow');
-  
+  let paginationInfo = element.querySelector('.pagination__info');
+  let pagesElement = element.querySelector('.pagination__pages');
+
   let changeCurrentNumber = (pages, newCurrent) => {
     for (let page of pages) {
       page.classList.contains('pagination__number_current') && page.classList.remove('pagination__number_current');
     };
     newCurrent.classList.add('pagination__number_current');
+    
+    let infoAllCount = pagesElement.dataset.allItemsCount > 100 ? '100+' : pagesElement.dataset.allItemsCount;
+    let infoCurrentCount = +newCurrent.textContent * pagesElement.dataset.pageItemsCount - pagesElement.dataset.pageItemsCount + 1;
+    let infoPageCount = infoCurrentCount + +pagesElement.dataset.pageItemsCount - 1;
+
+    if (newCurrent == pages[pages.length-1]) {
+      paginationInfo.textContent = infoCurrentCount + '-' + pagesElement.dataset.allItemsCount + ' из ' + infoAllCount + ' вариантов аренды';
+    } else {
+      paginationInfo.textContent = infoCurrentCount + '-' + infoPageCount + ' из ' + infoAllCount + ' вариантов аренды';
+    };
+
     return newCurrent;
   };
 

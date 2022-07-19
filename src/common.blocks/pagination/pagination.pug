@@ -1,12 +1,15 @@
 mixin pagination(options)
   .pagination
     -
-      let pagesCount = Math.round(options.allItemsCount / options.pageItemsCount);
+      let pagesCount = Math.ceil(options.allItemsCount / options.pageItemsCount);
+      let paginationAttrs = {
+        'data-all-items-count': options.allItemsCount,
+        'data-page-items-count': options.pageItemsCount
+      };
 
-    .pagination__pages
-      - for (let i = 1; i <= pagesCount + 1; i++)
+    .pagination__pages&attributes(paginationAttrs)
+      - for (let i = 1; i <= pagesCount; i++)
         a.pagination__item.pagination__number.unselect #{i}
       button.pagination__item.pagination__arrow
         span.material-icons.unselect arrow_forward
-    .pagination__info
-      span 1-12 из 100+ вариантов аренды
+    span.pagination__info.unselect
