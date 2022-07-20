@@ -7,7 +7,7 @@ mixin dropdown(options)
       ...(options.type && {'data-dropdown-type': options.type})
     }
     let shellAttrs = {
-      ...(options.focused === true && {class: 'input__shell_focused'})
+      ...(options.submenuActive === true && {class: 'dropdown__shell_focused dropdown__shell_radius_top'})
     };
     let insideAttrs = {
       ...(options.value && {value: options.value}),
@@ -22,6 +22,9 @@ mixin dropdown(options)
     let dateToAttrs = {
       ...(options.valueTo && {value: options.valueTo})
     };
+    let submenuAttrs = {
+      ...(options.submenuActive === true && {class: 'dropdown__submenu_visible'})
+    };
 
   .dropdown&attributes(dropdownAttrs)
     .dropdown__shell(tabindex="0")&attributes(shellAttrs)
@@ -33,13 +36,13 @@ mixin dropdown(options)
         span.dropdown__arrow.material-icons expand_more
       .dropdown__calendar
     if options.items
-      .dropdown__submenu
+      .dropdown__submenu&attributes(submenuAttrs)
         - for (let item of options.items)
           .dropdown__submenu-element
-            h3.dropdown__title #{item}
+            h3.dropdown__title #{item.name ? item.name : item}
             .dropdown__counter
               button.dropdown__button.dropdown__button-minus -
-              h3.dropdown__count 0
+              h3.dropdown__count #{item.count ? item.count : 0}
               button.dropdown__button.dropdown__button-plus +
         if isGuests
           .dropdown__buttons

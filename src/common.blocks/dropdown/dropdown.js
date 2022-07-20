@@ -35,7 +35,7 @@ for (let element of dropdownElements) {
       dropdownShell.classList.add('dropdown__shell_radius_top');
     };
 
-    dropdownShell.onblur = (e) => {
+    dropdownShell.onblur = () => {
       let focusCheck = setInterval(() => {
         if (!element.contains(document.activeElement) && (document.activeElement != document.body)) {
           dropdownSubmenu.classList.remove('dropdown__submenu_visible');
@@ -87,7 +87,7 @@ for (let element of dropdownElements) {
             dropdownInside.dataset.countSum = countSum > 0 ? countSum+textVariants[(countSum % 100 > 4 && countSum %100 < 20) ? 2 : cases[countSum % 10 < 5 ? countSum % 10 : 5]] : '';
             break;
           case 'room':
-            let numbers = [];
+            let textCounts = [];
             let dropdownCounters = dropdownSubmenu.querySelectorAll('.dropdown__counter');
             for (let counter of dropdownCounters) {
               switch(counter.previousSibling.textContent) {
@@ -101,11 +101,13 @@ for (let element of dropdownElements) {
                   textVariants = [' ванная комната', ' ванные комнаты', ' ванных комнат'];
               };
               let number = counter.querySelector('.dropdown__count').textContent;
-              number > 0  && numbers.push(number+textVariants[(number % 100 > 4 && number %100 < 20) ? 2 : cases[number % 10 < 5 ? number % 10 : 5]]);
+              number > 0 ? textCounts.push(number+textVariants[(number % 100 > 4 && number %100 < 20) ? 2 : cases[number % 10 < 5 ? number % 10 : 5]]) : textCounts.push('нет '+textVariants[2]);
             };
-            dropdownInside.value = numbers.join(', ');
+            dropdownInside.value = textCounts.join(', ');
+            dropdownInside.value = dropdownInside.value.charAt(0).toUpperCase()+dropdownInside.value.slice(1);
         };
       };
+      number.dispatchEvent(new Event('change'));
     };
   };
 

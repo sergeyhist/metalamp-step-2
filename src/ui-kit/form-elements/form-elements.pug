@@ -23,7 +23,7 @@ html(lang="ru")
       +icon
     .page__main
       .page__first-block
-        .page__wrapper.page__wrapper_input
+        .page__wrapper.page__wrapper_column
           .page__element
             .page__titles
               h3 text field
@@ -185,12 +185,47 @@ html(lang="ru")
             pageItemsCount: 12
           })
       .page__fourth-block
-        .page__element.page__element_width_266
-          .page__titles
-            h3 dropdown 
-            h3 default
-          +dropdown({
-            type: 'room',
-            items: ['спальни', 'кровати', 'ванные комнаты'],
-            placeholder: 'Количество спален, кроватей и ванных комнат'
-          })  
+        .page__wrapper.page__wrapper_column
+          .page__element.page__element_width_266
+            .page__titles
+              h3 dropdown 
+              h3 default
+            +dropdown({
+              type: 'room',
+              items: [
+                {
+                  name: 'спальни',
+                  count: 2
+                },
+                {
+                  name: 'кровати',
+                  count: 2
+                },
+                {
+                  name: 'ванные комнаты'
+                }
+              ],
+              placeholder: 'Количество спален, кроватей и ванных комнат'
+            })  
+          .page__element.page__element_width_266
+            .page__titles
+              h3 dropdown
+              h3 expanded
+            +dropdown({
+              type: 'room',
+              items: [
+                {
+                  name: 'спальни',
+                  count: 2
+                },
+                {
+                  name: 'кровати',
+                  count: 2
+                },
+                {
+                  name: 'ванные комнаты'
+                }
+              ],
+              placeholder: 'Количество спален, кроватей и ванных комнат',
+              submenuActive: true
+            })
