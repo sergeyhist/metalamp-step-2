@@ -229,3 +229,34 @@ html(lang="ru")
               placeholder: 'Количество спален, кроватей и ванных комнат',
               submenuActive: true
             })
+          .page__element.page__element_width_266
+            +checkbox({
+              expandable: true,
+              title: 'expandable checkbox list',
+              items: [
+                {text: 'Завтрак'},
+                {text: 'Письменный стол', checked: true},
+                {text: 'Стул для кормления', checked: true},
+                {text: 'Кроватка', checked: true},
+                {text: 'Телевизор'},
+                {text: 'Шампунь'},
+                {text: 'Телевизор'},
+                {text: 'Шампунь'}
+              ]
+            })
+          .page__element.page__element_width_266
+            +checkbox({
+              expandable: true,
+              title: 'expandable checkbox list',
+              expanded: true,
+              items: [
+                {text: 'Завтрак'},
+                {text: 'Письменный стол', checked: true},
+                {text: 'Стул для кормления', checked: true},
+                {text: 'Кроватка', checked: true},
+                {text: 'Телевизор'},
+                {text: 'Шампунь'},
+                {text: 'Телевизор'},
+                {text: 'Шампунь'}
+              ]
+            })

@@ -1,16 +1,31 @@
 mixin checkbox(options)
   .checkbox
-    - for (let item of options.items)
-      -
-        let fieldAttrs = {
-          ...(item.checked === true && {checked: true})
-        };
+    -
+      let isExpandable = options.expandable === true;
+      let listAttrs = {
+        ...(isExpandable && {class: 'checkbox__list_expandable'}),
+        ...(options.expanded === true && {class: 'checkbox__list_expandable checkbox__list_visible'})
+      };
+      let arrowAttrs = {
+        ...(options.expanded === true && {class: 'checkbox__arrow_rotate'})
+      };
 
-      label.checkbox__label.unselect #{item.text}<br>#{item.hint}
-        .checkbox__fields
-          input.checkbox__field.checkbox__field_hidden(type='checkbox')&attributes(fieldAttrs)
-          .checkbox__field.checkbox__field_visible.unselect
-          .checkbox__flag
-            div
-              
-              
+
+    if (isExpandable)
+      .checkbox__shell
+        .checkbox__title.unselect #{options.title}
+        .checkbox__arrow.material-icons.unselect&attributes(arrowAttrs) expand_more
+
+    .checkbox__list&attributes(listAttrs)
+      - for (let item of options.items)
+        -
+          let fieldAttrs = {
+            ...(item.checked === true && {checked: true})
+          };
+
+        label.checkbox__label.unselect #{item.text}<br>#{item.hint}
+          .checkbox__fields
+            input.checkbox__field.checkbox__field_hidden(type='checkbox')&attributes(fieldAttrs)
+            .checkbox__field.checkbox__field_visible.unselect
+            .checkbox__flag
+              div

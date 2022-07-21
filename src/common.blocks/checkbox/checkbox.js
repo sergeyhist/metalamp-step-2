@@ -4,6 +4,22 @@ let checkboxElements = document.querySelectorAll('.checkbox');
 
 for (let element of checkboxElements) {
   let elementLabels = element.querySelectorAll('.checkbox__label');
+  
+  if (element.querySelector('.checkbox__shell')) {
+    let checkboxShell = element.querySelector('.checkbox__shell');
+    let checkboxList = element.querySelector('.checkbox__list');
+    let checkboxArrow = element.querySelector('.checkbox__arrow');
+
+    checkboxShell.onclick = () => {
+      if (checkboxList.classList.contains('checkbox__list_visible')) {
+        checkboxList.classList.remove('checkbox__list_visible');
+        checkboxArrow.classList.remove('checkbox__arrow_rotate');
+      } else {
+        checkboxList.classList.add('checkbox__list_visible');
+        checkboxArrow.classList.add('checkbox__arrow_rotate');
+      };
+    };
+  };
 
   for (let label of elementLabels) {
     let hiddenField = label.querySelector('.checkbox__field_hidden');

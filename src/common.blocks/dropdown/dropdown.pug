@@ -23,7 +23,7 @@ mixin dropdown(options)
       ...(options.valueTo && {value: options.valueTo})
     };
     let submenuAttrs = {
-      ...(options.submenuActive === true && {class: 'dropdown__submenu_visible'})
+      ...(options.submenuActive === true && {class: 'dropdown__submenu_visible dropdown__submenu_solid'})
     };
 
   .dropdown&attributes(dropdownAttrs)

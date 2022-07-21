@@ -93,6 +93,10 @@
       opacity: 1;
       transform: scaleY(1);
     }
+
+    &_solid {
+      position: relative;
+    }
   }
   
   &__submenu-element {
