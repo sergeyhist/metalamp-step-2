@@ -2,6 +2,7 @@ mixin checkbox(options)
   .checkbox
     -
       let isExpandable = options.expandable === true;
+      let isRich = options.rich === true;
       let listAttrs = {
         ...(isExpandable && {class: 'checkbox__list_expandable'}),
         ...(options.expanded === true && {class: 'checkbox__list_expandable checkbox__list_visible'})
@@ -9,7 +10,12 @@ mixin checkbox(options)
       let arrowAttrs = {
         ...(options.expanded === true && {class: 'checkbox__arrow_rotate'})
       };
-
+      let labelAttrs = {
+        ...(isRich && {class: 'checkbox__label_rich'})
+      };
+      let hintAttrs = {
+        ...(isRich && {class: 'checkbox__hint_rich'})
+      };
 
     if (isExpandable)
       .checkbox__shell
@@ -23,7 +29,10 @@ mixin checkbox(options)
             ...(item.checked === true && {checked: true})
           };
 
-        label.checkbox__label.unselect #{item.text}<br>#{item.hint}
+        label.checkbox__block.unselect 
+          .checkbox__labels
+            .checkbox__label&attributes(labelAttrs) #{item.text}<br>
+            .checkbox__hint&attributes(hintAttrs) #{item.hint}
           .checkbox__fields
             input.checkbox__field.checkbox__field_hidden(type='checkbox')&attributes(fieldAttrs)
             .checkbox__field.checkbox__field_visible.unselect

@@ -9,11 +9,10 @@ for (let element of dropdownElements) {
     let dropdownInside = dropdownShell.querySelector('.dropdown__inside');
     let dropdownSubmenu = element.querySelector('.dropdown__submenu');
     let countNumbers = dropdownSubmenu.querySelectorAll('.dropdown__count');
-
+    let clearButton = dropdownSubmenu.querySelector('.dropdown__button-clear');
+    let confirmButton = dropdownSubmenu.querySelector('.dropdown__button-confirm');
+    
     if (dropdownInside.dataset.dropdownType == 'guests') {
-      let clearButton = dropdownSubmenu.querySelector('.dropdown__button-clear');
-      let confirmButton = dropdownSubmenu.querySelector('.dropdown__button-confirm');
-
       clearButton.onclick = () => {
         for (let number of countNumbers) {
           number.textContent = 0;
@@ -23,7 +22,6 @@ for (let element of dropdownElements) {
       };
 
       confirmButton.onclick = () => {
-        countNumbers[0].dispatchEvent(new Event('change'));
         dropdownInside.value = dropdownInside.dataset.countSum;
         dropdownShell.dispatchEvent(new Event('click'));
       };
@@ -78,7 +76,7 @@ for (let element of dropdownElements) {
         switch(dropdownInside.dataset.dropdownType) {
           case 'guests':
             let countSum = 0;
-            let clearButton = dropdownSubmenu.querySelector('.dropdown__button-clear');
+
             textVariants = [' гость', ' гостя', ' гостей'];
             for (let count of countNumbers) {
               countSum += +count.textContent;
@@ -89,6 +87,7 @@ for (let element of dropdownElements) {
           case 'room':
             let textCounts = [];
             let dropdownCounters = dropdownSubmenu.querySelectorAll('.dropdown__counter');
+
             for (let counter of dropdownCounters) {
               switch(counter.previousSibling.textContent) {
                 case 'спальни':
@@ -108,6 +107,7 @@ for (let element of dropdownElements) {
         };
       };
       number.dispatchEvent(new Event('change'));
+      confirmButton?.dispatchEvent(new Event('click'));
     };
   };
 

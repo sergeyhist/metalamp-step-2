@@ -39,11 +39,11 @@ mixin dropdown(options)
       .dropdown__submenu&attributes(submenuAttrs)
         - for (let item of options.items)
           .dropdown__submenu-element
-            h3.dropdown__title #{item.name ? item.name : item}
+            h3.dropdown__title.unselect #{item.name ? item.name : item}
             .dropdown__counter
-              button.dropdown__button.dropdown__button-minus -
-              h3.dropdown__count #{item.count ? item.count : 0}
-              button.dropdown__button.dropdown__button-plus +
+              button.dropdown__button.dropdown__button-minus.unselect -
+              h3.dropdown__count.unselect #{item.count ? item.count : 0}
+              button.dropdown__button.dropdown__button-plus.unselect +
         if isGuests
           .dropdown__buttons
             button.dropdown__button-clear очистить

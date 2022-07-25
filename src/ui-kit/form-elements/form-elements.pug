@@ -22,170 +22,171 @@ html(lang="ru")
     .page__icon
       +icon
     .page__main
-      .page__first-block
-        .page__wrapper.page__wrapper_column
+      .page__block
+        .page__wrapper
+          .page__wrapper.page__wrapper_vertical
+            .page__element
+              .page__titles
+                h3 text field
+                h3 default
+              +input({
+                type: 'text'
+              })
+            .page__element
+              .page__titles
+                h3 text field
+                h3 hover/focus
+              +input({
+                type: 'text',
+                focused: true,
+                value: 'This is pretty awesome'
+              })
+            .page__element
+              .page__titles
+                h3 dropdown 
+              +dropdown({
+                type: 'guests',
+                items: ['взрослые', 'дети', 'младенцы'],
+                placeholder: 'Сколько гостей'
+              })
+            .page__element
+              .page__titles
+                h3 masked text field 
+              +input({
+                type: 'text',
+                placeholder: 'ДД.ММ.ГГГГ',
+                mask: 'date'
+              })
           .page__element
             .page__titles
-              h3 text field
-              h3 default
-            +input({
-              type: 'text'
-            })
-          .page__element
-            .page__titles
-              h3 text field
-              h3 hover/focus
-            +input({
-              type: 'text',
-              focused: true,
-              value: 'This is pretty awesome'
-            })
-          .page__element
-            .page__titles
-              h3 dropdown 
+              h3.page__element_width_150 date dropdown
+              h3.page__element_width_150 date dropdown
             +dropdown({
-              type: 'guests',
-              items: ['взрослые', 'дети', 'младенцы'],
-              placeholder: 'Сколько гостей'
-            })
-          .page__element
-            .page__titles
-              h3 masked text field 
-            +input({
-              type: 'text',
+              type: 'dates',
               placeholder: 'ДД.ММ.ГГГГ',
-              mask: 'date'
+              valueTo: '19.08.2019'
             })
-        .page__element
-          .page__titles
-            h3.page__element_width_150 date dropdown
-            h3.page__element_width_150 date dropdown
-          +dropdown({
-            type: 'dates',
-            placeholder: 'ДД.ММ.ГГГГ',
-            valueTo: '19.08.2019'
-          })
-        .page__element.page__element_width_266
-          .page__titles
-            h3 filter date dropdown
-          +dropdown({
-            type: 'date-range',
-            placeholder: 'Диапазон дат',
-            value: '19.08.2019-23.08.2019'
-          }) 
-        .page__element.page__element_width_266
-          .page__titles
-            h3 subscription text field
-          +input({
-            type: 'email',
-            button: true
-          })
-      .page__second-block 
-        .page__element
-          .page__titles
-            h3 checkbox buttons
-          +checkbox({
-            items: [
-              {text: 'Можно курить'},
-              {text: 'Можно с питомцами', checked: true},
-              {text: 'Можно пригласить гостей', hint: '(до 10 человек)', checked: true}]
-          })
-        .page__element
-          .page__titles
-            h3 radio buttons
-          +radio({
-            name: 'gender',
-            items: [
-              {text: 'Мужчина', checked: true},
-              {text: 'Женщина'}
-            ]
-          })
-        .page__element
-          .page__titles
-            h3 toggle
-          +toggle({
-            items: [
-              {text: 'Получать спецпредложения', active: true},
-              {text: 'Получать спецпредложения'}
-            ]
-          })
-        .page__element 
-          .page__titles 
-            h3 like button
-          .page__wrapper.page__wrapper_like
-            +like({
-              count: 2
+          .page__element.page__element_width_266
+            .page__titles
+              h3 filter date dropdown
+            +dropdown({
+              type: 'date-range',
+              placeholder: 'Диапазон дат',
+              value: '19.08.2019-23.08.2019'
+            }) 
+          .page__element.page__element_width_266
+            .page__titles
+              h3 subscription text field
+            +input({
+              type: 'email',
+              button: true
             })
-            +like({
-              count: 12,
-              active: true
+        .page__wrapper
+          .page__element.page__element_gap_16
+            .page__titles
+              h3 checkbox buttons
+            +checkbox({
+              items: [
+                {text: 'Можно курить'},
+                {text: 'Можно с питомцами', checked: true},
+                {text: 'Можно пригласить гостей', hint: '(до 10 человек)', checked: true}]
             })
-        .page__element 
-          .page__titles 
-            h3 rate button
-          .page__wrapper
-            +rate({
-              rating: 4
+          .page__element.page__element_gap_16
+            .page__titles
+              h3 radio buttons
+            +radio({
+              name: 'gender',
+              items: [
+                {text: 'Мужчина', checked: true},
+                {text: 'Женщина'}
+              ]
             })
-            +rate({
-              rating: 5
+          .page__element.page__element_gap_16
+            .page__titles
+              h3 toggle
+            +toggle({
+              items: [
+                {text: 'Получать спецпредложения', active: true},
+                {text: 'Получать спецпредложения'}
+              ]
             })
-      .page__third-block 
-        .page__element.page__element_width_266 
-          .page__titles 
-            h3 range slider
-            h3#range-value 0₽ - 0₽
-          +range({
-            max: 20000,
-            step: 1000,
-            defMin: 5000,
-            defMax: 10000
-          })
-        .page__element
-          .page__titles
-            h3 buttons
-          .page__wrapper.page__wrapper_buttons
-            .page__wrapper
-              +button({
-                text: 'click me'
+          .page__element.page__element_gap_16
+            .page__titles 
+              h3 like button
+            .page__wrapper.page__wrapper_horizontal.page__wrapper_gap_10
+              +like({
+                count: 2
               })
-              +button({
-                text: 'click me',
+              +like({
+                count: 12,
                 active: true
               })
-            .page__wrapper
-              +button({
-                text: 'click me',
-                theme: 'white'
+          .page__element.page__element_gap_16 
+            .page__titles 
+              h3 rate button
+            .page__wrapper.page__wrapper_horizontal
+              +rate({
+                rating: 4
               })
-              +button({
-                text: 'click me',
-                theme: 'white',
-                active: true
+              +rate({
+                rating: 5
               })
-            .page__wrapper
-              +icon-link({
-                text: 'click me',
-                link: '#'
-              }) 
-              +icon-link({
-                text: 'click me',
-                link: '#',
-                active: true
-              })
-            +button({
-              text: 'перейти к оплате',
-              theme: 'arrow'
+        .page__wrapper
+          .page__element.page__element_width_266.page__element_gap_20 
+            .page__titles 
+              h3 range slider
+              h3#range-value 0₽ - 0₽
+            +range({
+              max: 20000,
+              step: 1000,
+              defMin: 5000,
+              defMax: 10000
             })
-        .page__element
-          .page__titles
-            h3 pagination
-          +pagination({
-            allItemsCount: 172,
-            pageItemsCount: 12
-          })
-      .page__fourth-block
-        .page__wrapper.page__wrapper_column
+          .page__element.page__element_gap_16
+            .page__titles
+              h3 buttons
+            .page__wrapper.page__wrapper_gap_30
+              .page__wrapper.page__wrapper_horizontal
+                +button({
+                  text: 'click me'
+                })
+                +button({
+                  text: 'click me',
+                  active: true
+                })
+              .page__wrapper.page__wrapper_horizontal
+                +button({
+                  text: 'click me',
+                  theme: 'white'
+                })
+                +button({
+                  text: 'click me',
+                  theme: 'white',
+                  active: true
+                })
+              .page__wrapper.page__wrapper_horizontal
+                +icon-link({
+                  text: 'click me',
+                  link: '#'
+                }) 
+                +icon-link({
+                  text: 'click me',
+                  link: '#',
+                  active: true
+                })
+              +button({
+                text: 'перейти к оплате',
+                theme: 'arrow'
+              })
+          .page__element.page__element_gap_16
+            .page__titles
+              h3 pagination
+            +pagination({
+              allItemsCount: 172,
+              pageItemsCount: 12
+            })
+      .page__block
+        .page__wrapper.page__wrapper_vertical
           .page__element.page__element_width_266
             .page__titles
               h3 dropdown 
@@ -193,17 +194,9 @@ html(lang="ru")
             +dropdown({
               type: 'room',
               items: [
-                {
-                  name: 'спальни',
-                  count: 2
-                },
-                {
-                  name: 'кровати',
-                  count: 2
-                },
-                {
-                  name: 'ванные комнаты'
-                }
+                {name: 'спальни', count: 2},
+                {name: 'кровати', count: 2},
+                {name: 'ванные комнаты'}
               ],
               placeholder: 'Количество спален, кроватей и ванных комнат'
             })  
@@ -214,21 +207,41 @@ html(lang="ru")
             +dropdown({
               type: 'room',
               items: [
-                {
-                  name: 'спальни',
-                  count: 2
-                },
-                {
-                  name: 'кровати',
-                  count: 2
-                },
-                {
-                  name: 'ванные комнаты'
-                }
+                {name: 'спальни', count: 2},
+                {name: 'кровати', count: 2},
+                {name: 'ванные комнаты'}
               ],
               placeholder: 'Количество спален, кроватей и ванных комнат',
               submenuActive: true
             })
+        .page__element
+          .page__titles
+            h3 dropdown
+          +dropdown({
+            type: 'guests',
+            items: [
+              'взрослые',
+              'дети',
+              'младенцы'
+            ],
+            placeholder: 'Сколько гостей',
+            submenuActive: true
+          })
+        .page__element
+          .page__titles
+            h3 dropdown
+          +dropdown({
+            type: 'guests',
+            items: [
+              {name: 'взрослые', count: 2},
+              {name: 'дети', count: 1},
+              'младенцы'
+            ],
+            placeholder: 'Сколько гостей',
+            submenuActive: true
+          })
+      .page__block
+        .page__wrapper.page__wrapper_vertical
           .page__element.page__element_width_266
             +checkbox({
               expandable: true,
@@ -258,5 +271,16 @@ html(lang="ru")
                 {text: 'Шампунь'},
                 {text: 'Телевизор'},
                 {text: 'Шампунь'}
+              ]
+            })
+        .page__wrapper
+          .page__element.page__element_width_266.page__element_gap_16     
+            .page__titles
+              h3 rich checkbox buttons
+            +checkbox({
+              rich: true,
+              items: [
+                {text: 'Широкий коридор', hint: 'Ширина коридоров в номере не менее 91 см.'},
+                {text: 'Помощник для инвалидов', hint: 'На 1 этаже вас встретит специалист и проводит до номера.'}
               ]
             })

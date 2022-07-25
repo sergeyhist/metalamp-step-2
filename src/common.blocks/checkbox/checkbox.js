@@ -3,7 +3,7 @@ import './checkbox.scss';
 let checkboxElements = document.querySelectorAll('.checkbox');
 
 for (let element of checkboxElements) {
-  let elementLabels = element.querySelectorAll('.checkbox__label');
+  let elementLabels = element.querySelectorAll('.checkbox__block');
   
   if (element.querySelector('.checkbox__shell')) {
     let checkboxShell = element.querySelector('.checkbox__shell');

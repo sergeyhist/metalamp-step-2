@@ -11,60 +11,50 @@
     display: grid;
     margin-block: 140px;
     margin-inline: 141px;
-    row-gap: 100px;
-    grid-template-areas: 'first-block second-block third-block' 'fourth-block fourth-block fourth-block';
+
+    & > div:nth-child(2) {
+      margin-top: 100px;
+    }
+
+    & > div:nth-child(3) {
+      margin-top: 40px;
+
+      & > div:not(:nth-child(1)) {
+        padding-top: 14px;
+      }
+    }
   }
 
-  &__first-block {
-    display: flex;
-    flex-direction: column;
-    grid-area: first-block;
-    width: 320px;
-    gap: 40px;
-  }
-
-  &__second-block {
-    grid-area: second-block;
+  &__block {
     display: grid;
-    height: 92%;
+    grid-template-columns: 1fr 1fr 1fr;
 
-    & > div {
-      row-gap: 16px;
+    & > div:not(:nth-child(1)) {
+      justify-self: end;
     }
-  }
-
-  &__third-block {
-    display: grid;
-    height: 92%;
-
-    & > div {
-      row-gap: 16px;
-    }
-
-    & > div:nth-child(1) {
-      row-gap: 20px;
-    }
-  }
-
-  &__fourth-block {
-    grid-area: fourth-block;
   }
 
   &__wrapper {
     display: flex;
-    gap: 20px;
+    gap: 40px;
+    width: 320px;
+    flex-direction: column;
 
-    &_column {
-      flex-direction: column;
+    &_vertical {
+      gap: 20px;
     }
 
-    &_like {
+    &_horizontal {
+      gap: 20px;
+      flex-direction: row;
+    }
+
+    &_gap_10 {
       gap: 10px;
     }
 
-    &_buttons {
+    &_gap_30 {
       gap: 30px;
-      flex-direction: column;
     }
   }
 
@@ -72,6 +62,7 @@
     display: flex;
     flex-direction: column;
     row-gap: 5px;
+    width: 320px;
 
     &_width {
       &_266 {
@@ -80,6 +71,16 @@
 
       &_150 {
         width: 150px;
+      }
+    }
+
+    &_gap {
+      &_16 {
+        row-gap: 16px;
+      }
+
+      &_20 {
+        row-gap: 20px;
       }
     }
   }
