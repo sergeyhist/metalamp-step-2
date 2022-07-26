@@ -10,6 +10,7 @@ include common/range/range.pug
 include common/button/button.pug
 include common/icon-link/icon-link.pug
 include common/pagination/pagination.pug
+include common/bullet/bullet.pug
 
 doctype html
 html(lang="ru")
@@ -280,7 +281,18 @@ html(lang="ru")
             +checkbox({
               rich: true,
               items: [
-                {text: 'Широкий коридор', hint: 'Ширина коридоров в номере не менее 91 см.'},
-                {text: 'Помощник для инвалидов', hint: 'На 1 этаже вас встретит специалист и проводит до номера.'}
+                {text: 'Широкий коридор', hint: 'Ширина коридоров в номере/br не менее 91 см.'},
+                {text: 'Помощник для инвалидов', hint: 'На 1 этаже вас встретит специалист/br и проводит до номера.'}
+              ]
+            })
+        .page__wrapper
+          .page__element.page__element_gap_16
+            .page__titles
+              h3 bullet list
+            +bullet({
+              items: [
+                'Нельзя с питомцами',
+                'Без вечеринок и мероприятий',
+                'Время прибытия — после 13:00,/br а выезд до 12:00'
               ]
             })

@@ -31,8 +31,11 @@ mixin checkbox(options)
 
         label.checkbox__block.unselect 
           .checkbox__labels
-            .checkbox__label&attributes(labelAttrs) #{item.text}<br>
-            .checkbox__hint&attributes(hintAttrs) #{item.hint}
+            .checkbox__label&attributes(labelAttrs) #{item.text}
+            if item.hint
+              .checkbox__hint&attributes(hintAttrs)
+                - for (let text of item.hint.split('/br'))
+                  p #{text}
           .checkbox__fields
             input.checkbox__field.checkbox__field_hidden(type='checkbox')&attributes(fieldAttrs)
             .checkbox__field.checkbox__field_visible.unselect

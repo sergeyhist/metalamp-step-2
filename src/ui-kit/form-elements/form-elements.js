@@ -10,3 +10,4 @@ import 'common/range/range.js';
 import 'common/button/button.js';
 import 'common/icon-link/icon-link.js';
 import 'common/pagination/pagination.js';
+import 'common/bullet/bullet.js';

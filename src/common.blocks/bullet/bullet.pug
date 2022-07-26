@@ -1,0 +1,8 @@
+mixin bullet(options)
+  ul.bullet
+    - for (let item of options.items)
+      li.bullet__element
+        .bullet__dot
+        .bullet__text
+          - for (let text of item.split('/br'))
+            p #{text}

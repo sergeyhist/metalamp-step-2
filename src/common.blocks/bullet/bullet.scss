@@ -1,0 +1,24 @@
+@use 'assets/scss/variables' as vars;
+
+.bullet {
+  display: grid;
+  gap: 10px;
+
+  &__element {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__dot {
+    width: 10px;
+    height: 10px;
+    margin-top: 4px;
+    clip-path: circle(50%);
+    background: vars.$dark-shade-25;
+  }
+
+  &__text {
+    margin-top: -3px;
+    line-height: 24px;
+  }
+}
