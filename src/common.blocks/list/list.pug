@@ -1,0 +1,12 @@
+mixin list(options)
+  ul.list
+    - for (let item of options.items)
+      li.list__element
+        .list__content
+          .list__icon.material-icons #{item.icon}
+          .list__text-content
+            .list__title #{item.title}
+            .list__hint
+              - for (let text of item.hint.split('/br'))
+                p #{text}
+        .list__line

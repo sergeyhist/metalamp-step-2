@@ -1,0 +1,41 @@
+@use 'assets/scss/variables' as vars;
+
+.list {
+
+  &__element {
+    display: grid;
+
+    &:not(:nth-child(1)) {
+      padding-top: 20px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__icon {
+    color: vars.$purple;
+    line-height: 48px;
+    font-size: 48px;
+  }
+
+  &__textContent {
+
+  }
+
+  &__title {
+    font-weight: bold;
+  }
+
+  &__hint {
+  }
+
+  &__line {
+    margin-top: 17px;
+    width: 280px;
+    height: 1px;
+    background: vars.$dark-shade-10;
+  }
+}

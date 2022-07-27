@@ -23,6 +23,10 @@
         padding-top: 14px;
       }
     }
+
+    & > div:nth-child(4) {
+      margin-top: 40px;
+    }
   }
 
   &__block {
@@ -62,7 +66,6 @@
     display: flex;
     flex-direction: column;
     row-gap: 5px;
-    width: 320px;
 
     &_width {
       &_266 {
@@ -81,6 +84,12 @@
 
       &_20 {
         row-gap: 20px;
+      }
+    }
+
+    &_column-size {
+      &_2 {
+        grid-column: 2/4;
       }
     }
   }

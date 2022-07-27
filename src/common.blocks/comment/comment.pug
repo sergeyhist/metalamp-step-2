@@ -1,0 +1,16 @@
+include common/like/like.pug
+
+mixin comment(options)
+  .comment
+    img.comment__avatar(src=require('assets/images/'+options.avatar))
+    .comment__info
+      .comment__name #{options.name}
+      .comment__date #{options.date}
+    .comment__likes
+      +like({
+        count: options.likes,
+        active: true
+      })
+    .comment__text
+      - for (let text of options.text.split('/br'))
+        p #{text}

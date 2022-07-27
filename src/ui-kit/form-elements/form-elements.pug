@@ -11,6 +11,8 @@ include common/button/button.pug
 include common/icon-link/icon-link.pug
 include common/pagination/pagination.pug
 include common/bullet/bullet.pug
+include common/list/list.pug
+include common/comment/comment.pug
 
 doctype html
 html(lang="ru")
@@ -215,32 +217,34 @@ html(lang="ru")
               placeholder: 'Количество спален, кроватей и ванных комнат',
               submenuActive: true
             })
-        .page__element
-          .page__titles
-            h3 dropdown
-          +dropdown({
-            type: 'guests',
-            items: [
-              'взрослые',
-              'дети',
-              'младенцы'
-            ],
-            placeholder: 'Сколько гостей',
-            submenuActive: true
-          })
-        .page__element
-          .page__titles
-            h3 dropdown
-          +dropdown({
-            type: 'guests',
-            items: [
-              {name: 'взрослые', count: 2},
-              {name: 'дети', count: 1},
-              'младенцы'
-            ],
-            placeholder: 'Сколько гостей',
-            submenuActive: true
-          })
+        .page__wrapper
+          .page__element
+            .page__titles
+              h3 dropdown
+            +dropdown({
+              type: 'guests',
+              items: [
+                'взрослые',
+                'дети',
+                'младенцы'
+              ],
+              placeholder: 'Сколько гостей',
+              submenuActive: true
+            })
+        .page__wrapper
+          .page__element
+            .page__titles
+              h3 dropdown
+            +dropdown({
+              type: 'guests',
+              items: [
+                {name: 'взрослые', count: 2},
+                {name: 'дети', count: 1},
+                'младенцы'
+              ],
+              placeholder: 'Сколько гостей',
+              submenuActive: true
+            })
       .page__block
         .page__wrapper.page__wrapper_vertical
           .page__element.page__element_width_266
@@ -296,3 +300,20 @@ html(lang="ru")
                 'Время прибытия — после 13:00,/br а выезд до 12:00'
               ]
             })
+      .page__block
+        .page__wrapper
+          .page__element
+            +list({
+              items: [
+                {title: 'Комфорт', hint: 'Шумопоглощающие стены', icon: 'insert_emoticon'},
+                {title: 'Удобство', hint: 'Окно в каждой из спален', icon: 'location_city'}
+              ]
+            })
+        .page__element.page__element_column-size_2
+          +comment({
+            avatar: 'avatar1.png',
+            name: 'Мурад Сарафанов',
+            date: '5 дней назад',
+            likes: 12,
+            text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий./br И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто/br не жаловался из соседей.'
+          })

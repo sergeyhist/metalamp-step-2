@@ -1,0 +1,33 @@
+@use 'assets/scss/variables' as vars;
+
+.comment {
+  display: grid;
+  grid-template-areas: 'comment-avatar comment-info' 'comment-likes comment-text';
+  gap: 10px;
+
+  &__avatar {
+    grid-area: comment-avatar;
+    width: 48px;
+    height: 48px;
+    border-radius: 32px;
+    border: 2px solid white;
+  }
+
+  &__info {
+    grid-area: comment-info;
+  }
+
+  &__name {
+    font-weight: bold;
+  }
+
+  &__likes {
+    grid-area: comment-likes;
+    justify-self: center;
+    padding-top: 2px;
+  }
+
+  &__text {
+    grid-area: comment-text;
+  }
+}
