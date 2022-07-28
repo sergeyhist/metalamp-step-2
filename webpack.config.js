@@ -29,7 +29,8 @@ module.exports = {
   resolve: {
     alias: {
       common: path.resolve(__dirname, './src/common.blocks/'),
-      assets: path.resolve(__dirname, './src/assets/')
+      assets: path.resolve(__dirname, './src/assets/'),
+      cards: path.resolve(__dirname, './src/card.blocks')
     }
   },
   plugins: [

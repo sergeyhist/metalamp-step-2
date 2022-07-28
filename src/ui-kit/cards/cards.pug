@@ -1,5 +1,5 @@
-include ../../common.blocks/icon/icon.pug
-include ../../common.blocks/search-room/search-room.pug
+include common/icon/icon.pug
+include cards/search/search.pug
 
 doctype html
 html(lang="ru")
@@ -9,7 +9,8 @@ html(lang="ru")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Cards
   body
-    div(class='cards__icon')
+    .page__icon
       +icon
-    div(class='cards__content')
-      +search-room
+    .page__main
+      .page__element
+        +search

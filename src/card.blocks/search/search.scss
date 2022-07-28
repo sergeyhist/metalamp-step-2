@@ -1,0 +1,33 @@
+@use 'assets/scss/variables' as vars;
+
+.search {
+  width: 380px;
+  padding-inline: 30px;
+  padding-block: 40px;
+  background: white;
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 4px;
+  box-shadow: 0 0 25px rgba(0,0,0,.2);
+
+  &__titles {
+    display: flex;
+    gap: 20px;
+
+    & > h3 {
+      width: 150px;
+    }
+  }
+
+  &__element, &__dropdowns {
+    display: grid;
+  }
+
+  &__element {
+    gap: 5px;
+  }
+
+  &__dropdowns {
+    gap: 20px;
+    margin-block: 20px 30px;
+  }
+}

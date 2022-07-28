@@ -2,14 +2,14 @@ body {
   background-color: #E5E5E5;
 }
 
-.cards {
+.page {
   &__icon {
     position: absolute;
     top: 30px;
     left: 30px;
   }
   
-  &__content {
+  &__main {
     margin-block: 140px;
     display: flex;
     flex-direction: column;
