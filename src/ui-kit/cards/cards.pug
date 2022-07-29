@@ -1,5 +1,6 @@
 include common/icon/icon.pug
 include cards/search/search.pug
+include cards/payment/payment.pug
 
 doctype html
 html(lang="ru")
@@ -12,5 +13,14 @@ html(lang="ru")
     .page__icon
       +icon
     .page__main
-      .page__element
+      .page__block
         +search
+      .page__block
+        +payment({
+          number: 888,
+          type: 'люкс',
+          cost: 9990,
+          fee: 0,
+          discount: 2179,
+          additionalFee: 300
+        })

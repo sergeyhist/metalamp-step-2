@@ -118,6 +118,7 @@ for (let element of dropdownElements) {
     let dateTo = element.querySelector('#date-to');
 
     calendarGenerator(dropdownCalendar, dateFrom, dateTo);
+    dropdownCalendar.querySelector('.calendar__button-confirm').dispatchEvent(new Event('click'));
 
     for (let shell of dropdownShells) {
       shell.onfocus = () => {
@@ -157,6 +158,7 @@ for (let element of dropdownElements) {
     let dropdownInside= dropdownShell.querySelector('.dropdown__inside');
 
     calendarGenerator(dropdownCalendar, dropdownInside);
+    dropdownCalendar.querySelector('.calendar__button-confirm').dispatchEvent(new Event('click'));
 
     dropdownShell.onfocus = () => {
       dropdownCalendar.classList.add('dropdown__calendar_visible')

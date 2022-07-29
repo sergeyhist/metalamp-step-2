@@ -14,7 +14,6 @@ export let calendarGenerator = (initialBlock, dateFrom, dateTo) => {
     };
   };
   let dateRangeConfirm = (calendar) => {
-    
     if (calendar.selectedDates[0] && calendar.selectedDates[1]) {
       dateFrom.value =
         addZero(calendar.selectedDates[0].getDate())+' '+months[calendar.selectedDates[0].getMonth()]+' - '+
@@ -26,6 +25,9 @@ export let calendarGenerator = (initialBlock, dateFrom, dateTo) => {
     className: 'calendar__button-confirm',
     onClick: (dp) => {
       dateTo ? datesConfirm(dp) : dateRangeConfirm(dp);
+      let selectedDays = dp.$datepicker.querySelectorAll('.-selected-');
+      let inRangeDays = dp.$datepicker.querySelectorAll('.-in-range-');
+      initialBlock.dataset.selectedDays = selectedDays.length + inRangeDays.length;
     }
   };
   let clearButton = {
