@@ -1,8 +1,6 @@
 mixin dropdown(options)
   -
     let isGuests = options.type == 'guests';
-    let isDates = options.type == 'dates';
-    let isDateRange = options.type == 'date-range';
     let dropdownAttrs = {
       ...(options.type && {'data-dropdown-type': options.type})
     }
@@ -16,25 +14,14 @@ mixin dropdown(options)
       ...(options.type && {'data-dropdown-type': options.type}),
       ...(isDate && {id: options.type})
     };
-    let dateFromAttrs = {
-      ...(options.valueFrom && {value: options.valueFrom})
-    };
-    let dateToAttrs = {
-      ...(options.valueTo && {value: options.valueTo})
-    };
     let submenuAttrs = {
       ...(options.submenuActive === true && {class: 'dropdown__submenu_visible dropdown__submenu_solid'})
     };
 
   .dropdown&attributes(dropdownAttrs)
     .dropdown__shell(tabindex="0")&attributes(shellAttrs)
-      input.dropdown__inside#date-from(type='text' disabled)&attributes(insideAttrs)&attributes(dateFromAttrs)
+      input.dropdown__inside(type='text' disabled)&attributes(insideAttrs)
       span.dropdown__arrow.material-icons expand_more
-    if isDates
-      .dropdown__shell(tabindex="-1")&attributes(shellAttrs)
-        input.dropdown__inside#date-to(type='text' disabled)&attributes(insideAttrs)&attributes(dateToAttrs)
-        span.dropdown__arrow.material-icons expand_more
-      .dropdown__calendar
     if options.items
       .dropdown__submenu&attributes(submenuAttrs)
         - for (let item of options.items)
@@ -48,5 +35,3 @@ mixin dropdown(options)
           .dropdown__buttons
             button.dropdown__button-clear очистить
             button.dropdown__button-confirm применить
-    if isDateRange
-      .dropdown__calendar

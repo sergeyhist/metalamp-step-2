@@ -1,0 +1,7 @@
+mixin calendar(options)
+  -
+    let calendarAttrs = {
+      ...(options.dates && {'data-dates': options.dates.join('-')})
+    }
+
+  .calendar&attributes(calendarAttrs)

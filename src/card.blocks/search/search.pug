@@ -1,5 +1,6 @@
 include common/dropdown/dropdown.pug
 include common/button/button.pug
+include common/calendar/calendar.pug
 
 mixin search(options)
   .search
@@ -9,7 +10,7 @@ mixin search(options)
         .search__titles
           h3 прибытие
           h3 выезд
-        +dropdown({
+        +calendar({
           type: 'dates',
           placeholder: 'ДД.ММ.ГГГГ'
         })
