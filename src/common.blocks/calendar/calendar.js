@@ -2,19 +2,16 @@ import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
 import './calendar.scss';
 
-function addZero(n) {return n < 9 ? '0'+n : n};
-
 let calendarElements = document.querySelectorAll('.calendar');
-let months = ['янв', 'фев', 'мар', 'апр', 'мая', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
 
 for (let element of calendarElements) {
-  console.log(element.dataset.dates?.split('-'));
   let calendar = new AirDatepicker(element, {
     navTitles: {days: 'MMMM yyyy'},
     range: true
   });
-  calendar.setViewDate('2022,08,19')
-  console.log(calendar.selectedDates);
+  calendar.selectDate(element.dataset.dates?.split('-'));
+  calendar.setViewDate(element.dataset.dates?.split('-')[1]);
+  element.dataset.dates?.split('-')[1] == '' && calendar.setViewDate(element.dataset.dates?.split('-')[0]);
 };
 
 //export let calendarGenerator = (initialBlock, dateFrom, dateTo) => {

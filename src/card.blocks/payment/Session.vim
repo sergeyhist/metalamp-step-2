@@ -35,12 +35,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 24 - ((15 * winheight(0) + 17) / 34)
+let s:l = 17 - ((8 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 24
-normal! 023|
+keepjumps 17
+normal! 032|
 tabnext
 edit payment.js
 argglobal
