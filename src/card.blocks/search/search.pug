@@ -7,11 +7,8 @@ mixin search(options)
     h1 Найдём номера под ваши пожелания
     .search__dropdowns
       .search__element
-        .search__titles
-          h3 прибытие
-          h3 выезд
         +calendar({
-          type: 'dates',
+          titles: ['прибытие', 'выезд'],
           placeholder: 'ДД.ММ.ГГГГ'
         })
       .search__element

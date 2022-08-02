@@ -2,6 +2,17 @@ mixin calendar(options)
   -
     let calendarAttrs = {
       ...(options.dates && {'data-dates': options.dates.join('-')})
-    }
+    };
+    let inputAttrs = {
+      ...(options.placeholder && {placeholder: options.placeholder})
+    };
 
   .calendar&attributes(calendarAttrs)
+    .calendar__elements
+      each title in options.titles
+        .calendar__element
+          .calendar__title
+            h3 #{title}
+          .calendar__input
+              input&attributes(inputAttrs)
+              span.calendar__arrow.material-icons expand_more

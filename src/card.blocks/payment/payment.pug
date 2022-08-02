@@ -9,12 +9,9 @@ mixin payment(options)
         .payment__type #{options.type}
       .payment__price #{options.cost}₽ в сутки
     .payment__element
-      .payment__titles
-        h3 прибытие
-        h3 выезд
       +calendar({
-        type: 'dates',
-        dates: ['2019,08,19', ''],
+        titles: ['прибытие', 'выезд'],
+        dates: ['2019,08,19', '2019,08,23'],
         placeholder: 'ДД.ММ.ГГГГ'
       })
     .payment__element

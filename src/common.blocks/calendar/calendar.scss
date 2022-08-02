@@ -1,10 +1,58 @@
 @use 'assets/scss/variables' as vars;
 
+.calendar {
+  display: grid;
+  gap: 5px;
+
+  &__elements {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__element {
+    display: grid;
+    gap: 5px;
+  }
+  
+  &__input {
+    display: flex;
+    position: relative;
+    border: 1px solid vars.$dark-shade-25;
+    border-radius: 4px;
+    height: 44px;
+    background: white;
+
+    &:hover, &:focus, &:focus-visible {
+      border-color: vars.$dark-shade-50;
+    }
+
+    & > input {
+      width: 80%;
+      padding-left: 15px;
+
+      &::placeholder {
+        color: vars.$dark-shade-75;
+      }
+    }
+  }
+
+  &__arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 44px;
+    height: 44px;
+  }
+}
+
 .air-datepicker {
   font-family: 'Montserrat', Helvetica, sans-serif;
   font-weight: bold;
-  grid-area: calendar;
   width: 100%;
+  box-sizing: border-box;
 
   &-nav, &-body--day-names, &--content, &--buttons{
     border: 0;
