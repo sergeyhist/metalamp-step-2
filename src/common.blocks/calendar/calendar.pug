@@ -14,5 +14,5 @@ mixin calendar(options)
           .calendar__title
             h3 #{title}
           .calendar__input
-              input&attributes(inputAttrs)
+              input.unselect(readonly)&attributes(inputAttrs)
               span.calendar__arrow.material-icons expand_more

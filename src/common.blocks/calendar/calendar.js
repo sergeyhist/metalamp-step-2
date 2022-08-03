@@ -4,11 +4,54 @@ import './calendar.scss';
 
 let calendarElements = document.querySelectorAll('.calendar');
 
+function addZero(n) {return n < 9 ? '0'+n : n};
+
 for (let element of calendarElements) {
+  let calendarInputs = element.querySelectorAll('input');
+
+  let confirmButton = {
+    content: 'применить',
+    className: 'calendar__button-confirm',
+    onClick: (dp) => {
+      for (let i in element.dataset.dates.split('-'))
+        calendarInputs[i].value = addZero(dp.selectedDates[i].getDate())+'.'+addZero(+dp.selectedDates[i].getMonth()+1)+'.'+dp.selectedDates[i].getFullYear(); 
+    }
+  };
+
+  let clearButton = {
+    content: 'очистить',
+    className: 'calendar__button-clear',
+    onClick: (dp) => {
+      dp.clear();
+      for (let input of calendarInputs) {
+        input.value = '';
+      };
+    }
+  };
+
   let calendar = new AirDatepicker(element, {
     navTitles: {days: 'MMMM yyyy'},
-    range: true
+    range: true,
+    buttons: [clearButton, confirmButton]
   });
+
+  let navArrows = calendar.$datepicker.querySelectorAll('.air-datepicker-nav--action');
+  
+  for (let arrow of navArrows) {
+    let arrowBack = document.createElement('button');
+    let arrowForward = document.createElement('button');
+
+    arrowBack.classList.add('material-icons');
+    arrowBack.innerHTML = 'arrow_back';
+    arrowForward.classList.add('material-icons');
+    arrowForward.innerHTML = 'arrow_forward';
+
+    switch (arrow.dataset.action) {
+      case 'prev': arrow.replaceChildren(arrowBack); break;
+      case 'next': arrow.replaceChildren(arrowForward);
+    };
+  };
+
   calendar.selectDate(element.dataset.dates?.split('-'));
   calendar.setViewDate(element.dataset.dates?.split('-')[1]);
   element.dataset.dates?.split('-')[1] == '' && calendar.setViewDate(element.dataset.dates?.split('-')[0]);

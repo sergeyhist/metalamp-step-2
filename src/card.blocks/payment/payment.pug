@@ -4,10 +4,13 @@ include common/calendar/calendar.pug
 mixin payment(options)
   .payment
     .payment__info
-      .payment__wrapper
-        .payment__number № #{options.number}
-        .payment__type #{options.type}
-      .payment__price #{options.cost}₽ в сутки
+      .payment__room
+        p №&nbsp;  
+        p #{options.number}
+        p #{options.type}
+      .payment__price
+        p #{options.cost}₽&nbsp;
+        p в сутки
     .payment__element
       +calendar({
         titles: ['прибытие', 'выезд'],

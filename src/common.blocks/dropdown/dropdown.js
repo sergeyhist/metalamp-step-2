@@ -3,7 +3,6 @@ import './dropdown.scss';
 let dropdownElements = document.querySelectorAll('.dropdown');
 
 for (let element of dropdownElements) {
-  console.log(element)
   let dropdownShell = element.querySelector('.dropdown__shell');
   let dropdownInside = dropdownShell.querySelector('.dropdown__inside');
   let dropdownSubmenu = element.querySelector('.dropdown__submenu');

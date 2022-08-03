@@ -14,6 +14,7 @@
   &__info {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
   }
 
   &__wrapper {
@@ -21,13 +22,40 @@
     gap: 8px;
   }
 
-  &__number {
-    font-size: 24px;
+  &__room {
+    display: flex;
+    align-items: flex-end;
     font-weight: bold;
     color: vars.$dark-shade;
+    height: 30px;
 
-    &::first-letter {
-      font-size: 14px;
+    & > p:nth-child(1) {
+      line-height: 17px;
+    }
+
+    & > p:nth-child(2) {
+      font-size: 24px;
+    }
+
+    & > p:nth-child(3) {
+      padding-left: 8px;
+      line-height: 15px;
+      color: vars.$purple;
+      font-size: 12px;
+    }
+  }
+
+  &__price {
+    display: flex;
+    height: 20px;
+    line-height: 18px;
+
+    & > p:nth-child(1) {
+      font-weight: bold;
+    }
+
+    & > p:nth-child(2) {
+      font-size: 12px;
     }
   }
 
