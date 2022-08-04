@@ -13,6 +13,7 @@ mixin calendar(options)
         .calendar__element
           .calendar__title
             h3 #{title}
-          .calendar__input
-              input.unselect(readonly)&attributes(inputAttrs)
-              span.calendar__arrow.material-icons expand_more
+          .calendar__input(tabindex=1)
+              input.unselect(disabled)&attributes(inputAttrs)
+              span.unselect.calendar__arrow.material-icons expand_more
+      .calendar__datepicker

@@ -4,16 +4,17 @@ import './calendar.scss';
 
 let calendarElements = document.querySelectorAll('.calendar');
 
-function addZero(n) {return n < 9 ? '0'+n : n};
+function addZero(n) {return n < 10 ? '0'+n : n};
 
 for (let element of calendarElements) {
   let calendarInputs = element.querySelectorAll('input');
+  let calendarDatepicker = element.querySelector('.calendar__datepicker');
 
   let confirmButton = {
     content: 'применить',
     className: 'calendar__button-confirm',
     onClick: (dp) => {
-      for (let i in element.dataset.dates.split('-'))
+      for (let i of [0,1] )
         calendarInputs[i].value = addZero(dp.selectedDates[i].getDate())+'.'+addZero(+dp.selectedDates[i].getMonth()+1)+'.'+dp.selectedDates[i].getFullYear(); 
     }
   };
@@ -29,10 +30,33 @@ for (let element of calendarElements) {
     }
   };
 
-  let calendar = new AirDatepicker(element, {
+  let calendar = new AirDatepicker(calendarDatepicker, {
     navTitles: {days: 'MMMM yyyy'},
     range: true,
     buttons: [clearButton, confirmButton]
+  });
+
+  for (let input of calendarInputs) {
+    input.parentElement.onblur = () => {
+      let focusCheck = setInterval(() => {
+        if (!element.contains(document.activeElement) && (document.activeElement != document.body)) {
+          calendarDatepicker.classList.remove('calendar__datepicker_visible');
+          clearInterval(focusCheck);
+        };
+      }, 100);
+    };
+
+    input.parentElement.onfocus = () => {
+      calendarDatepicker.classList.add('calendar__datepicker_visible');
+    };
+  };
+
+  document.body.addEventListener('mousedown', (event) => {
+    if (calendarDatepicker.classList.contains('calendar__datepicker_visible')) {
+      if (!calendarDatepicker.contains(event.target))  {
+        calendarDatepicker.classList.remove('calendar__datepicker_visible');
+      };
+    };
   });
 
   let navArrows = calendar.$datepicker.querySelectorAll('.air-datepicker-nav--action');
@@ -55,6 +79,7 @@ for (let element of calendarElements) {
   calendar.selectDate(element.dataset.dates?.split('-'));
   calendar.setViewDate(element.dataset.dates?.split('-')[1]);
   element.dataset.dates?.split('-')[1] == '' && calendar.setViewDate(element.dataset.dates?.split('-')[0]);
+  element.dataset.dates && calendar.$datepicker.querySelector('.calendar__button-confirm').dispatchEvent(new Event('click'));
 };
 
 //export let calendarGenerator = (initialBlock, dateFrom, dateTo) => {
