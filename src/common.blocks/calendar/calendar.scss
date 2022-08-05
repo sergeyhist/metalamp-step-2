@@ -55,12 +55,12 @@
     opacity: 0;
     transform: scaleY(0);
     transform-origin: top;
-    height: 0;
+    visibility: hidden;
 
     &_visible {
+      visibility: visible;
       opacity: 1;
       transform: scaleY(1);
-      height: auto;
     }
   }
 }
