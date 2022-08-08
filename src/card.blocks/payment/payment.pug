@@ -33,10 +33,13 @@ mixin payment(options)
         .payment__text
         .payment__count
       .payment__fee
-        .payment__text Сбор за услуги: скидка #{options.discount}₽ 
-        .payment__tooltip
+        .payment__wrapper
+          .payment__text Сбор за услуги: скидка #{options.discount}₽ 
+          .payment__tooltip i
         .payment__count #{options.fee}₽
       .payment__additional-fee
-        .payment__text Сбор за дополнительные услуги
-        .payment__tooltip
+        .payment__wrapper
+          .payment__text Сбор за дополнительные услуги
+          .payment__tooltip i
         .payment__count #{options.additionalFee}₽
+    .payment__result Итого

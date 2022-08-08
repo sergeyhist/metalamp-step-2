@@ -1,6 +1,7 @@
 include common/icon/icon.pug
 include common/input/input.pug
 include common/dropdown/dropdown.pug
+include common/calendar/calendar.pug
 include common/checkbox/checkbox.pug
 include common/radio/radio.pug
 include common/toggle/toggle.pug
@@ -61,21 +62,18 @@ html(lang="ru")
                 mask: 'date'
               })
           .page__element
-            .page__titles
-              h3.page__element_width_150 date dropdown
-              h3.page__element_width_150 date dropdown
-            +dropdown({
+            +calendar({
               type: 'dates',
+              titles: ['date dropdown', 'date dropdown'],
               placeholder: 'ДД.ММ.ГГГГ',
-              valueTo: '19.08.2019'
+              dates: ['', '2019,08,19']
             })
           .page__element.page__element_width_266
-            .page__titles
-              h3 filter date dropdown
-            +dropdown({
+            +calendar({
               type: 'date-range',
+              titles: ['filter date dropdown'],
               placeholder: 'Диапазон дат',
-              value: '19.08.2019-23.08.2019'
+              dates: ['2019,08,19', '2019,08,23']
             }) 
           .page__element.page__element_width_266
             .page__titles

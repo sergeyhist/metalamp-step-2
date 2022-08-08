@@ -15,8 +15,15 @@ for (let element of calendarElements) {
     content: 'применить',
     className: 'calendar__button-confirm',
     onClick: (dp) => {
-      for (let i of [0,1] )
-        inputFields[i].value = addZero(dp.selectedDates[i].getDate())+'.'+addZero(+dp.selectedDates[i].getMonth()+1)+'.'+dp.selectedDates[i].getFullYear(); 
+      if (inputFields.length > 1) {
+        for (let i of [0,1] )
+          if (dp.selectedDates[i]) {
+            inputFields[i].value = addZero(dp.selectedDates[i].getDate())+'.'+addZero(+dp.selectedDates[i].getMonth()+1)+'.'+dp.selectedDates[i].getFullYear();
+            dp.$datepicker.parentElement.dataset.selectedDays = dp.$datepicker.querySelectorAll('.-in-range-').length + dp.$datepicker.querySelectorAll('.-selected-').length - 1;
+          };
+      } else {
+        inputFields[0].value = dp.formatDate(dp.selectedDates[0], 'dd MMM')+' - '+dp.formatDate(dp.selectedDates[1], 'dd MMM');
+      };
     }
   };
 
