@@ -97,4 +97,21 @@
   &__text {
     width: 214px;
   }
+
+  &__result {
+    display: flex;
+    justify-content: space-between;
+
+    & > div:nth-child(1), & > div:nth-child(3) {
+      font-size: 19px;
+      font-weight: bold;
+      color: vars.$dark-shade;
+    }
+  }
+
+  &__separator {
+    width: 100%;
+    margin-bottom: 4px;
+    border-bottom: 1px dotted vars.$dark-shade-25;
+  }
 }

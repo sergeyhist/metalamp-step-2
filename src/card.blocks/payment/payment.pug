@@ -1,5 +1,6 @@
 include common/dropdown/dropdown.pug
 include common/calendar/calendar.pug
+include common/button/button.pug
 
 mixin payment(options)
   .payment
@@ -42,4 +43,11 @@ mixin payment(options)
           .payment__text Сбор за дополнительные услуги
           .payment__tooltip i
         .payment__count #{options.additionalFee}₽
-    .payment__result Итого
+    .payment__result 
+      div Итого
+      .payment__separator
+      .payment__count
+    +button({
+      theme: 'arrow',
+      text: 'забронировать'
+    })
