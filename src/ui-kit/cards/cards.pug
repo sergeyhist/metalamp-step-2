@@ -1,6 +1,8 @@
 include common/icon/icon.pug
+include common/calendar/calendar.pug
 include cards/search/search.pug
 include cards/payment/payment.pug
+include cards/registration/registration.pug
 
 doctype html
 html(lang="ru")
@@ -15,6 +17,7 @@ html(lang="ru")
     .page__main
       .page__block
         +search
+        +registration
       .page__block
         +payment({
           number: 888,
@@ -24,3 +27,11 @@ html(lang="ru")
           discount: 2179,
           additionalFee: 300
         })
+      .page__block
+        .page__element
+          +calendar({
+            type: 'dates',
+            titles: ['', ''],
+            dates: ['2019,08,19', '2019,08,23'],
+            datepickerOnly: true
+          })

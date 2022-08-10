@@ -1,0 +1,30 @@
+@use 'assets/scss/variables' as vars;
+
+.registration {
+  display: grid;
+  gap: 20px;
+  width: 380px;
+  padding-inline: 30px;
+  padding-block: 40px;
+  background: white;
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 4px;
+  box-shadow: 0 0 25px rgba(0,0,0,.2);
+
+  &__wrapper {
+    display: grid;
+    gap: 10px;
+  }
+
+  &__element {
+    display: grid;
+    gap: 5px;
+  }
+
+  & > div:last-child {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

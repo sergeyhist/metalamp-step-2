@@ -11,6 +11,10 @@
     display: grid;
     gap: 5px;
     width: 100%;
+
+    &_hidden {
+      display: none;
+    }
   }
   
   &__input {
@@ -64,6 +68,15 @@
       visibility: visible;
       opacity: 1;
       transform: scaleY(1);
+    }
+
+
+    &_solid {
+      visibility: visible;
+      opacity: 1;
+      transform: scaleY(1);
+      position: relative;
+      top: 0;
     }
   }
 }

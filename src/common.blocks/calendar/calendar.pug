@@ -6,14 +6,20 @@ mixin calendar(options)
     let inputAttrs = {
       ...(options.placeholder && {placeholder: options.placeholder})
     };
+    let elementAttrs = {
+      ...(options.datepickerOnly === true && {class: 'calendar__element_hidden'})
+    };
+    let datepickerAttrs = {
+      ...(options.datepickerOnly === true && {class: 'calendar__datepicker_solid'})
+    };
 
   .calendar&attributes(calendarAttrs)
     .calendar__elements
       each title in options.titles
-        .calendar__element
+        .calendar__element&attributes(elementAttrs)
           .calendar__title
             h3 #{title}
           .calendar__input(tabindex=0)
               input.unselect(readonly)&attributes(inputAttrs)
               span.unselect.calendar__arrow.material-icons expand_more
-      .calendar__datepicker
+      .calendar__datepicker&attributes(datepickerAttrs)

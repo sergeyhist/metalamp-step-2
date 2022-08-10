@@ -1,0 +1,64 @@
+include common/input/input.pug
+include common/radio/radio.pug
+include common/toggle/toggle.pug
+include common/button/button.pug  
+
+mixin registration(options)
+  .registration
+    h1 Регистрация аккаунта
+    .registration__wrapper
+      .registration__element
+        +input({
+          type: 'text',
+          placeholder: 'Имя'
+        })
+      .registration__element
+        +input({
+          type: 'text',
+          placeholder: 'Фамилия'
+        })
+      .registration__element
+        +radio({
+          name: 'gender',
+          items: [
+            {text: 'Мужчина', checked: true},
+            {text: 'Женщина'}
+          ]
+        })
+    .registration__element
+      .registration__title
+        h3 дата рождения
+      +input({
+        type: 'text',
+        placeholder: 'ДД.ММ,ГГГГ',
+        mask: 'date'
+      })
+    .registration__wrapper
+      .registration__element
+        .registration__title
+          h3 данные для входа в сервис
+        .registration__wrapper
+          +input({
+            type: 'email'
+          })
+          +input({
+            type: 'password',
+            placeholder: 'Пароль'
+          })
+      .registration__element
+        +toggle({
+          items: [
+            {text: 'Получать спецпредложения'}
+          ]
+        })
+    .registration__element
+      +button({
+        theme: 'arrow',
+        text: 'зарегистрироваться'
+      })
+    .registration__element
+      p Уже есть аккаунт на Toxin?
+      +button({
+        text: 'войти',
+        theme: 'white'
+      })
