@@ -1,0 +1,25 @@
+@use 'assets/scss/variables';
+
+.login {
+  display: grid;
+  gap: 20px;
+  width: 380px;
+  padding-inline: 30px;
+  padding-block: 40px;
+  background: white;
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 4px;
+  box-shadow: 0 0 25px rgba(0,0,0,.2);
+
+  & > &__element:last-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  &__wrapper {
+    display: grid;
+    gap: 10px;
+  }
+}

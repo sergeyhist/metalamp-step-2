@@ -3,6 +3,8 @@ include common/calendar/calendar.pug
 include cards/search/search.pug
 include cards/payment/payment.pug
 include cards/registration/registration.pug
+include cards/login/login.pug
+include cards/room/room.pug
 
 doctype html
 html(lang="ru")
@@ -27,6 +29,7 @@ html(lang="ru")
           discount: 2179,
           additionalFee: 300
         })
+        +login
       .page__block
         .page__element
           +calendar({
@@ -34,4 +37,7 @@ html(lang="ru")
             titles: ['', ''],
             dates: ['2019,08,19', '2019,08,23'],
             datepickerOnly: true
+          })
+          +room({
+            
           })
