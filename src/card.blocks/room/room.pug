@@ -1,2 +1,16 @@
 mixin room(options)
-  .room
+  - const rooms = require('assets/json/rooms.json');
+
+  .room('data-number'=options.number)
+    .room__images
+      .room__right
+      .room__left
+      each image in rooms[options.number].images
+        img(src=require('assets/images/rooms/'+image))
+      .room__prev.material-icons expand_more
+      .room__next.material-icons expand_more
+      .room__selector
+        - for (let i in rooms[options.number].images)
+          .room__selector-item
+    .room__number
+      
