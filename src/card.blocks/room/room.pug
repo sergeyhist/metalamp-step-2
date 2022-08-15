@@ -3,14 +3,17 @@ mixin room(options)
 
   .room('data-number'=options.number)
     .room__images
-      .room__right
       .room__left
+      .room__right
+      .room__prev.material-icons.unselect expand_more
+      .room__next.material-icons.unselect expand_more
       each image in rooms[options.number].images
-        img(src=require('assets/images/rooms/'+image))
-      .room__prev.material-icons expand_more
-      .room__next.material-icons expand_more
+        img.room__image(src=require('assets/images/rooms/'+image))
       .room__selector
         - for (let i in rooms[options.number].images)
           .room__selector-item
     .room__number
-      
+      p №&nbsp;
+      p #{options.number}
+      if rooms[options.number].luxe == true
+        p люкс

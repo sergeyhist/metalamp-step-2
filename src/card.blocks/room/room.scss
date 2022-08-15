@@ -11,12 +11,20 @@
     position: relative;
     width: 270px;
     height: 150px;
+  }
 
-    & > img {
-      position: absolute;
-      border-radius: 4px 4px 0 0;
-      width: 270px;
-      height: 150px;
+  &__image {
+    position: absolute;
+    border-radius: 4px 4px 0 0;
+    width: 270px;
+    height: 150px;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s;
+
+    &_visible {
+      visibility: visible;
+      opacity: 1;
     }
   }
 
@@ -73,12 +81,29 @@
       width: 7.5px;
       height: 7.5px;
       border: 1px solid white;
-      border-radius: 50%;
       cursor: pointer;
+      border-radius: 100%;
+      box-shadow: 0px 5px 5px rgba(31, 32, 65, 0.3);
 
       &_active {
         background: white;
       }
+    }
+  }
+
+  &__number {
+    display: flex;
+    align-items: baseline;
+    font-weight: bold;
+
+    & > p:nth-child(2) {
+      font-size: 19px;
+    }
+
+    & > p:nth-child(3) {
+      text-transform: uppercase;
+      color: vars.$purple;
+      font-size: 12px;
     }
   }
 }
