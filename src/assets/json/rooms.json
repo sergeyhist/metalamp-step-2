@@ -6,7 +6,17 @@
       "888_3.png",
       "888_1.png"
     ],
-    "cost": "9990",
-    "luxe": true
+    "cost": 9990,
+    "luxe": true,
+    "reviews": 145,
+    "rating": 5
+  },
+  "840": {
+    "images": [
+      "840.png","840.png","840.png","840.png"
+    ],
+    "cost": 9900,
+    "reviews": 65,
+    "rating": 4
   }
 }

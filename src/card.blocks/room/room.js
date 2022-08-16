@@ -1,4 +1,5 @@
 import './room.scss';
+import 'common/rate/rate.js';
 
 let roomElements = document.querySelectorAll('.room');
 

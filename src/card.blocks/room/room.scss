@@ -91,6 +91,16 @@
     }
   }
 
+  &__about {
+    padding: 20px 16px 19px 20px;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+  }
+
   &__number {
     display: flex;
     align-items: baseline;
@@ -104,6 +114,41 @@
       text-transform: uppercase;
       color: vars.$purple;
       font-size: 12px;
+    }
+  }
+
+  &__cost {
+    display: flex;
+    align-items: flex-end;
+
+    & > p:nth-child(1) {
+      font-weight: bold;
+    }
+
+    & > p:nth-child(2) {
+      font-size: 12px;
+    }
+  }
+
+  &__feedback {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid vars.$dark-shade-10;
+    padding-top: 10px;
+    align-items: center;
+  }
+
+  &__reviews {
+    display: flex;
+    text-transform: capitalize;
+    cursor: pointer;
+    align-items: center;
+    height: 18px;
+    line-height: 18px;
+    padding-top: 3px;
+
+    & > p:nth-child(1) {
+      font-weight: bold;
     }
   }
 }

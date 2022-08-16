@@ -1,3 +1,5 @@
+include common/rate/rate.pug
+
 mixin room(options)
   - const rooms = require('assets/json/rooms.json');
 
@@ -12,8 +14,19 @@ mixin room(options)
       .room__selector
         - for (let i in rooms[options.number].images)
           .room__selector-item
-    .room__number
-      p №&nbsp;
-      p #{options.number}
-      if rooms[options.number].luxe == true
-        p люкс
+    .room__about
+      .room__info
+        .room__number
+          p №&nbsp;
+          p #{options.number}
+          if rooms[options.number].luxe == true
+            p люкс
+        .room__cost
+          p #{rooms[options.number].cost}₽&nbsp;
+          p в сутки
+      .room__feedback
+        .room__rating
+          +rate({rating: rooms[options.number].rating})
+        .room__reviews
+          p.unselect #{rooms[options.number].reviews}&nbsp;
+          p.unselect отзывов
