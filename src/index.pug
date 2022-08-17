@@ -8,7 +8,7 @@ html(lang="en")
   body 
     nav
       -
-        let uiKitItems = [
+        let uiKitPages = [
           {
             name: 'Headers & Footers',
             link: './headers-footers.html'
@@ -26,8 +26,18 @@ html(lang="en")
             link: './form-elements.html'
           }
         ];
+        let pages = [
+          {
+            name: 'Landing Page',
+            link: './landing.html'
+          }
+        ];
 
       ul.main__menu Ui-Kit
-        - for (let item of uiKitItems)
+        - for (let page of uiKitPages)
           li.main__element
-            a.main__link(href=item.link) #{item.name}
+            a.main__link(href=page.link) #{page.name}
+      ul.main__menu Main Pages
+        each page in pages
+          li.main__element
+            a.main__link(href=page.link) #{page.name}

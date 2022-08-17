@@ -1,0 +1,77 @@
+include common/header/header.pug
+include common/slideshow/slideshow.pug
+include cards/search/search.pug
+
+-
+  let menuItems = [
+    {
+      name: 'о нас',
+      link: '#',
+      focused: true
+    },
+    {
+      name: 'услуги',
+      link: '#',
+      submenu: [
+        {
+          name: 'Найти номер',
+          link: '#'
+        },
+        {
+          name: 'Заказать номер',
+          link: '#'
+        },
+        {
+          name: 'Список номеров',
+          link: '#'
+        }
+      ]
+    },
+    {
+      name: 'вакансии',
+      link: '#'
+    },
+    {
+      name: 'новости',
+      link: '#'
+    },
+    {
+      name: 'соглашения',
+      link: '#',
+      submenu: [
+        {
+          name: 'соглашение',
+          link: '#'
+        },
+        {
+          name: 'соглашение',
+          link: '#'
+        },
+        {
+          name: 'соглашение',
+          link: '#'
+        }
+      ]
+    }
+  ]
+
+doctype html
+html(land='ru')
+  head
+    meta(charset=UTF-8)
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Landing Page
+  body
+    .page
+      .page__header
+        +header({
+          menuItems: menuItems
+        })
+      .page__main
+        .page__search
+          +search
+        .page__slideshow
+          +slideshow({
+            images: ['slide_1.png', 'slide_2.png']
+          })

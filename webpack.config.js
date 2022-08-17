@@ -4,13 +4,20 @@ const PugPlugin = require('pug-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {log} = require('console');
 let uiKitPages = [];
+let mainPages = []
 let allEntries = {
   main: './src/index.js'
 };
 fs.readdirSync('./src/ui-kit/').forEach(folder => {
   fs.readdirSync('./src/ui-kit/'+folder).forEach(file =>
     file.includes('.pug') ? uiKitPages.push('./src/ui-kit/'+folder+'/'+file) : file.includes('.js') ? allEntries[folder] = './src/ui-kit/'+folder+'/'+file : ''
+  );
+});
+fs.readdirSync('./src/pages/').forEach(folder => {
+  fs.readdirSync('./src/pages/'+folder).forEach(file =>
+    file.includes('.pug') ? mainPages.push('./src/pages/'+folder+'/'+file) : file.includes('.js') ? allEntries[folder] = './src/pages/'+folder+'/'+file : ''
   );
 });
 
@@ -35,6 +42,11 @@ module.exports = {
   },
   plugins: [
     ...uiKitPages.map(page => new HtmlWebpackPlugin ({
+      template: page,
+      filename: page.split('/')[4].replace('.pug','.html'),
+      chunks: ['main', page.split('/')[3]]
+    })),
+    ...mainPages.map(page => new HtmlWebpackPlugin ({
       template: page,
       filename: page.split('/')[4].replace('.pug','.html'),
       chunks: ['main', page.split('/')[3]]

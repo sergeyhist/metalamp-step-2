@@ -1,0 +1,16 @@
+@use 'assets/scss/variables' as vars;
+
+.page {
+
+
+  &__main {
+    position: relative;
+  }
+
+  &__search {
+    position: absolute;
+    z-index: 1;
+    top: 70px;
+    left: 140px;
+  }
+}
