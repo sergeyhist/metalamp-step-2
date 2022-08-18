@@ -1,59 +1,7 @@
 include common/header/header.pug
+include common/footer/footer.pug
 include common/slideshow/slideshow.pug
 include cards/search/search.pug
-
--
-  let menuItems = [
-    {
-      name: 'о нас',
-      link: '#',
-      focused: true
-    },
-    {
-      name: 'услуги',
-      link: '#',
-      submenu: [
-        {
-          name: 'Найти номер',
-          link: '#'
-        },
-        {
-          name: 'Заказать номер',
-          link: '#'
-        },
-        {
-          name: 'Список номеров',
-          link: '#'
-        }
-      ]
-    },
-    {
-      name: 'вакансии',
-      link: '#'
-    },
-    {
-      name: 'новости',
-      link: '#'
-    },
-    {
-      name: 'соглашения',
-      link: '#',
-      submenu: [
-        {
-          name: 'соглашение',
-          link: '#'
-        },
-        {
-          name: 'соглашение',
-          link: '#'
-        },
-        {
-          name: 'соглашение',
-          link: '#'
-        }
-      ]
-    }
-  ]
 
 doctype html
 html(land='ru')
@@ -65,9 +13,7 @@ html(land='ru')
   body
     .page
       .page__header
-        +header({
-          menuItems: menuItems
-        })
+        +header
       .page__main
         .page__search
           +search
@@ -75,3 +21,7 @@ html(land='ru')
           +slideshow({
             images: ['slide_1.png', 'slide_2.png']
           })
+        .page__text
+          p Лучшие номера для вашей работы,<br> отдыха и просто вдохновения
+      .page__footer
+        +footer

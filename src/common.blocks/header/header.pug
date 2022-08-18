@@ -5,12 +5,63 @@ include ../account/account.pug
 
 mixin header(options)
   -
-    let isLogged = options?.logged ? options.logged : false
+    let isLogged = options?.logged ? options.logged : false;
+    let menuItems = [
+      {
+        name: 'о нас',
+        link: '#',
+        focused: true
+      },
+      {
+        name: 'услуги',
+        link: '#',
+        submenu: [
+          {
+            name: 'Найти номер',
+            link: '#'
+          },
+          {
+            name: 'Заказать номер',
+            link: '#'
+          },
+          {
+            name: 'Список номеров',
+            link: '#'
+          }
+        ]
+      },
+      {
+        name: 'вакансии',
+        link: '#'
+      },
+      {
+        name: 'новости',
+        link: '#'
+      },
+      {
+        name: 'соглашения',
+        link: '#',
+        submenu: [
+          {
+            name: 'соглашение',
+            link: '#'
+          },
+          {
+            name: 'соглашение',
+            link: '#'
+          },
+          {
+            name: 'соглашение',
+            link: '#'
+          }
+        ]
+      }
+    ];
 
   header(class='header')
     div(class='header__logo')
       +logo()
-    +menu(options.menuItems)
+    +menu(menuItems)
     if (isLogged === false)
       div(class='header__buttons')
         +button({

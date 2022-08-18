@@ -4,6 +4,8 @@
 
 
   &__main {
+    display: grid;
+    align-items: center;
     position: relative;
   }
 
@@ -12,5 +14,14 @@
     z-index: 1;
     top: 70px;
     left: 140px;
+  }
+
+  &__text {
+    position: absolute;
+    bottom: 18px;
+    right: 134px;
+    text-align: right;
+    color: vars.$dark-shade-75;
+    text-shadow: 1px 1px 1px white, -1px -1px 1px white, 2px 2px 2px white, -2px -2px 2px white, 3px 3px 3px white, -3px -3px 3px white, 4px 4px 4px white, -4px -4px 4px white;
   }
 }
