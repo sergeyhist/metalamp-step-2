@@ -21,28 +21,37 @@ for (let element of dropdownElements) {
 
     confirmButton.onclick = () => {
       dropdownInside.value = dropdownInside.dataset.countSum;
-      dropdownShell.dispatchEvent(new Event('click'));
-    };
-  };
-
-  dropdownShell.onfocus = () => {
-    dropdownShell.classList.add('dropdown__shell_focused');
-    dropdownSubmenu.classList.add('dropdown__submenu_visible');
-    dropdownShell.classList.add('dropdown__shell_radius_top');
-  };
-
-  dropdownShell.onblur = () => {
-    let focusCheck = setInterval(() => {
-      if (!element.contains(document.activeElement) && (document.activeElement != document.body)) {
+      if (dropdownSubmenu.classList.contains('dropdown__submenu_visible')) {
         dropdownSubmenu.classList.remove('dropdown__submenu_visible');
         setTimeout(() => {
           dropdownShell.classList.remove('dropdown__shell_radius_top');
           dropdownShell.classList.remove('dropdown__shell_focused');
         }, 100);
-        clearInterval(focusCheck);
-      };
-    }, 100);
+      }
+    };
   };
+
+  const switchVisibility = () => {
+    if (!dropdownSubmenu.classList.contains('dropdown__submenu_visible')) {
+      dropdownShell.classList.add('dropdown__shell_focused');
+      dropdownSubmenu.classList.add('dropdown__submenu_visible');
+      dropdownShell.classList.add('dropdown__shell_radius_top');
+    } else {
+      dropdownSubmenu.classList.remove('dropdown__submenu_visible');
+      setTimeout(() => {
+        dropdownShell.classList.remove('dropdown__shell_radius_top');
+        dropdownShell.classList.remove('dropdown__shell_focused');
+      }, 100);
+    };
+  };
+
+  dropdownShell.onclick = () => {
+    switchVisibility();
+  };
+
+  dropdownShell.onkeydown = (e) => {
+    e.key == 'Enter' && switchVisibility();
+  }
 
   document.body.addEventListener('mousedown', (event) => {
     if (dropdownSubmenu.classList.contains('dropdown__submenu_visible')) {
@@ -75,7 +84,14 @@ for (let element of dropdownElements) {
         case 'guests':
           let countSum = 0;
 
-          textVariants = [' гость', ' гостя', ' гостей'];
+          switch(counter.previousSibling.textContent) {
+            case 'младенцы':
+              textVariants = [' младенец', ' младенца', ' младенцев'];
+              break;
+            default:
+              textVariants = [' гость', ' гостя', ' гостей'];
+          };
+
           for (let count of countNumbers) {
             countSum += +count.textContent;
           };

@@ -27,6 +27,16 @@
     }
   }
 
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5px;
+
+    & > h3:nth-child(2) {
+      color: vars.$dark-shade-50;
+    }
+  }
+
   &__shell {
     display: flex;
     justify-content: space-between;
@@ -86,11 +96,13 @@
     z-index: 1;
     background-color: white;
     opacity: 0;
+    visibility: hidden;
     transform: scaleY(0);
     transform-origin: top;
     transition: all .3s ease;
   
     &_visible {
+      visibility: visible;
       opacity: 1;
       transform: scaleY(1);
     }

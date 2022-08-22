@@ -19,19 +19,22 @@ mixin dropdown(options)
     };
 
   .dropdown&attributes(dropdownAttrs)
+    .dropdown__title
+      h3 #{options.title}
+      if options.secondaryTitle
+        h3 #{options.secondaryTitle}
     .dropdown__shell(tabindex="0")&attributes(shellAttrs)
-      input.dropdown__inside(type='text' disabled)&attributes(insideAttrs)
-      span.dropdown__arrow.material-icons expand_more
-    if options.items
-      .dropdown__submenu&attributes(submenuAttrs)
-        - for (let item of options.items)
-          .dropdown__submenu-element
-            h3.dropdown__title.unselect #{item.name ? item.name : item}
-            .dropdown__counter
-              button.dropdown__button.dropdown__button-minus.unselect -
-              h3.dropdown__count.unselect #{item.count ? item.count : 0}
-              button.dropdown__button.dropdown__button-plus.unselect +
-        if isGuests
-          .dropdown__buttons
-            button.dropdown__button-clear очистить
-            button.dropdown__button-confirm применить
+      input.dropdown__inside.unselect(type='text' readonly)&attributes(insideAttrs)
+      span.dropdown__arrow.material-icons.unselect expand_more
+    .dropdown__submenu&attributes(submenuAttrs)
+      - for (let item of options.items)
+        .dropdown__submenu-element
+          h3.dropdown__title.unselect #{item.name ? item.name : item}
+          .dropdown__counter
+            button.dropdown__button.dropdown__button-minus.unselect -
+            h3.dropdown__count.unselect #{item.count ? item.count : 0}
+            button.dropdown__button.dropdown__button-plus.unselect +
+      if isGuests
+        .dropdown__buttons
+          button.dropdown__button-clear очистить
+          button.dropdown__button-confirm применить

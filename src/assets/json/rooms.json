@@ -18,5 +18,85 @@
     "cost": 9900,
     "reviews": 65,
     "rating": 4
+  },
+  "980": {
+    "images": [
+      "980.png", "980.png", "980.png", "980.png"
+    ],
+    "cost": 8500,
+    "reviews": 35,
+    "rating": 3
+  },
+  "856": {
+    "images": [
+      "856.png", "856.png", "856.png", "856.png"
+    ],
+    "cost": 7300,
+    "reviews": 19,
+    "rating": 5
+  },
+  "740": {
+    "images": [
+      "740.png", "740.png", "740.png", "740.png"
+    ],
+    "cost": 6000,
+    "reviews": 44,
+    "rating": 4
+  },
+  "982": {
+    "images": [
+      "982.png", "982.png", "982.png", "982.png"
+    ],
+    "cost": 5800,
+    "reviews": 56,
+    "rating": 3
+  },
+  "678": {
+    "images": [
+      "678.png", "678.png", "678.png", "678.png"
+    ],
+    "cost": 5500,
+    "reviews": 45,
+    "rating": 5
+  },
+  "450": {
+    "images": [
+      "450.png", "450.png", "450.png", "450.png"
+    ],
+    "cost": 5300,
+    "reviews": 39,
+    "rating": 4
+  },
+  "350": {
+    "images": [
+      "350.png", "350.png", "350.png", "350.png"
+    ],
+    "cost": 5000,
+    "reviews": 77,
+    "rating": 3
+  },
+  "666": {
+    "images": [
+      "666.png", "666.png", "666.png", "666.png"
+    ],
+    "cost": 5000,
+    "reviews": 25,
+    "rating": 5
+  },
+  "444": {
+    "images": [
+      "444.png", "444.png", "444.png", "444.png"
+    ],
+    "cost": 5000,
+    "reviews": 15,
+    "rating": 3
+  },
+  "352": {
+    "images": [
+      "352.png", "352.png", "352.png", "352.png"
+    ],
+    "cost": 5000,
+    "reviews": 55,
+    "rating": 3
   }
 }

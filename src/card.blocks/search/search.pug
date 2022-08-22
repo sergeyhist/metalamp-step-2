@@ -5,17 +5,16 @@ include common/calendar/calendar.pug
 mixin search(options)
   .search
     h1 Найдём номера под ваши пожелания
-    .search__dropdowns
+    .search__elements
       .search__element
         +calendar({
           titles: ['прибытие', 'выезд'],
           placeholder: 'ДД.ММ.ГГГГ'
         })
       .search__element
-        .search__title
-          h3 гости
         +dropdown({
           type: 'guests',
+          title: 'гости',
           items: ['взрослые', 'дети', 'младенцы'],
           placeholder: 'Сколько гостей'
         })

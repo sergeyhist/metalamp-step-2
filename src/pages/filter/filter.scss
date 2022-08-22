@@ -1,0 +1,21 @@
+@use 'assets/scss/variables' as vars;
+
+.page {
+
+  &__main {
+    padding-top: 30px;
+    padding-inline: 140px;
+  }
+  
+  &__block {
+    display: grid;
+
+    &:nth-child(1) {
+      width: 266px;
+    }
+
+    & > div:nth-child(2) {
+      margin-top: 20px;
+    }
+  }
+}

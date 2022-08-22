@@ -1,0 +1,30 @@
+include common/header/header.pug
+include common/calendar/calendar.pug
+include common/dropdown/dropdown.pug
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Search Room/Filter
+  body.page
+    header.page__header
+      +header
+    main.page__main
+      .page__block
+        +calendar({
+          titles: ['Даты пребывания в отеле'],
+          dates: ['2019,08,19', '2019,08,23']
+        })
+        +dropdown({
+          type: 'guests',
+          title: 'гости',
+            items: [
+              {name: 'взрослые', count: 2},
+              {name: 'дети', count: 1},
+              {name: 'младенцы', count: 1}
+            ],
+            placeholder: 'Сколько гостей'
+        })

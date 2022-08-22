@@ -46,10 +46,9 @@ html(lang="ru")
                 value: 'This is pretty awesome'
               })
             .page__element
-              .page__titles
-                h3 dropdown 
               +dropdown({
                 type: 'guests',
+                title: 'dropdown',
                 items: ['взрослые', 'дети', 'младенцы'],
                 placeholder: 'Сколько гостей'
               })
@@ -63,14 +62,12 @@ html(lang="ru")
               })
           .page__element
             +calendar({
-              type: 'dates',
               titles: ['date dropdown', 'date dropdown'],
               placeholder: 'ДД.ММ.ГГГГ',
               dates: ['', '2019,08,19']
             })
           .page__element.page__element_width_266
             +calendar({
-              type: 'date-range',
               titles: ['filter date dropdown'],
               placeholder: 'Диапазон дат',
               dates: ['2019,08,19', '2019,08,23']
@@ -189,11 +186,10 @@ html(lang="ru")
       .page__block
         .page__wrapper.page__wrapper_vertical
           .page__element.page__element_width_266
-            .page__titles
-              h3 dropdown 
-              h3 default
             +dropdown({
               type: 'room',
+              title: 'dropdown',
+              secondaryTitle: 'default',
               items: [
                 {name: 'спальни', count: 2},
                 {name: 'кровати', count: 2},
@@ -202,11 +198,10 @@ html(lang="ru")
               placeholder: 'Количество спален, кроватей и ванных комнат'
             })  
           .page__element.page__element_width_266
-            .page__titles
-              h3 dropdown
-              h3 expanded
             +dropdown({
               type: 'room',
+              title: 'dropdown',
+              secondaryTitle: 'expanded',
               items: [
                 {name: 'спальни', count: 2},
                 {name: 'кровати', count: 2},
@@ -217,10 +212,9 @@ html(lang="ru")
             })
         .page__wrapper
           .page__element
-            .page__titles
-              h3 dropdown
             +dropdown({
               type: 'guests',
+              title: 'dropdown',
               items: [
                 'взрослые',
                 'дети',
@@ -231,10 +225,9 @@ html(lang="ru")
             })
         .page__wrapper
           .page__element
-            .page__titles
-              h3 dropdown
             +dropdown({
               type: 'guests',
+              title: 'dropdown',
               items: [
                 {name: 'взрослые', count: 2},
                 {name: 'дети', count: 1},
