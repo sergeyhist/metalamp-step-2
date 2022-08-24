@@ -5,7 +5,7 @@ mixin dropdown(options)
       ...(options.type && {'data-dropdown-type': options.type})
     }
     let shellAttrs = {
-      ...(options.submenuActive === true && {class: 'dropdown__shell_focused dropdown__shell_radius_top'})
+      ...(options.submenuActive === true && {class: 'dropdown__shell_solid'})
     };
     let insideAttrs = {
       ...(options.value && {value: options.value}),
@@ -15,7 +15,7 @@ mixin dropdown(options)
       ...(isDate && {id: options.type})
     };
     let submenuAttrs = {
-      ...(options.submenuActive === true && {class: 'dropdown__submenu_visible dropdown__submenu_solid'})
+      ...(options.submenuActive === true && {class: 'dropdown__submenu_solid'})
     };
 
   .dropdown&attributes(dropdownAttrs)
@@ -28,7 +28,7 @@ mixin dropdown(options)
       span.dropdown__arrow.material-icons.unselect expand_more
     .dropdown__submenu&attributes(submenuAttrs)
       - for (let item of options.items)
-        .dropdown__submenu-element
+        .dropdown__submenu-element(data-variants= item.variants ? item.variants.join() : '')
           h3.dropdown__title.unselect #{item.name ? item.name : item}
           .dropdown__counter
             button.dropdown__button.dropdown__button-minus.unselect -

@@ -191,9 +191,9 @@ html(lang="ru")
               title: 'dropdown',
               secondaryTitle: 'default',
               items: [
-                {name: 'спальни', count: 2},
-                {name: 'кровати', count: 2},
-                {name: 'ванные комнаты'}
+                {name: 'спальни', variants: ['спальня', 'спальни', 'спален'], count: 2},
+                {name: 'кровати', variants: ['кровать', 'кровати', 'кроватей'], count: 2},
+                {name: 'ванные комнаты', variants: ['ванная комната', 'ванные комнаты', 'ванных комнат']}
               ],
               placeholder: 'Количество спален, кроватей и ванных комнат'
             })  
@@ -203,9 +203,9 @@ html(lang="ru")
               title: 'dropdown',
               secondaryTitle: 'expanded',
               items: [
-                {name: 'спальни', count: 2},
-                {name: 'кровати', count: 2},
-                {name: 'ванные комнаты'}
+                {name: 'спальни', variants: ['спальня', 'спальни', 'спален'], count: 2},
+                {name: 'кровати', variants: ['кровать', 'кровати', 'кроватей'], count: 2},
+                {name: 'ванные комнаты', variants: ['ванная комната', 'ванные комнаты', 'ванных комнат']}
               ],
               placeholder: 'Количество спален, кроватей и ванных комнат',
               submenuActive: true
@@ -216,9 +216,9 @@ html(lang="ru")
               type: 'guests',
               title: 'dropdown',
               items: [
-                'взрослые',
-                'дети',
-                'младенцы'
+                {name: 'взрослые', variants: ['гость', 'гостя', 'гостей']},
+                {name: 'дети', variants: ['гость', 'гостя', 'гостей']},
+                {name: 'младенцы', variants: ['младенец', 'младенца', 'младенцев']}
               ],
               placeholder: 'Сколько гостей',
               submenuActive: true
@@ -229,9 +229,9 @@ html(lang="ru")
               type: 'guests',
               title: 'dropdown',
               items: [
-                {name: 'взрослые', count: 2},
-                {name: 'дети', count: 1},
-                'младенцы'
+                {name: 'взрослые', variants: ['гость', 'гостя', 'гостей']},
+                {name: 'дети', variants: ['гость', 'гостя', 'гостей']},
+                {name: 'младенцы', variants: ['младенец', 'младенца', 'младенцев']}
               ],
               placeholder: 'Сколько гостей',
               submenuActive: true

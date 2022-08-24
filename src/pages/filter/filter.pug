@@ -1,6 +1,7 @@
 include common/header/header.pug
 include common/calendar/calendar.pug
 include common/dropdown/dropdown.pug
+include common/range/range.pug
 
 doctype html
 html(lang="en")
@@ -22,9 +23,18 @@ html(lang="en")
           type: 'guests',
           title: 'гости',
             items: [
-              {name: 'взрослые', count: 2},
-              {name: 'дети', count: 1},
-              {name: 'младенцы', count: 1}
+              {name: 'взрослые', variants: ['гость', 'гостя', 'гостей'], count: 2},
+              {name: 'дети', variants: ['гость', 'гостя', 'гостей'], count: 1},
+              {name: 'младенцы', variants: ['младенец', 'младенца', 'младенцев'], count: 1}
             ],
             placeholder: 'Сколько гостей'
+        })
+        +range({
+          title: 'диапазон цены',
+          tooltip: 'Стоимость за сутки пребывания в номере',
+          symbol: '₽',
+          max: 15000,
+          step: 1000,
+          defMin: 5000,
+          defMax: 10000
         })

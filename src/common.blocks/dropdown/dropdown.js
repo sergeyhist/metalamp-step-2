@@ -20,27 +20,29 @@ for (let element of dropdownElements) {
     };
 
     confirmButton.onclick = () => {
-      dropdownInside.value = dropdownInside.dataset.countSum;
-      if (dropdownSubmenu.classList.contains('dropdown__submenu_visible')) {
+      dropdownInside.value = dropdownInside.dataset.sum;
+      dropdownInside.value = dropdownInside.value.charAt(0).toUpperCase()+dropdownInside.value.slice(1);
+      if (dropdownSubmenu.classList.contains('dropdown__submenu_visible') && !dropdownSubmenu.classList.contains('dropdown__submenu_solid')) {
         dropdownSubmenu.classList.remove('dropdown__submenu_visible');
+        dropdownSubmenu.classList.remove('dropdown__submenu_solid');
         setTimeout(() => {
-          dropdownShell.classList.remove('dropdown__shell_radius_top');
           dropdownShell.classList.remove('dropdown__shell_focused');
+          dropdownShell.classList.remove('dropdown__shell_solid');
         }, 100);
       }
     };
   };
 
   const switchVisibility = () => {
-    if (!dropdownSubmenu.classList.contains('dropdown__submenu_visible')) {
+    if (!dropdownSubmenu.classList.contains('dropdown__submenu_visible') && !dropdownSubmenu.classList.contains('dropdown__submenu_solid')) {
       dropdownShell.classList.add('dropdown__shell_focused');
       dropdownSubmenu.classList.add('dropdown__submenu_visible');
-      dropdownShell.classList.add('dropdown__shell_radius_top');
     } else {
       dropdownSubmenu.classList.remove('dropdown__submenu_visible');
+      dropdownSubmenu.classList.remove('dropdown__submenu_solid');
       setTimeout(() => {
-        dropdownShell.classList.remove('dropdown__shell_radius_top');
         dropdownShell.classList.remove('dropdown__shell_focused');
+        dropdownShell.classList.remove('dropdown__shell_solid');
       }, 100);
     };
   };
@@ -58,7 +60,6 @@ for (let element of dropdownElements) {
       if (!dropdownSubmenu.contains(event.target) && !dropdownShell.contains(event.target)) {
         dropdownSubmenu.classList.remove('dropdown__submenu_visible');
         setTimeout(() => {
-          dropdownShell.classList.remove('dropdown__shell_radius_top');
           dropdownShell.classList.remove('dropdown__shell_focused');
         }, 100);
       };
@@ -79,45 +80,29 @@ for (let element of dropdownElements) {
     number.onchange = () => {
       number.textContent > 0 ? number.previousSibling.disabled = false : number.previousSibling.disabled = true;
       let cases = [2,0,1,1,1,2];
-      let textVariants = [];
-      switch(dropdownInside.dataset.dropdownType) {
-        case 'guests':
-          let countSum = 0;
+      let textCounts = [];
+      let dropdownCounters = dropdownSubmenu.querySelectorAll('.dropdown__counter');
+      let counterObjects = {};
 
-          switch(counter.previousSibling.textContent) {
-            case 'младенцы':
-              textVariants = [' младенец', ' младенца', ' младенцев'];
-              break;
-            default:
-              textVariants = [' гость', ' гостя', ' гостей'];
+      for (let counter of dropdownCounters) {
+        if (counterObjects.hasOwnProperty(counter.parentElement.dataset.variants.split(',')[0])) {
+          counterObjects[counter.parentElement.dataset.variants.split(',')[0]].count = +counterObjects[counter.parentElement.dataset.variants.split(',')[0]].count + +counter.querySelector('.dropdown__count').textContent; 
+        } else {
+          counterObjects[counter.parentElement.dataset.variants.split(',')[0]] = {
+            variants: counter.parentElement.dataset.variants.split(','),
+            count: counter.querySelector('.dropdown__count').textContent
           };
+        };
+      };
+      for (let key of Object.keys(counterObjects)) {
+        counterObjects[key].count > 0 ? textCounts.push(counterObjects[key].count+' '+counterObjects[key].variants[(counterObjects[key].count % 100 > 4 && counterObjects[key].count %100 < 20) ? 2 : cases[counterObjects[key].count % 10 < 5 ? counterObjects[key].count % 10 : 5]]) : element.dataset.dropdownType != 'guests' ? textCounts.push('нет '+counterObjects[key].variants[2]) : '';
+      }
 
-          for (let count of countNumbers) {
-            countSum += +count.textContent;
-          };
-          countSum > 0 ? clearButton.classList.add('dropdown__button_visible') : clearButton.classList.remove('dropdown__button_visible');
-          dropdownInside.dataset.countSum = countSum > 0 ? countSum+textVariants[(countSum % 100 > 4 && countSum %100 < 20) ? 2 : cases[countSum % 10 < 5 ? countSum % 10 : 5]] : '';
-          break;
-        case 'room':
-          let textCounts = [];
-          let dropdownCounters = dropdownSubmenu.querySelectorAll('.dropdown__counter');
-
-          for (let counter of dropdownCounters) {
-            switch(counter.previousSibling.textContent) {
-              case 'спальни':
-                textVariants = [' спальня', ' спальни', ' спален'];
-                break;
-              case 'кровати':
-                textVariants = [' кровать', ' кровати', ' кроватей'];
-                break;
-              case 'ванные комнаты':
-                textVariants = [' ванная комната', ' ванные комнаты', ' ванных комнат'];
-            };
-            let number = counter.querySelector('.dropdown__count').textContent;
-            number > 0 ? textCounts.push(number+textVariants[(number % 100 > 4 && number %100 < 20) ? 2 : cases[number % 10 < 5 ? number % 10 : 5]]) : textCounts.push('нет '+textVariants[2]);
-          };
-          dropdownInside.value = textCounts.join(', ');
-          dropdownInside.value = dropdownInside.value.charAt(0).toUpperCase()+dropdownInside.value.slice(1);
+      if (element.dataset.dropdownType != 'guests') {
+        dropdownInside.value = textCounts.join(', ');
+        dropdownInside.value = dropdownInside.value.charAt(0).toUpperCase()+dropdownInside.value.slice(1);
+      } else {
+        dropdownInside.dataset.sum = textCounts.join(', '); 
       };
     };
     number.dispatchEvent(new Event('change'));

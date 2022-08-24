@@ -5,7 +5,15 @@ mixin range(options)
       ...(options.max ? {'data-max': options.max} : {'data-max': 100}),
       ...(options.step ? {'data-step': options.step} : {'data-step': 1}),
       ...(options.defMin ? {'data-default-min': options.defMin} : {'data-default-min': options.min}),
-      ...(options.defMax ? {'data-default-max': options.defMax} : {'data-default-max': options.max})
+      ...(options.defMax ? {'data-default-max': options.defMax} : {'data-default-max': options.max}),
+      ...(options.symbol && {'data-symbol': options.symbol})
     };
+
   .range&attributes(rangeAttrs)
-  
+    .range__title
+      h3 #{options.title}
+      p.range__value
+    .range__slider
+    if options.tooltip
+      .range__tooltip
+        p #{options.tooltip}

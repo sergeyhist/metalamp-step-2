@@ -45,12 +45,9 @@
     border-radius: 4px;
     position: relative;
 
-    &_focused, &:focus-within, &:focus-visible, &:focus, &:hover {
+    &_focused, &:focus-within, &:focus-visible, &:focus, &:hover, &_solid {
       border: 1px solid vars.$dark-shade-50;
       outline: 0;
-    }
-
-    &_radius_top {
       border-radius: 4px 4px 0 0;
     }
   }
@@ -101,7 +98,7 @@
     transform-origin: top;
     transition: all .3s ease;
   
-    &_visible {
+    &_visible, &_solid {
       visibility: visible;
       opacity: 1;
       transform: scaleY(1);

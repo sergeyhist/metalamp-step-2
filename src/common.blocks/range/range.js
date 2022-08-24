@@ -6,16 +6,17 @@ import './range.scss';
 let rangeElements = document.querySelectorAll('.range');
 
 for (let element of rangeElements) {
-  let rangeValue = element.parentElement.querySelector('#range-value');
+  let rangeSlider = element.querySelector('.range__slider');
+  let rangeValue = element.querySelector('.range__value');
   rangeValue.textContent = element.dataset.defaultMin+'₽ - '+element.dataset.defaultMax+'₽';
 
-  $(element).slider({
+  $(rangeSlider).slider({
     range: true,
     max: $(element).data('max'),
     step: $(element).data('step'),
     values: [$(element).data('default-min'), $(element).data('default-max')],
     slide: (event, ui) => {
-      $(rangeValue).html(ui.values[0]+'₽ - '+ui.values[1]+'₽')
+      $(rangeValue).html(ui.values[0] + $(element).data('symbol') + ' - ' + ui.values[1] + $(element).data('symbol'))
     }
   });
 };
