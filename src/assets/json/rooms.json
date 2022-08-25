@@ -1,5 +1,6 @@
-{
-  "888": {
+[
+  {
+    "number": 888,
     "images": [
       "888_1.png",
       "888_2.png",
@@ -11,7 +12,8 @@
     "reviews": 145,
     "rating": 5
   },
-  "840": {
+  {
+    "number": 840,
     "images": [
       "840.png","840.png","840.png","840.png"
     ],
@@ -19,7 +21,8 @@
     "reviews": 65,
     "rating": 4
   },
-  "980": {
+  {
+    "number": 980,
     "images": [
       "980.png", "980.png", "980.png", "980.png"
     ],
@@ -27,7 +30,8 @@
     "reviews": 35,
     "rating": 3
   },
-  "856": {
+  {
+    "number": 856,
     "images": [
       "856.png", "856.png", "856.png", "856.png"
     ],
@@ -35,7 +39,8 @@
     "reviews": 19,
     "rating": 5
   },
-  "740": {
+  {
+    "number": 740,
     "images": [
       "740.png", "740.png", "740.png", "740.png"
     ],
@@ -43,7 +48,8 @@
     "reviews": 44,
     "rating": 4
   },
-  "982": {
+  {
+    "number": 982,
     "images": [
       "982.png", "982.png", "982.png", "982.png"
     ],
@@ -51,7 +57,8 @@
     "reviews": 56,
     "rating": 3
   },
-  "678": {
+  {
+    "number": 678,
     "images": [
       "678.png", "678.png", "678.png", "678.png"
     ],
@@ -59,7 +66,8 @@
     "reviews": 45,
     "rating": 5
   },
-  "450": {
+  {
+    "number": 450,
     "images": [
       "450.png", "450.png", "450.png", "450.png"
     ],
@@ -67,7 +75,8 @@
     "reviews": 39,
     "rating": 4
   },
-  "350": {
+  {
+    "number": 350,
     "images": [
       "350.png", "350.png", "350.png", "350.png"
     ],
@@ -75,7 +84,8 @@
     "reviews": 77,
     "rating": 3
   },
-  "666": {
+  {
+    "number": 666,
     "images": [
       "666.png", "666.png", "666.png", "666.png"
     ],
@@ -83,7 +93,8 @@
     "reviews": 25,
     "rating": 5
   },
-  "444": {
+  {
+    "number": 444,
     "images": [
       "444.png", "444.png", "444.png", "444.png"
     ],
@@ -91,7 +102,8 @@
     "reviews": 15,
     "rating": 3
   },
-  "352": {
+  {
+    "number": 352,
     "images": [
       "352.png", "352.png", "352.png", "352.png"
     ],
@@ -99,4 +111,4 @@
     "reviews": 55,
     "rating": 3
   }
-}
+]

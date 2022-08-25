@@ -81,9 +81,8 @@ html(lang="ru")
             })
         .page__wrapper
           .page__element.page__element_gap_16
-            .page__titles
-              h3 checkbox buttons
             +checkbox({
+              title: 'checkbox buttons',
               items: [
                 {text: 'Можно курить'},
                 {text: 'Можно с питомцами', checked: true},
@@ -131,10 +130,9 @@ html(lang="ru")
               })
         .page__wrapper
           .page__element.page__element_width_266.page__element_gap_20 
-            .page__titles 
-              h3 range slider
-              h3#range-value 0₽ - 0₽
             +range({
+              title: 'range slider',
+              symbol: '₽',
               max: 15000,
               step: 1000,
               defMin: 5000,
@@ -271,9 +269,8 @@ html(lang="ru")
             })
         .page__wrapper
           .page__element.page__element_width_266.page__element_gap_16     
-            .page__titles
-              h3 rich checkbox buttons
             +checkbox({
+              title: 'rich checkbox buttons',
               rich: true,
               items: [
                 {text: 'Широкий коридор', hint: 'Ширина коридоров в номере/br не менее 91 см.'},

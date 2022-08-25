@@ -21,6 +21,9 @@ mixin checkbox(options)
       .checkbox__shell
         .checkbox__title.unselect #{options.title}
         .checkbox__arrow.material-icons.unselect&attributes(arrowAttrs) expand_more
+    else
+      .checkbox__title
+        h3 #{options.title}
 
     .checkbox__list&attributes(listAttrs)
       - for (let item of options.items)

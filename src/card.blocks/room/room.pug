@@ -1,32 +1,34 @@
 include common/rate/rate.pug
 
 mixin room(options)
-  - const rooms = require('assets/json/rooms.json');
+  -
+    const rooms = require('assets/json/rooms.json');
+    const room = rooms.find(obj => {return obj.number == options.number});
 
-  .room('data-number'=options.number)
+  .room
     .room__images
       .room__left
       .room__right
       .room__prev.material-icons.unselect expand_more
       .room__next.material-icons.unselect expand_more
-      each image in rooms[options.number].images
+      each image in room.images
         img.room__image(src=require('assets/images/rooms/'+image))
       .room__selector
-        - for (let i in rooms[options.number].images)
+        - for (let i in room.images)
           .room__selector-item
     .room__about
       .room__info
         .room__number
           p №&nbsp;
-          p #{options.number}
-          if rooms[options.number].luxe == true
+          p #{room.number}
+          if room.luxe == true
             p люкс
         .room__cost
-          p #{rooms[options.number].cost}₽&nbsp;
+          p #{room.cost}₽&nbsp;
           p в сутки
       .room__feedback
         .room__rating
-          +rate({rating: rooms[options.number].rating})
+          +rate({rating: room.rating})
         .room__reviews
-          p.unselect #{rooms[options.number].reviews}&nbsp;
+          p.unselect #{room.reviews}&nbsp;
           p.unselect отзывов

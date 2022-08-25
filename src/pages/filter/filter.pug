@@ -1,7 +1,14 @@
 include common/header/header.pug
+include common/footer/footer.pug
 include common/calendar/calendar.pug
 include common/dropdown/dropdown.pug
 include common/range/range.pug
+include common/checkbox/checkbox.pug
+include common/pagination/pagination.pug
+include cards/room/room.pug
+
+-
+  const rooms = require('assets/json/rooms.json');
 
 doctype html
 html(lang="en")
@@ -38,3 +45,55 @@ html(lang="en")
           defMin: 5000,
           defMax: 10000
         })
+        .page__wrapper
+          +checkbox({
+            title: 'правила дома',
+            items: [
+              {text: 'Можно курить'},
+              {text: 'Можно с питомцами', checked: true},
+              {text: 'Можно пригласить гостей', hint: '(до 10 человек)', checked: true}]
+          })
+          +checkbox({
+            title: 'rich checkbox buttons',
+            rich: true,
+            items: [
+              {text: 'Широкий коридор', hint: 'Ширина коридоров в номере/br не менее 91 см.'},
+              {text: 'Помощник для инвалидов', hint: 'На 1 этаже вас встретит специалист/br и проводит до номера.'}
+            ]
+          })
+        +dropdown({
+          type: 'room',
+          title: 'удобства номера',
+          items: [
+            {name: 'спальни', variants: ['спальня', 'спальни', 'спален'], count: 2},
+            {name: 'кровати', variants: ['кровать', 'кровати', 'кроватей'], count: 2},
+            {name: 'ванные комнаты', variants: ['ванная комната', 'ванные комнаты', 'ванных комнат']}
+          ],
+          placeholder: 'Количество спален, кроватей и ванных комнат'
+        })
+        +checkbox({
+          expandable: true,
+          title: 'дополнительные удобства',
+          items: [
+            {text: 'Завтрак'},
+            {text: 'Письменный стол', checked: true},
+            {text: 'Стул для кормления', checked: true},
+            {text: 'Кроватка', checked: true},
+            {text: 'Телевизор'},
+            {text: 'Шампунь'},
+            {text: 'Телевизор'},
+            {text: 'Шампунь'}
+          ]
+        })
+      .page__block
+        h1 Номера, которые мы для вас подобрали
+        .page__rooms
+          each room in rooms
+            +room({number: room.number})
+        .page__pagination
+          +pagination({
+            allItemsCount: 172,
+            pageItemsCount: 12
+          })
+  footer.page__footer
+    +footer

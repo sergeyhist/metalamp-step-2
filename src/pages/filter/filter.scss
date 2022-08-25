@@ -3,8 +3,11 @@
 .page {
 
   &__main {
-    padding-top: 30px;
+    display: flex;
+    gap: 60px;
+    padding-block: 30px 70px;
     padding-inline: 140px;
+    align-items: flex-start;
   }
   
   &__block {
@@ -18,8 +21,29 @@
       margin-top: 20px;
     }
 
-    & > div:nth-child(3) {
+    & > div:nth-child(3), & > div:nth-child(4), & > div:nth-child(5) {
       margin-top: 30px;
     }
+
+    & > div:nth-child(4) {
+      display: grid;
+      gap: 30px;
+      margin-left: 33px;
+    }
+  }
+
+  &__rooms {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 20px;
+    column-gap: 12px;
+  }
+
+  &__pagination {
+    margin-inline: auto;
+  }
+
+  &__footer {
+    border-top: 1px solid vars.$dark-shade-25;
   }
 }

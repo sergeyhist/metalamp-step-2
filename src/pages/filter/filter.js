@@ -1,5 +1,9 @@
 import './filter.scss';
 import 'common/header/header.js';
+import 'common/footer/footer.js';
 import 'common/calendar/calendar.js';
 import 'common/dropdown/dropdown.js';
 import 'common/range/range.js';
+import 'common/checkbox/checkbox.js';
+import 'common/pagination/pagination.js';
+import 'cards/room/room.js';
