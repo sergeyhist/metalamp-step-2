@@ -1,0 +1,58 @@
+@use 'assets/scss/variables' as vars;
+
+.page {
+
+  &__content {
+    display: flex;
+    gap: 70px;
+    margin-inline: 140px;
+    margin-block: 70px;
+  }
+
+  &__elements {
+    display: grid;
+    gap: 30px;
+  }
+
+  &__element {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+  }
+
+  &__images {
+    display: grid;
+    grid-template-areas: 'image-1 image-2' 'image-1 image-3';
+    justify-content: center;
+  }
+
+  &__image {
+    width: 100%;
+
+    &:nth-child(1) {
+      grid-area: image-1;
+      height: 490px;
+    }
+
+    &:nth-child(2) {
+      grid-area: image-2;
+      height: 247px;
+      margin-bottom: -2px;
+    }
+
+    &:nth-child(3) {
+      grid-area: image-3;
+      height: 245px;
+    }
+  }
+
+  &__footer {
+    border: 1px solid vars.$dark-shade-25;
+  }
+}

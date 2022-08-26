@@ -19,14 +19,13 @@ mixin payment(options)
         placeholder: 'ДД.ММ.ГГГГ'
       })
     .payment__element
-      .payment__titles
-        h3 гости
       +dropdown({
         type: 'guests',
+        title: 'гости',
         items: [
-          {name: 'взрослые', count: 2},
-          {name: 'дети', count: 1},
-          'младенцы'
+          {name: 'взрослые', variants: ['гость', 'гостя', 'гостей'], count: options.guests ? options.guests[0] : 0},
+          {name: 'дети', variants: ['гость', 'гостя', 'гостей'], count: options.guests ? options.guests[1] : 0},
+          {name: 'младенцы', variants: ['младенец', 'младенца', 'младенцев'], count: options.guests ? options.guests[2] : 0}
         ]
       })
     .payment__element

@@ -9,4 +9,5 @@ mixin list(options)
             .list__hint
               - for (let text of item.hint.split('/br'))
                 p #{text}
-        .list__line
+        if item != options.items[options.items.length - 1]
+          .list__line

@@ -9,7 +9,7 @@ mixin comment(options)
     .comment__likes
       +like({
         count: options.likes,
-        active: true
+        active: options.active
       })
     .comment__text
       - for (let text of options.text.split('/br'))

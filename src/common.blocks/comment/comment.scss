@@ -4,6 +4,7 @@
   display: grid;
   grid-template-areas: 'comment-avatar comment-info' 'comment-likes comment-text';
   gap: 10px;
+  justify-content: start;
 
   &__avatar {
     grid-area: comment-avatar;
