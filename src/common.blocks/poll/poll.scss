@@ -1,0 +1,31 @@
+@use 'assets/scss/variables' as vars;
+
+.poll {
+
+  &__circle {
+    & > circle {
+      fill: transparent;
+      stroke-width: 4;
+    }
+  }
+
+  &__awesome {
+    stroke: vars.$yellow;
+  }
+
+  &__good {
+    stroke: vars.$green;
+  }
+
+  &__fair {
+    stroke: vars.$purple;
+  }
+
+  &__bad {
+    stroke: vars.$dark-shade;
+  }
+
+  &__good-border, &__awesome-border, &__fair-border, &__bad-border {
+    stroke: white;
+  }
+}

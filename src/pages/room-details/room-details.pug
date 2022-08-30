@@ -3,6 +3,7 @@ include common/footer/footer.pug
 include common/list/list.pug
 include common/comment/comment.pug
 include common/bullet/bullet.pug
+include common/poll/poll.pug
 include cards/payment/payment.pug
 
 -
@@ -39,6 +40,12 @@ html(lang="ru")
             .page__element
               .page__title
                 h2 впечатления от номера
+              +poll({
+                awesome: 130,
+                good: 65,
+                fair: 65,
+                bad: 0
+              })
           .page__element
             .page__title
               h2 отзывы посетителей номера
