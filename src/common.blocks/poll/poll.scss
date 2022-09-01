@@ -1,11 +1,72 @@
 @use 'assets/scss/variables' as vars;
 
 .poll {
+  display: flex;
+  gap: 30px;
+  align-items: end;
 
   &__circle {
-    & > circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    position: relative;
+
+    & circle {
       fill: transparent;
       stroke-width: 4;
+    }
+  }
+
+  &__counter {
+    position: absolute;
+    text-align: center;
+    font-weight: bold;
+    color: vars.$purple;
+
+    & > p:nth-child(1) {
+      font-size: 24px;
+    }
+
+    & > p:nth-child(2) {
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+  }
+
+  &__color {
+    width: 10px;
+    height: 10px;
+    border: transparent;
+    border-radius: 50%;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+
+    &:hover {
+      color: vars.$dark-shade;
+    }
+  }
+
+  &__items {
+    & > .poll__item:nth-child(1) > .poll__color {
+      background: vars.$yellow-gradient;
+    }
+
+    & > .poll__item:nth-child(2) > .poll__color {
+      background: vars.$primary-gradient;
+    }
+
+    & > .poll__item:nth-child(3) > .poll__color {
+      background: vars.$secondary-gradient;
+    }
+
+    & > .poll__item:nth-child(4) > .poll__color {
+      background: vars.$dark-gradient;
     }
   }
 

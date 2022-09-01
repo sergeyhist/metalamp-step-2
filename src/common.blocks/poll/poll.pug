@@ -1,15 +1,24 @@
 mixin poll(options)
-  .poll(data-count=options.awesome+options.good+options.fair+options.bad)
-    svg.poll__circle(width=120 height=120 viewbox='0 0 100 100')
-      if options.good && options.good > 0
+  -
+    let allCount = options.awesome || options.good || options.fair || options.bad ?
+                   options.awesome + options.good + options.fair + options.bad : 0;
+
+  .poll(data-count=allCount)
+    .poll__circle
+      svg(width=120 height=120 viewbox='0 0 100 100')
         circle.poll__good(data-count=options.good ? options.good : 0)
+        circle.poll__awesome(data-count=options.awesome? options.awesome : 0)
+        circle.poll__fair(data-count=options.fair ? options.fair : 0)
+        circle.poll__bad(data-count=options.bad ? options.bad : 0)
         circle.poll__good-border
-      if options.awesome && options.awesome > 0
-        circle.poll__awesome(data-count=options.awesome)
         circle.poll__awesome-border
-      if options.fair && options.fair > 0
-        circle.poll__fair(data-count=options.fair)
         circle.poll__fair-border
-      if options.bad && options.bad > 0
-        circle.poll__bad(data-count=options.bad)
         circle.poll__bad-border
+      .poll__counter
+        p #{allCount}
+        p голосов
+    .poll__items
+      each item in ['Великолепно', 'Хорошо', 'Удовлетворительно', 'Разочарован']
+        .poll__item
+          .poll__color
+          p #{item}
