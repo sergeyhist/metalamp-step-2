@@ -23,46 +23,80 @@ for (let element of pollElements) {
   let fairBorder = element.querySelector('.poll__fair-border');
   let badBorder = element.querySelector('.poll__bad-border');
 
-  let awesomePercent = awesomeElement.dataset.count*100/element.dataset.count;
-  let goodPercent = goodElement.dataset.count*100/element.dataset.count;
-  let fairPercent = fairElement.dataset.count*100/element.dataset.count;
-  let badPercent = badElement ? badElement.dataset.count*100/element.dataset.count : 0;
+  let pollCounter = element.querySelector('.poll__counter');
 
-  if (goodElement.dataset.count > 0) {
-    goodElement.style.strokeDasharray = goodPercent * circum/100 + ' 999';
-    goodBorder.style.strokeDasharray = '1 ' + (goodPercent * circum/100 - 2) + ' 1 999';
-  } else {
-    goodElement.style.stroke = 'none';
-    goodBorder.style.stroke = 'none';
+  let drawCircle = () => {
+    let allCount = +awesomeElement.dataset.count + +goodElement.dataset.count + +fairElement.dataset.count + +badElement.dataset.count;
+    let awesomePercent = awesomeElement.dataset.count*100/allCount;
+    let goodPercent = goodElement.dataset.count*100/allCount;
+    let fairPercent = fairElement.dataset.count*100/allCount;
+    let badPercent = badElement ? badElement.dataset.count*100/allCount : 0;
+
+    pollCounter.querySelector('p').textContent = allCount;
+
+    if (goodElement.dataset.count > 0) {
+      if (goodElement.style.visibility == 'hidden') {goodElement.style.visibility = 'visible'};
+      if (goodElement.dataset.count > 5 && goodBorder.style.visibility == 'hidden')  {goodBorder.style.visibility = 'visible'};
+      goodElement.style.strokeDasharray = goodPercent * circum/100 + ' 999';
+      goodBorder.style.strokeDasharray = '1 ' + (goodPercent * circum/100 - 2) + ' 1 999';
+    } else {
+      goodElement.style.visibility = 'hidden';
+      goodBorder.style.visibility = 'hidden';
+    };
+
+    if (awesomeElement.dataset.count > 0) {
+      if (awesomeElement.style.visibility == 'hidden') {awesomeElement.style.visibility = 'visible'};
+      if (awesomeElement.dataset.count > 5 && awesomeBorder.style.visibility == 'hidden')  {awesomeBorder.style.visibility = 'visible'};
+      awesomeElement.style.strokeDasharray = awesomePercent * circum/100 + ' 999';
+      awesomeElement.style.strokeDashoffset = -(goodPercent * circum/100);
+      awesomeBorder.style.strokeDashoffset = -(goodPercent * circum/100);
+      awesomeBorder.style.strokeDasharray = '1 ' + (awesomePercent * circum/100 - 2) + ' 1 999';
+    } else {
+      awesomeElement.style.visibility = 'hidden';
+      awesomeBorder.style.visibility = 'hidden';
+    };
+
+    if (fairElement.dataset.count > 0) {
+      if (fairElement.style.visibility == 'hidden') {fairElement.style.visibility = 'visible'};
+      if (fairElement.dataset.count > 5 && fairBorder.style.visibility == 'hidden')  {fairBorder.style.visibility = 'visible'};
+      fairElement.style.strokeDasharray = fairPercent * circum/100 + ' 999';
+      fairElement.style.strokeDashoffset = -(awesomePercent * circum/100) - (goodPercent * circum/100);
+      fairBorder.style.strokeDashoffset = -(awesomePercent * circum/100) - (goodPercent * circum/100);
+      fairBorder.style.strokeDasharray = '1 ' + (fairPercent * circum/100 - 2) + ' 1 999';
+    } else {
+      fairElement.style.visibility = 'hidden';
+      fairBorder.style.visibility = 'hidden';
+    };
+
+    if (badElement.dataset.count > 0) {
+      if (badElement.style.visibility == 'hidden') {badElement.style.visibility = 'visible'};
+      if (badElement.dataset.count > 5 && badBorder.style.visibility == 'hidden')  {badBorder.style.visibility = 'visible'};
+      badElement.style.strokeDasharray = badPercent * circum/100 + ' 999';
+      badElement.style.strokeDashoffset = -(awesomePercent * circum/100) - (goodPercent * circum/100) - (fairPercent * circum/100);
+      badBorder.style.strokeDashoffset = -(awesomePercent * circum/100) - (goodPercent * circum/100) - (fairPercent * circum/100);
+      badBorder.style.strokeDasharray = '1 ' + (badPercent * circum/100 - 2) + ' 1 999';
+    } else {
+      badElement.style.visibility = 'hidden';
+      badBorder.style.visibility = 'hidden';
+    };
   };
 
-  if (awesomeElement.dataset.count > 0) {
-    awesomeElement.style.strokeDasharray = awesomePercent * circum/100 + ' 999';
-    awesomeElement.style.strokeDashoffset = -(goodPercent * circum/100);
-    awesomeBorder.style.strokeDashoffset = -(goodPercent * circum/100);
-    awesomeBorder.style.strokeDasharray = '1 ' + (awesomePercent * circum/100 - 2) + ' 1 999';
-  } else {
-    awesomeElement.style.stroke = 'none';
-    awesomeBorder.style.stroke = 'none';
-  };
+  drawCircle();
 
-  if (fairElement.dataset.count > 0) {
-    fairElement.style.strokeDasharray = fairPercent * circum/100 + ' 999';
-    fairElement.style.strokeDashoffset = -(awesomePercent * circum/100) - (goodPercent * circum/100);
-    fairBorder.style.strokeDashoffset = -(awesomePercent * circum/100) - (goodPercent * circum/100);
-    fairBorder.style.strokeDasharray = '1 ' + (fairPercent * circum/100 - 2) + ' 1 999';
-  } else {
-    fairElement.style.stroke = 'none';
-    fairBorder.style.stroke = 'none';
-  };
+  let pollItems = element.querySelectorAll('.poll__item');
 
-  if (badElement.dataset.count > 0) {
-    badElement.style.strokeDasharray = badPercent * circum/100 + ' 999';
-    badElement.style.strokeDashoffset = -(awesomePercent * circum/100) - (goodPercent * circum/100) - (fairPercent * circum/100);
-    badBorder.style.strokeDashoffset = -(awesomePercent * circum/100) - (goodPercent * circum/100) - (fairPercent * circum/100);
-    badBorder.style.strokeDasharray = '1 ' + (badPercent * circum/100 - 2) + ' 1 999';
-  } else {
-    badElement.style.stroke = 'none';
-    badBorder.style.stroke = 'none';
+  for (let item of pollItems) {
+    let updatePoll = () => {
+      switch (item.textContent) {
+        case 'Великолепно': +awesomeElement.dataset.count++; break;
+        case 'Хорошо': +goodElement.dataset.count++; break;
+        case 'Удовлетворительно': +fairElement.dataset.count++; break;
+        case 'Разочарован': +badElement.dataset.count++; break;
+      };
+      drawCircle();
+    }
+
+    item.onclick = () => {updatePoll()};
+    item.onkeydown = (e) => {e.key == 'Enter' && updatePoll()};
   };
 };

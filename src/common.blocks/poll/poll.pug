@@ -1,24 +1,33 @@
 mixin poll(options)
-  -
-    let allCount = options.awesome || options.good || options.fair || options.bad ?
-                   options.awesome + options.good + options.fair + options.bad : 0;
-
-  .poll(data-count=allCount)
+  .poll
     .poll__circle
       svg(width=120 height=120 viewbox='0 0 100 100')
-        circle.poll__good(data-count=options.good ? options.good : 0)
-        circle.poll__awesome(data-count=options.awesome? options.awesome : 0)
-        circle.poll__fair(data-count=options.fair ? options.fair : 0)
-        circle.poll__bad(data-count=options.bad ? options.bad : 0)
+        defs
+          linearGradient#gradient-yellow.poll__gradient_yellow(x1="0%" y1="0%" x2="0%" y2="100%")
+            stop.poll__stop-color(offset='0%')
+            stop.poll__stop-color(offset='100%')
+          linearGradient#gradient-green.poll__gradient_green(x1="0%" y1="0%" x2="0%" y2="100%")
+            stop.poll__stop-color(offset='0%')
+            stop.poll__stop-color(offset='100%')
+          linearGradient#gradient-purple.poll__gradient_purple(x1="0%" y1="0%" x2="0%" y2="100%")
+            stop.poll__stop-color(offset='0%')
+            stop.poll__stop-color(offset='100%')
+          linearGradient#gradient-dark.poll__gradient_dark(x1="0%" y1="0%" x2="0%" y2="100%")
+            stop.poll__stop-color(offset='0%')
+            stop.poll__stop-color(offset='100%')
+        circle.poll__good(stroke='url(#gradient-green)' data-count=options.good ? options.good : 0)
+        circle.poll__awesome(stroke='url(#gradient-yellow)' data-count=options.awesome? options.awesome : 0)
+        circle.poll__fair(stroke='url(#gradient-purple)' data-count=options.fair ? options.fair : 0)
+        circle.poll__bad(stroke='url(#gradient-dark)' data-count=options.bad ? options.bad : 0)
         circle.poll__good-border
         circle.poll__awesome-border
         circle.poll__fair-border
         circle.poll__bad-border
       .poll__counter
-        p #{allCount}
+        p 
         p голосов
     .poll__items
       each item in ['Великолепно', 'Хорошо', 'Удовлетворительно', 'Разочарован']
-        .poll__item
+        .poll__item(tabindex='0')
           .poll__color
-          p #{item}
+          p.unselect #{item}

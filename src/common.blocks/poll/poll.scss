@@ -47,7 +47,7 @@
     gap: 5px;
     cursor: pointer;
 
-    &:hover {
+    &:hover, &:focus, &:focus-within, &:focus-visible {
       color: vars.$dark-shade;
     }
   }
@@ -58,11 +58,11 @@
     }
 
     & > .poll__item:nth-child(2) > .poll__color {
-      background: vars.$primary-gradient;
+      background: vars.$secondary-gradient;
     }
 
     & > .poll__item:nth-child(3) > .poll__color {
-      background: vars.$secondary-gradient;
+      background: vars.$primary-gradient;
     }
 
     & > .poll__item:nth-child(4) > .poll__color {
@@ -70,20 +70,46 @@
     }
   }
 
-  &__awesome {
-    stroke: vars.$yellow;
-  }
+  &__gradient {
+    &_yellow {
+      & > .poll__stop-color:nth-child(1) {
+        stop-color: vars.$yellow;
+      }
 
-  &__good {
-    stroke: vars.$green;
-  }
+      & > .poll__stop-color:nth-child(2) {
+        stop-color: vars.$yellow-secondary;
+      }
+    }
 
-  &__fair {
-    stroke: vars.$purple;
-  }
+    &_green {
+      & > .poll__stop-color:nth-child(1) {
+        stop-color: vars.$green;
+      }
 
-  &__bad {
-    stroke: vars.$dark-shade;
+      & > .poll__stop-color:nth-child(2) {
+        stop-color: vars.$green-secondary;
+      }
+    }
+
+    &_purple {
+      & > .poll__stop-color:nth-child(1) {
+        stop-color: vars.$purple;
+      }
+
+      & > .poll__stop-color:nth-child(2) {
+        stop-color: vars.$purple-secondary;
+      }
+    }
+
+    &_dark {
+      & > .poll__stop-color:nth-child(1) {
+        stop-color: vars.$dark;
+      }
+
+      & > .poll__stop-color:nth-child(2) {
+        stop-color: vars.$dark-secondary;
+      }
+    }
   }
 
   &__good-border, &__awesome-border, &__fair-border, &__bad-border {
