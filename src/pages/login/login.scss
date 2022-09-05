@@ -1,0 +1,15 @@
+@use 'assets/scss/variables' as vars;
+
+.page {
+  &__main {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__card {
+    position: absolute;
+    z-index: 1;
+  }
+}
