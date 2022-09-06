@@ -3,6 +3,7 @@
 .main {
   &__menu {
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 5px;
     padding: 15px;
@@ -59,6 +60,8 @@
 }
 
 body {
+  max-width: 1440px;
+  margin-inline: auto;
   min-height: 100vh;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
@@ -85,12 +88,11 @@ a {
 
   &:focus-visible, &:focus, &:hover {
     color: vars.$dark-shade-75;
-    font-weight: bold;
+    @include vars.link-bold;
   }
 }
 
 img {
-  max-width: 100%;
   display: block;
 }
 

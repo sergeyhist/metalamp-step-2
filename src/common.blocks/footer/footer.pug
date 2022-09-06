@@ -1,22 +1,27 @@
-include ../logo/logo.pug
-include ../input/input.pug
-include ../social/social.pug
+include common/logo/logo.pug
+include common/input/input.pug
+include common/social/social.pug
 
 mixin footer__menu(title, items)
-  nav(class='footer__menu')
-    h3(class='footer__title') #{title}
+  nav.footer__menu
+    h3.footer__title #{title}
     - for (let item of items)
-      div(class='footer__link')
+      .footer__link
         a(href=item.link) #{item.name}
 
-mixin footer()
-  footer(class='footer')
-    div(class='footer__main')
-      div(class='footer__about')
-        div(class='footer__logo')
+mixin footer(options)
+  -
+    let footerAttrs = {
+      ...(options?.mobile === true && {'data-mobile': 'true'})
+    };
+
+  footer.footer&attributes(footerAttrs)
+    .footer__main
+      .footer__about
+        .footer__logo
           +logo()
-        p(class='footer__text') Бронирование номеров в лучшем отеле 2019 года по версии ассоциации "Отельные взгляды"
-      div(class='footer__navigation')
+        p.footer__text Бронирование номеров в лучшем отеле 2019 года по версии ассоциации "Отельные взгляды"
+      .footer__navigation
         +footer__menu('навигация',[
           {
             name: 'о нас',
@@ -68,16 +73,18 @@ mixin footer()
           }
         ])
         form(class='footer__subscription')
-          h3(class='footer__title') подписка
-          p(class='footer__text') Получайте специальные предложения и новости сервиса
-          div(class='footer__input')
+          h3.footer__title подписка
+          p.footer__text Получайте специальные предложения и новости сервиса
+          .footer__input
             +input({
               type: 'email',
               button: true
             })
-    aside(class='footer__copyright')
+    aside.footer__copyright
+      .footer__logo.footer__logo_hidden
+        +logo
       p Copyright © 2018 Toxin отель. Все права защищены.
-      div(class='footer__social')
+      .footer__social
         +social(
           {
             items: [

@@ -1,4 +1,3 @@
-import '../menu/menu.scss';
-import '../button/button.scss';
-import '../account/account.scss';
 import './header.scss';
+import 'common/button/button.scss';
+import 'common/account/account.scss';

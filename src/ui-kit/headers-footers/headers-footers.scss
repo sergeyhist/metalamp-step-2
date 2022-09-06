@@ -1,17 +1,23 @@
-body {
+.page {
   background-color: #E5E5E5;
-}
 
-.headers-footers__icon {
-  position: absolute;
-  top: 30px;
-  left: 30px;
-}
+  &__icon {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+  }
 
-.headers-footers__content {
-  margin-block: 140px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
+  &__content {
+    margin-block: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  &__footer {
+    &_mobile {
+      width: 768px;
+    }
+  }
 }

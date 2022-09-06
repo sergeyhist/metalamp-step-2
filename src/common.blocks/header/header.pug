@@ -1,7 +1,6 @@
-include ../logo/logo.pug
-include ../menu/menu.pug
-include ../button/button.pug
-include ../account/account.pug
+include common/logo/logo.pug
+include common/button/button.pug
+include common/account/account.pug
 
 mixin header(options)
   -
@@ -10,7 +9,6 @@ mixin header(options)
       {
         name: 'о нас',
         link: '#',
-        focused: true
       },
       {
         name: 'услуги',
@@ -57,22 +55,42 @@ mixin header(options)
         ]
       }
     ];
+    if (options?.focused >= 0) {menuItems[options.focused].focused = true};
 
-  header(class='header')
-    div(class='header__logo')
+  header.header
+    .header__logo
       +logo()
-    +menu(menuItems)
-    if (isLogged === false)
-      div(class='header__buttons')
-        +button({
-          text: 'войти',
-          theme: 'white',
-          height: 34
-        })
-        +button({
-          text: 'Зарегистрироваться',
-          height: 34
+    .header__content
+      nav.header__menu
+        each item in menuItems
+          -
+            let hasSubmenu = item.submenu ? true : false;
+            let linkAttrs = {
+              ...(item.focused === true && {class: 'header__menu-link_focused'}),
+              ...(item.link && {href: item.link})
+            }
+          .header__menu-content
+            if hasSubmenu
+              a.header__menu-link&attributes(linkAttrs)
+                span #{item.name}
+                span.material-icons expand_more
+              .header__submenu
+                each sub in item.submenu
+                  a(href=sub.link) #{sub.name}
+            else
+              a.header__menu-link&attributes(linkAttrs)
+                span #{item.name}
+      if (isLogged === false)
+        .header__buttons
+          +button({
+            text: 'войти',
+            theme: 'white',
+            height: 34
           })
-    else
-      div(class='header__account')
-        +account()
+          +button({
+            text: 'Зарегистрироваться',
+            height: 34
+            })
+      else
+        .header__account
+          +account()
