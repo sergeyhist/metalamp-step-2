@@ -1,6 +1,5 @@
 include common/logo/logo.pug
 include common/button/button.pug
-include common/account/account.pug
 
 mixin header(options)
   -
@@ -61,6 +60,7 @@ mixin header(options)
     .header__logo
       +logo()
     .header__content
+      .header__mobile-menu.material-icons.unselect menu
       nav.header__menu
         each item in menuItems
           -
@@ -80,6 +80,13 @@ mixin header(options)
             else
               a.header__menu-link&attributes(linkAttrs)
                 span #{item.name}
+        if (isLogged === false)
+          a.header__menu-link.header__menu-link_mobile
+            span Войти
+          a.header__menu-link.header__menu-link_mobile
+            span Зарегистрироваться
+        else
+          a.header__menu-link.header__menu-link_mobile(href='#') #{options.account}
       if (isLogged === false)
         .header__buttons
           +button({
@@ -93,4 +100,5 @@ mixin header(options)
             })
       else
         .header__account
-          +account()
+          span.header__separator
+          a(href='#') #{options.account}

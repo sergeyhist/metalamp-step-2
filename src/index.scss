@@ -17,6 +17,7 @@
     width: fit-content;
     border: 1px solid vars.$dark-shade-25;
     border-radius: 10px;
+    background: vars.$dark-shade-50;
 
     &:hover {
       color: vars.$dark-shade-50;
@@ -24,7 +25,7 @@
   }
 
   &__link {
-    color: vars.$purple;
+    color: white;
     padding: 5px;
 
     &:hover {

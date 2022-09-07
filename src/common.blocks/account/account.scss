@@ -1,8 +1,0 @@
-@use '../../assets/scss/variables.scss' as vars;
-
-.account {
-  &__separator {
-    margin-right: 20px;
-    border-right: 1px solid rgba(vars.$dark-shade, .1);
-  }
-}
