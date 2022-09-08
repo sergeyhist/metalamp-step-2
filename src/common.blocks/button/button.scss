@@ -9,11 +9,7 @@
   width: fit-content;
   height: 44px;
 
-  &:hover {
-    background: vars.$primary-gradient-50;
-  }
-
-  &_active {
+  &:hover, &:focus-visible, &_active {
     background: vars.$primary-gradient-50;
   }
 

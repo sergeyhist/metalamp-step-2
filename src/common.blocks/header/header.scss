@@ -26,7 +26,7 @@
     padding: 10px;
     display: none;
     
-    &:hover {
+    &:hover, &:focus-visible {
       color: vars.$dark-shade-50;
     }
   }
@@ -51,19 +51,15 @@
     display: flex;
     align-items: center;
     gap: 20px;
-    transition: .3s;
-    transform-origin: top;
-    
-    &-content {
-      &:hover .header__submenu {
-        display: flex;
-      }
-    }
+    transition: .4s;
+    transform-origin: right;
+    position: relative;
 
     &-link {
       display: flex;
       align-items: center;
       white-space: nowrap;
+      line-height: 25px;
 
       &_focused {
         color: vars.$dark-shade-75;
@@ -82,16 +78,28 @@
 
   &__submenu {
     position: absolute;
-    display: none;
+    top: 24px;
+    left: -3px;
+    visibility: hidden;
+    opacity: 0;
+    transform: scaleY(0);
     z-index: 1;
-    flex-direction: column;
-    width: 140px;
-    gap: 10px;
+    width: 100%;
     background-color: white;
-    padding: 5px;
     border: 1px solid rgba(vars.$dark-shade, .25);
-    border-radius: 4px;
-    overflow-wrap: break-word;
+    border-radius: 0 0 4px 4px;
+    transition: .4s;
+    transform-origin: top;
+
+    &_visible {
+      visibility: visible;
+      opacity: 1;
+      transform: scaleY(1);
+    }
+
+    & > .header__menu-link {
+      padding-left: 6px;
+    }
   }
 
   &__separator {
@@ -122,21 +130,43 @@
       width: 100%;
       visibility: hidden;
       opacity: 0;
-      transform: scaleY(0);
+      transform: scaleX(0);
       align-items: start;
-      padding-left: 30px;
-      padding-block: 10px;
+      gap: 0;
+      border-bottom: 1px solid vars.$dark-shade-25;
 
       &_visible {
         visibility: visible;
         opacity: 1;
-        transform: scaleY(1);
+        transform: scaleX(1);
       }
 
       &-link {
+        width: 100%;
+        padding-left: 30px;
+        line-height: 40px;
+        border-top: 1px solid vars.$dark-shade-10;
+
         &_mobile {
           display: block;
         }
+
+        &:hover {
+          background: vars.$dark-shade-5;
+        }
+      }
+    }
+
+    &__submenu {
+      position: initial;
+      display: none;
+
+      &_visible {
+        display: grid;
+      }
+
+      & > .header__menu-link {
+        padding-left: 45px;
       }
     }
 

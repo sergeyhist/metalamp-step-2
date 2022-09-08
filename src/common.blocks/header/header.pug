@@ -60,7 +60,7 @@ mixin header(options)
     .header__logo
       +logo()
     .header__content
-      .header__mobile-menu.material-icons.unselect menu
+      .header__mobile-menu.material-icons.unselect(tabindex=0) menu
       nav.header__menu
         each item in menuItems
           -
@@ -69,17 +69,16 @@ mixin header(options)
               ...(item.focused === true && {class: 'header__menu-link_focused'}),
               ...(item.link && {href: item.link})
             }
-          .header__menu-content
-            if hasSubmenu
-              a.header__menu-link&attributes(linkAttrs)
-                span #{item.name}
-                span.material-icons expand_more
-              .header__submenu
-                each sub in item.submenu
-                  a(href=sub.link) #{sub.name}
-            else
-              a.header__menu-link&attributes(linkAttrs)
-                span #{item.name}
+          if hasSubmenu
+            a.header__menu-link.header__menu-link_arrow&attributes(linkAttrs)
+              span #{item.name}
+              span.material-icons expand_more
+            .header__submenu
+              each element in item.submenu
+                a.header__menu-link(href=element.link) #{element.name}
+          else
+            a.header__menu-link&attributes(linkAttrs)
+              span #{item.name}
         if (isLogged === false)
           a.header__menu-link.header__menu-link_mobile
             span Войти
