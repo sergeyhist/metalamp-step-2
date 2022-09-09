@@ -1,4 +1,4 @@
-include common/icon/icon.pug
+include common/logo/logo.pug
 include common/input/input.pug
 include common/dropdown/dropdown.pug
 include common/calendar/calendar.pug
@@ -23,8 +23,8 @@ html(lang="ru")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Form Elements
   body.page
-    .page__icon
-      +icon
+    .page__logo
+      +logo({image: 'icon.png'})
     .page__main
       .page__block
         .page__wrapper

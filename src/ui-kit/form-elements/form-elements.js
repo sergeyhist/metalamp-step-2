@@ -1,4 +1,5 @@
 import './form-elements.scss';
+import 'common/logo/logo.js';
 import 'common/input/input.js';
 import 'common/dropdown/dropdown.js';
 import 'common/calendar/calendar.js';

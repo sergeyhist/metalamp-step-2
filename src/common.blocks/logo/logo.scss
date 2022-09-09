@@ -1,0 +1,7 @@
+.logo {
+  display: block;
+
+  &:hover, &:focus-visible {
+    filter: contrast(0%);
+  }
+}

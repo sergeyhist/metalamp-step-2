@@ -44,15 +44,14 @@
 
   &__account {
     display: flex;
-    margin-left: 20px;
+    align-items: center;
+    gap: 20px;
   }
 
   &__menu {
     display: flex;
     align-items: center;
     gap: 20px;
-    transition: .4s;
-    transform-origin: right;
     position: relative;
 
     &-link {
@@ -63,7 +62,7 @@
 
       &_focused {
         color: vars.$dark-shade-75;
-        @include vars.link-bold;
+        @include vars.fake-bold;
       }
 
       &_mobile {
@@ -80,21 +79,15 @@
     position: absolute;
     top: 24px;
     left: -3px;
-    visibility: hidden;
-    opacity: 0;
-    transform: scaleY(0);
     z-index: 1;
     width: 100%;
     background-color: white;
     border: 1px solid rgba(vars.$dark-shade, .25);
     border-radius: 0 0 4px 4px;
-    transition: .4s;
-    transform-origin: top;
+    @include vars.hidden-element;
 
     &_visible {
-      visibility: visible;
-      opacity: 1;
-      transform: scaleY(1);
+      display: block;
     }
 
     & > .header__menu-link {
@@ -103,7 +96,7 @@
   }
 
   &__separator {
-    margin-right: 20px;
+    height: 30px;
     border-right: 1px solid rgba(vars.$dark-shade, .1);
   }
 }
@@ -128,17 +121,13 @@
       left: 0;
       background: white;
       width: 100%;
-      visibility: hidden;
-      opacity: 0;
-      transform: scaleX(0);
       align-items: start;
       gap: 0;
       border-bottom: 1px solid vars.$dark-shade-25;
+      @include vars.hidden-element;
 
       &_visible {
-        visibility: visible;
-        opacity: 1;
-        transform: scaleX(1);
+        display: flex;
       }
 
       &-link {
@@ -159,11 +148,6 @@
 
     &__submenu {
       position: initial;
-      display: none;
-
-      &_visible {
-        display: grid;
-      }
 
       & > .header__menu-link {
         padding-left: 45px;
@@ -171,7 +155,6 @@
     }
 
     &__buttons, &__account {
-      visibility: hidden;
       display: none;
     }
   }

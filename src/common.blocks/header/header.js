@@ -1,5 +1,6 @@
 import './header.scss';
-import 'common/button/button.scss';
+import 'common/button/button.js';
+import 'common/logo/logo.js';
 
 let headerElements = document.querySelectorAll('.header');
 
@@ -26,7 +27,7 @@ for (let element of headerElements) {
     };
   };
 
-  mobileMenu.onclick = () => {
+  mobileMenu.onmousedown = () => {
     switchMenuVisibility();
   };
 
@@ -41,8 +42,12 @@ for (let element of headerElements) {
   });
 
   for (let i in arrowMenuLinks) {
-    arrowMenuLinks[i].onclick = () => {
+    arrowMenuLinks[i].onmousedown = () => {
       switchSubmenuVisibility(i);
+    };
+
+    arrowMenuLinks[i].onkeydown = (e) => {
+      e.key == 'Enter' && switchSubmenuVisibility(i);
     };
 
     document.body.addEventListener('mousedown', (event) => {

@@ -1,3 +1,3 @@
-mixin logo()
-  a(href="/") 
-    img(class='logo' src=require('logo.png'), alt='Toxin logo')
+mixin logo(options)
+  a.logo(href="/") 
+    img.logo__image(src=require('assets/images/'+options.image) imageAttrs)(alt='Toxin logo')

@@ -1,4 +1,4 @@
-include common/icon/icon.pug
+include common/logo/logo.pug
 include common/header/header.pug
 include common/footer/footer.pug
 
@@ -11,8 +11,8 @@ html(lang="ru")
     title TOXIN Hotel
   body.page
     main.page__main
-      .page__icon
-        +icon()
+      .page__logo
+        +logo({image: 'icon.png'})
       .page__content
         +header({
           focused: 0

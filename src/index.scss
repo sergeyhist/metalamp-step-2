@@ -89,7 +89,7 @@ a {
 
   &:focus-visible, &:focus, &:hover {
     color: vars.$dark-shade-75;
-    @include vars.link-bold;
+    @include vars.fake-bold;
   }
 }
 

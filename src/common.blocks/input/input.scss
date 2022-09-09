@@ -35,7 +35,7 @@
     background: vars.$primary-gradient;
     @include vars.text-gradient;
 
-    &:hover {
+    &:hover, &:focus-visible {
       background: vars.$primary-gradient-50;
       @include vars.text-gradient;
     }

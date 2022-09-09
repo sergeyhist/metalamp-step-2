@@ -10,8 +10,6 @@
 
   &__logo {
     &_hidden {
-      visibility: hidden;
-      opacity: 0;
       display: none;
     }
   }
@@ -59,15 +57,11 @@
 
 @mixin mobile-footer {
   &__main {
-    visibility: hidden;
-    opacity: 0;
     display: none;
   }
 
   &__logo {
     &_hidden {
-      visibility: visible;
-      opacity: 1;
       display: block;
     }
   }
