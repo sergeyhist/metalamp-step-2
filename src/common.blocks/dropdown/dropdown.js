@@ -16,6 +16,7 @@ for (let element of dropdownElements) {
         number.textContent = 0;
         number.dispatchEvent(new Event('change'));
         dropdownInside.value = '';
+        clearButton.classList.remove('dropdown__button_visible');
       };
     };
 
@@ -78,6 +79,13 @@ for (let element of dropdownElements) {
 
     if (number.textContent == 0) {number.previousSibling.disabled = true};
     number.onchange = () => {
+      if (clearButton) {
+        countNumbers.forEach((num) => {
+          if (+num.textContent > 0) {
+            !clearButton.classList.contains('dropdown__button_visible') && clearButton.classList.add('dropdown__button_visible');
+          };
+        });
+      };
       number.textContent > 0 ? number.previousSibling.disabled = false : number.previousSibling.disabled = true;
       let cases = [2,0,1,1,1,2];
       let textCounts = [];

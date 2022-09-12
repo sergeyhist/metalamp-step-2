@@ -16,6 +16,10 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
+
+    & > button {
+      width: 99px;
+    }
   }
 
   &__wrapper {

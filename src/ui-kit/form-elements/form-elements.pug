@@ -34,7 +34,7 @@ html(lang="ru")
                 h3 text field
                 h3 default
               +input({
-                type: 'text'
+                type: 'email'
               })
             .page__element
               .page__titles
@@ -227,8 +227,8 @@ html(lang="ru")
               type: 'guests',
               title: 'dropdown',
               items: [
-                {name: 'взрослые', variants: ['гость', 'гостя', 'гостей']},
-                {name: 'дети', variants: ['гость', 'гостя', 'гостей']},
+                {name: 'взрослые', variants: ['гость', 'гостя', 'гостей'], count: 2},
+                {name: 'дети', variants: ['гость', 'гостя', 'гостей'], count: 1},
                 {name: 'младенцы', variants: ['младенец', 'младенца', 'младенцев']}
               ],
               placeholder: 'Сколько гостей',
@@ -303,5 +303,6 @@ html(lang="ru")
             name: 'Мурад Сарафанов',
             date: '5 дней назад',
             likes: 12,
+            active: true,
             text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий./br И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто/br не жаловался из соседей.'
           })

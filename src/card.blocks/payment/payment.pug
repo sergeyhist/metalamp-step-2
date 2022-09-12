@@ -22,6 +22,7 @@ mixin payment(options)
       +dropdown({
         type: 'guests',
         title: 'гости',
+        placeholder: 'Сколько гостей?',
         items: [
           {name: 'взрослые', variants: ['гость', 'гостя', 'гостей'], count: options.guests ? options.guests[0] : 0},
           {name: 'дети', variants: ['гость', 'гостя', 'гостей'], count: options.guests ? options.guests[1] : 0},

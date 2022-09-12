@@ -2,7 +2,6 @@
 
 .page {
 
-
   &__main {
     display: grid;
     align-items: center;
@@ -14,14 +13,54 @@
     z-index: 1;
     top: 70px;
     left: 140px;
+    transition: .3s;
   }
 
   &__text {
     position: absolute;
-    bottom: 18px;
     right: 134px;
     text-align: right;
     color: vars.$dark-shade-75;
-    text-shadow: 1px 1px 1px white, -1px -1px 1px white, 2px 2px 2px white, -2px -2px 2px white, 3px 3px 3px white, -3px -3px 3px white, 4px 4px 4px white, -4px -4px 4px white;
+    transition: .3s;
+
+    &_top {
+      top: 18px;
+    }
+
+    &_bottom {
+      bottom: 18px;
+    }
+  }
+}
+
+@media (710px < width < 940px) {
+  .page {
+    &__search {
+      top: 15px;
+      left: 30px;
+    }
+
+    &__text {
+      right: 30px;
+    }
+  }
+}
+
+@media (0 < width < 710px) {
+  .page {
+    &__text {
+      display: none;
+    }
+
+    &__slideshow {
+      position: absolute;
+    }
+
+    &__search {
+      position: initial;
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
   }
 }
