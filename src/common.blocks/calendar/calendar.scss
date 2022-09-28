@@ -30,9 +30,10 @@
     }
 
     & > input {
-      width: 80%;
-      padding-left: 15px;
+      width: 100%;
+      padding-inline: 15px 44px;
       text-transform: lowercase;
+      text-overflow: ellipsis;
 
       &::placeholder {
         color: vars.$dark-shade-75;

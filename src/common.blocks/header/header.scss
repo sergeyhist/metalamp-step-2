@@ -40,6 +40,14 @@
   &__buttons {
     display: flex;
     gap: 20px;
+
+    & > button:nth-child(1) {
+      width: 87px;
+    }
+
+    & > button:nth-child(2) {
+      width: 196px;
+    }
   }
 
   &__account {

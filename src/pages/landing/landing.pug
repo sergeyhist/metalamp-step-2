@@ -1,6 +1,5 @@
 include common/header/header.pug
 include common/footer/footer.pug
-include common/slideshow/slideshow.pug
 include cards/search/search.pug
 
 doctype html
@@ -18,9 +17,6 @@ html(land='ru')
         .page__search
           +search
         .page__slideshow
-          +slideshow({
-            images: ['slide_2.png', 'slide_1.png']
-          })
         .page__text
           p Лучшие номера для вашей работы,<br> отдыха и просто вдохновения
       .page__footer

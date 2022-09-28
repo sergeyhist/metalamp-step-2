@@ -1,7 +1,7 @@
 @use 'assets/scss/variables' as vars;
 
 .search {
-  width: 380px;
+  max-width: 380px;
   padding-inline: 30px;
   padding-block: 40px;
   background: white;

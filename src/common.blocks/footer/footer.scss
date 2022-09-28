@@ -1,12 +1,11 @@
 @use '../../assets/scss/variables' as vars;
 
 .footer {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  padding-inline: 140px;
-  transition: .3s;
+  &__main, &__copyright {
+    background-color: white;
+    padding-inline: 140px;
+    transition: .3s;
+  }
 
   &__logo {
     &_hidden {
@@ -18,6 +17,10 @@
     display: flex;
     gap: 40px;
     padding-block: 100px;
+    
+    &_border {
+      border-top: 1px solid vars.$dark-shade-25;
+    }
   }
 
   &__navigation {
@@ -51,7 +54,7 @@
     justify-content: space-between;
     align-items: center;
     padding-inline: 140px;
-    border-top: 1px solid rgba(vars.$dark-shade, .05);
+    margin-top: 1px;
   }
 }
 
@@ -67,12 +70,14 @@
   }
 
   &__copyright {
-    display: grid;
-    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     row-gap: 20px;
     height: auto;
     padding-block: 120px;
-    padding-inline: 0;
+    padding-inline: 20px;
+    width: 100%;
 
     & > p {
       text-align: center;
@@ -91,15 +96,15 @@
 
 @media (940px < width < 1200px) {
   .footer {
-    padding-inline: 20px;
+    &__main, &__copyright {
+      padding-inline: 20px;
+    }
   }
 }
 
 @media (0 < width < 940px) {
   .footer {
     align-items: center;
-    padding: 0;
-    
     @include mobile-footer;
   }
 }

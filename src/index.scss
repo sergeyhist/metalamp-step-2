@@ -35,6 +35,12 @@
   }
 }
 
+.page {
+  &__main {
+    background-color: white;
+  }
+}
+
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
@@ -70,6 +76,7 @@ body {
   color: vars.$dark-shade-75;
   font-size: 14px;
   line-height: 24px;
+  background: #E5E5E5;
 }
 
 ul[class],

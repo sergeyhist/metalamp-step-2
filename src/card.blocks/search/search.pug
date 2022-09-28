@@ -15,7 +15,11 @@ mixin search(options)
         +dropdown({
           type: 'guests',
           title: 'гости',
-          items: ['взрослые', 'дети', 'младенцы'],
+          items: [
+            {name: 'взрослые', variants: ['гость', 'гостя', 'гостей']},
+            {name: 'дети', variants: ['гость', 'гостя', 'гостей']},
+            {name: 'младенцы', variants: ['младенец', 'младенца', 'младенцев']}
+          ],
           placeholder: 'Сколько гостей'
         })
     +button({

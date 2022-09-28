@@ -1,6 +1,5 @@
 include common/header/header.pug
 include common/footer/footer.pug
-include common/slideshow/slideshow.pug
 include cards/login/login.pug
 
 doctype html
@@ -16,8 +15,5 @@ html(lang="ru")
     main.page__main
       .page__card
         +login
-      +slideshow({
-        images: ['slide_3.png', 'slide_2.png']
-      })
     footer.page__footer
       +footer

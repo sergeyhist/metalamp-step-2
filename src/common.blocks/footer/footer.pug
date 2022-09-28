@@ -14,9 +14,12 @@ mixin footer(options)
     let footerAttrs = {
       ...(options?.mobile === true && {'data-mobile': 'true'})
     };
+    let footerMainAttrs = {
+      ...(options?.border === true && {class: 'footer__main_border'}) 
+    };
 
   footer.footer&attributes(footerAttrs)
-    .footer__main
+    .footer__main&attributes(footerMainAttrs)
       .footer__about
         .footer__logo
           +logo({image: 'logo.png'})

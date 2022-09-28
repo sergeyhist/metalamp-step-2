@@ -5,8 +5,8 @@
   &__content {
     display: flex;
     gap: 70px;
-    margin-inline: 140px;
-    margin-block: 70px;
+    padding-inline: 140px;
+    padding-block: 70px;
   }
 
   &__elements {
@@ -50,9 +50,5 @@
       grid-area: image-3;
       height: 245px;
     }
-  }
-
-  &__footer {
-    border: 1px solid vars.$dark-shade-25;
   }
 }
