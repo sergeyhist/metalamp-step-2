@@ -1,7 +1,3 @@
-body {
-  background-color: #E5E5E5;
-}
-
 .page {
   &__logo {
     position: absolute;
@@ -10,8 +6,9 @@ body {
   }
   
   &__main {
-    margin-block: 150px;
-    margin-inline: 140px;
+    position: relative;
+    padding-block: 150px;
+    padding-inline: 140px;
     display: flex;
     align-items: flex-start;
     gap: 40px;

@@ -2,10 +2,11 @@ include common/like/like.pug
 
 mixin comment(options)
   .comment
-    img.comment__avatar(src=require('assets/images/'+options.avatar))
+    a(href='#')
+      img.comment__avatar(src=require('assets/images/'+options.avatar))
     .comment__info
-      .comment__name #{options.name}
-      .comment__date #{options.date}
+      a.comment__name #{options.name}
+      .comment__date.unselect #{options.date}
     .comment__likes
       +like({
         count: options.likes,

@@ -28,9 +28,9 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Colors & Type
   body
-    div(class='colors-type__logo')
-      +logo({image: 'icon.png'})
     div(class='colors-type__content')
+      div(class='colors-type__logo')
+        +logo({image: 'icon.png'})
       +colors([
         {
           title: 'dark shade 100%',

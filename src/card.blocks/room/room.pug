@@ -23,7 +23,7 @@ mixin room(options)
           p #{room.number}
           if room.luxe == true
             p люкс
-        .room__cost
+        .room__cost.unselect
           p #{room.cost}₽&nbsp;
           p в сутки
       .room__feedback

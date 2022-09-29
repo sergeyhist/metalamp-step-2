@@ -3,7 +3,7 @@
 .registration {
   display: grid;
   gap: 20px;
-  width: 380px;
+  max-width: 380px;
   padding-inline: 30px;
   padding-block: 40px;
   background: white;
@@ -26,6 +26,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 10px;
 
     & > button {
       width: 99px;

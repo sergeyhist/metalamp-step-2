@@ -1,6 +1,8 @@
 @use '../../assets/scss/variables' as vars;
 
 .footer {
+  width: 100%;
+
   &__main, &__copyright {
     background-color: white;
     padding-inline: 140px;
@@ -77,7 +79,6 @@
     height: auto;
     padding-block: 120px;
     padding-inline: 20px;
-    width: 100%;
 
     & > p {
       text-align: center;

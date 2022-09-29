@@ -6,6 +6,7 @@
   height: 20px;
   border: 1px solid vars.$dark-shade-25;
   border-radius: 10px;
+  @include vars.general-background;
 
   &:hover {
     cursor: pointer;

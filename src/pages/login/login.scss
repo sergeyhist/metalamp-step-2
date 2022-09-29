@@ -6,10 +6,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 683px;
+    transition: .3s;
   }
 
   &__card {
-    position: absolute;
     z-index: 1;
+    width: 380px;
+  }
+
+  &__slideshow {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    transition: .5s;
+  }
+}
+
+@media (0 < width < 940px) {
+  .page {
+    &__main {
+      height: 480px;
+    }
   }
 }

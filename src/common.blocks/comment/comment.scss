@@ -18,7 +18,12 @@
     grid-area: comment-info;
   }
 
+  &__name, &__avatar {
+    cursor: pointer;
+  }
+
   &__name {
+    color: vars.$dark-shade-75;
     font-weight: bold;
   }
 

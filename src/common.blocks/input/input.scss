@@ -9,6 +9,7 @@
     height: 44px;
     border: 1px solid vars.$dark-shade-25;
     border-radius: 4px;
+    @include vars.general-background;
 
     &_focused, &:focus-within, &:focus-visible, &:focus, &:hover {
       border: 1px solid vars.$dark-shade-50;

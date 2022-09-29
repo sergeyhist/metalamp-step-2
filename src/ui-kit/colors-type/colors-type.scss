@@ -9,8 +9,10 @@
 .colors-type__content {
   display: grid;
   grid-template-columns: 415px 1fr;
-  margin-inline: 150px;
-  margin-block: 140px;
+  padding-inline: 150px;
+  padding-block: 140px;
+  @include vars.general-background;
+  position: relative;
 }
 
 .colors {

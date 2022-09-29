@@ -44,6 +44,7 @@
     border: 1px solid vars.$dark-shade-25;
     border-radius: 4px;
     position: relative;
+    @include vars.general-background;
 
     &_focused, &:focus-within, &:focus-visible, &:focus, &:hover, &_solid {
       border: 1px solid vars.$dark-shade-50;

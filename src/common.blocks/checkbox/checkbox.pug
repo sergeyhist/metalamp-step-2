@@ -42,5 +42,9 @@ mixin checkbox(options)
           .checkbox__fields
             input.checkbox__field.checkbox__field_hidden(type='checkbox')&attributes(fieldAttrs)
             .checkbox__field.checkbox__field_visible.unselect
-            .checkbox__flag
-              div
+            svg.checkbox__flag(width=20 height=20)
+              defs
+                linearGradient#checkbox__gradient.checkbox__gradient(x1="0%" y1="0%" x2="0%" y2="100%")
+                  stop(offset='0%')
+                  stop(offset='100%')
+              polyline(points="7 14 13 14 13 6" stroke="url(#checkbox__gradient)" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter" fill='none')
