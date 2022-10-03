@@ -87,7 +87,7 @@
     position: absolute;
     top: 24px;
     left: -3px;
-    z-index: 1;
+    z-index: 3;
     width: 100%;
     background-color: white;
     border: 1px solid rgba(vars.$dark-shade, .25);
@@ -124,7 +124,7 @@
     &__menu {
       position: absolute;
       flex-direction: column;
-      z-index: 2;
+      z-index: 3;
       top: 70px;
       left: 0;
       background: white;

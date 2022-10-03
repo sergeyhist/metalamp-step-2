@@ -5,14 +5,13 @@ mixin room(options)
     const rooms = require('assets/json/rooms.json');
     const room = rooms.find(obj => {return obj.number == options.number});
 
-  .room
+  .room(data-number=room.number)
     .room__images
       .room__left
       .room__right
       .room__prev.material-icons.unselect expand_more
       .room__next.material-icons.unselect expand_more
-      each image in room.images
-        img.room__image(src=require('assets/images/rooms/'+image))
+      .room__image
       .room__selector
         - for (let i in room.images)
           .room__selector-item
