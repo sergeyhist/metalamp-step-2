@@ -18,7 +18,7 @@ mixin checkbox(options)
       };
 
     if (isExpandable)
-      .checkbox__shell
+      .checkbox__shell(tabindex='0')
         .checkbox__title.unselect #{options.title}
         .checkbox__arrow.material-icons.unselect&attributes(arrowAttrs) expand_more
     else
@@ -40,7 +40,7 @@ mixin checkbox(options)
                 - for (let text of item.hint.split('/br'))
                   p #{text}
           .checkbox__fields
-            input.checkbox__field.checkbox__field_hidden(type='checkbox')&attributes(fieldAttrs)
+            input.checkbox__field.checkbox__field_hidden(type='checkbox' tabindex='0')&attributes(fieldAttrs)
             .checkbox__field.checkbox__field_visible.unselect
             svg.checkbox__flag(width=20 height=20)
               defs

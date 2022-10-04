@@ -39,9 +39,10 @@ html(lang="ru")
             dates: ['2019,08,19', '2019,08,23'],
             datepickerOnly: true
           })
-        +room({
-          number: 888
-        })
-        +room({
-          number: 840
-        })
+        .page__rooms
+          +room({
+            number: 888
+          })
+          +room({
+            number: 840
+          })

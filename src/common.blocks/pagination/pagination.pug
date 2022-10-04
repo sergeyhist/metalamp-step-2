@@ -9,7 +9,7 @@ mixin pagination(options)
 
     .pagination__pages&attributes(paginationAttrs)
       - for (let i = 1; i <= pagesCount; i++)
-        a.pagination__item.pagination__number.unselect #{i}
+        a.pagination__item.pagination__number.unselect(tabindex='0') #{i}
       button.pagination__item.pagination__arrow
         span.material-icons.unselect arrow_forward
     span.pagination__info.unselect

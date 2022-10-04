@@ -36,7 +36,7 @@ for (let element of paginationElements) {
       pages[0].parentElement.removeChild(block);
     };
     let fakeBlock = document.createElement('span');
-    fakeBlock.classList.add('pagination__item', 'pagination__number', 'pagination__number_fake', 'unselect');
+    fakeBlock.classList.add('pagination__item', 'pagination__number_fake', 'unselect');
     let secondFakeBlock =  fakeBlock.cloneNode(true);
 
 
@@ -79,10 +79,18 @@ for (let element of paginationElements) {
       currentNumber = changeCurrentNumber(paginationNumbers, number);
       checkPages(paginationNumbers, currentNumber);
     };
+    number.onkeydown = (e) => {
+      if (e.key == 'Enter') {
+        currentNumber = changeCurrentNumber(paginationNumbers, number);
+        checkPages(paginationNumbers, currentNumber);
+      };
+    };
   };
 
   nextButton.onclick = () => {
-    currentNumber = changeCurrentNumber(paginationNumbers, paginationNumbers[+currentNumber.textContent]);
-    checkPages(paginationNumbers, currentNumber);
+    if (!(currentNumber == paginationNumbers[paginationNumbers.length - 1])) {
+      currentNumber = changeCurrentNumber(paginationNumbers, paginationNumbers[+currentNumber.textContent]);
+      checkPages(paginationNumbers, currentNumber);
+    };
   };
 };

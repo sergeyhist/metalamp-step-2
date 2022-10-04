@@ -28,7 +28,7 @@
       color: white;
 
       &:hover, &:focus, &:focus-visible {
-        color: white;
+        color: vars.$dark-shade-50;
         background: vars.$primary-gradient-50;
         font-weight: normal;
       }

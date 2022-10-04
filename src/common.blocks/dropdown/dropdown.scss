@@ -25,6 +25,9 @@
     &_focused, &:focus-within, &:focus-visible, &:focus, &:hover, &_solid {
       border: 1px solid vars.$dark-shade-50;
       outline: 0;
+    }
+
+    &_focused {
       border-radius: 4px 4px 0 0;
     }
   }

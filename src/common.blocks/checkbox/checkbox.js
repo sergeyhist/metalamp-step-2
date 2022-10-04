@@ -9,8 +9,7 @@ for (let element of checkboxElements) {
     let checkboxShell = element.querySelector('.checkbox__shell');
     let checkboxList = element.querySelector('.checkbox__list');
     let checkboxArrow = element.querySelector('.checkbox__arrow');
-
-    checkboxShell.onclick = () => {
+    let listVisibility = () => {
       if (checkboxList.classList.contains('checkbox__list_visible')) {
         checkboxList.classList.remove('checkbox__list_visible');
         checkboxArrow.classList.remove('checkbox__arrow_rotate');
@@ -19,6 +18,9 @@ for (let element of checkboxElements) {
         checkboxArrow.classList.add('checkbox__arrow_rotate');
       };
     };
+
+    checkboxShell.onclick = () => {listVisibility()};
+    checkboxShell.onkeydown = (e) => {e.key == 'Enter' && listVisibility()};
   };
 
   for (let label of elementLabels) {

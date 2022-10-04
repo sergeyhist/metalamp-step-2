@@ -22,4 +22,10 @@
   &__element {
     width: 320px;
   }
+
+  &__rooms {
+    display: grid;
+    gap: 40px;
+    width: 270px;
+  }
 }
