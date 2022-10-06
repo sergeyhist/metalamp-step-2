@@ -50,7 +50,15 @@ for (let element of roomElements) {
     selectImage('prev');
   };
 
+  prevButton.onkeydown = (e) => {
+    e.key == 'Enter' && selectImage('prev');
+  }
+
   nextButton.onclick = () => {
     selectImage('next');
   };
+
+  nextButton.onkeydown = (e) => {
+    e.key == 'Enter' && selectImage('next');
+  }
 };

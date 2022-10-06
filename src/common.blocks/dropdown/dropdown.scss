@@ -27,7 +27,7 @@
       outline: 0;
     }
 
-    &_focused {
+    &_focused, &_solid {
       border-radius: 4px 4px 0 0;
     }
   }
@@ -134,11 +134,11 @@
     }
   
     &-clear {
-      visibility: hidden;
+      display: none;
     }
   
     &_visible {
-      visibility: visible;
+      display: block;
     }
   }
 }

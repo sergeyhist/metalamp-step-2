@@ -68,7 +68,7 @@
       white-space: nowrap;
       line-height: 25px;
 
-      &_focused {
+      &_focused, &:focus, &:hover, &:focus-visible {
         color: vars.$dark-shade-75;
         @include vars.fake-bold;
       }

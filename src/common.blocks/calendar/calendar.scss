@@ -110,6 +110,7 @@
   } 
   
   &-body--day-name {
+    aspect-ratio: 1;
     color: vars.$purple;
     font-size: 12px;
   }
@@ -117,11 +118,11 @@
   &-body--cells {
     &.-days- {
       grid-auto-rows: auto;
-      aspect-ratio: 1.4;
     }
   }
   
   &-cell.-day- {
+    aspect-ratio: 1;
     font-size: 12px;
 
     &.-current- {
@@ -136,7 +137,7 @@
 
     &.-selected-, &.-range-to-, &.-range-from- {
       background: vars.$primary-gradient;
-      border-radius: 22px;
+      border-radius: 50%;
       color: white;
       border: 0;
     }

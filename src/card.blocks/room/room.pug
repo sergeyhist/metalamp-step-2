@@ -6,18 +6,18 @@ mixin room(options)
     const room = rooms.find(obj => {return obj.number == options.number});
 
   .room(data-number=room.number)
-    .room__images
-      .room__left
-      .room__right
-      .room__prev.material-icons.unselect expand_more
-      .room__next.material-icons.unselect expand_more
+    .room__images(tabindex='0')
+      .room__sidebox.room__prev(tabindex='0')
+        .material-icons.unselect expand_more
+      .room__sidebox.room__next(tabindex='0')
+        .material-icons.unselect expand_more
       .room__image
       .room__selector
         - for (let i in room.images)
           .room__selector-item
     .room__about
       .room__info
-        .room__number
+        a.room__number(href='/room-details-'+room.number+'.html' tabindex='0')
           p №&nbsp;
           p #{room.number}
           if room.luxe == true

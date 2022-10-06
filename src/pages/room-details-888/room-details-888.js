@@ -1,4 +1,4 @@
-import './room-details.scss';
+import './room-details-888.scss';
 import 'common/header/header.js';
 import 'common/footer/footer.js';
 import 'common/list/list.js';

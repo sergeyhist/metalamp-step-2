@@ -46,8 +46,15 @@
     gap: 20px;
   }
 
-  &__link > a::first-letter {
+  &__link::first-letter {
     text-transform: capitalize;
+  }
+
+  &__link {
+    &:focus-visible, &:focus, &:hover {
+      color: vars.$dark-shade-75;
+      @include vars.fake-bold;
+    }
   }
 
   &__copyright {

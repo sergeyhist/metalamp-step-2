@@ -16,11 +16,11 @@
   &__element {
     width: fit-content;
     border: 1px solid vars.$dark-shade-25;
-    border-radius: 10px;
+    border-radius: 2px;
     background: vars.$dark-shade-50;
 
     &:hover {
-      color: vars.$dark-shade-50;
+      background: vars.$dark-shade-25;
     }
   }
 
@@ -29,7 +29,7 @@
     padding: 5px;
 
     &:hover {
-      color: vars.$dark-shade-50;
+      color: vars.$dark-shade-75;
       font-weight: normal;
     }
   }
@@ -86,11 +86,6 @@ a {
 
   &:hover {
     cursor: pointer;
-  }
-
-  &:focus-visible, &:focus, &:hover {
-    color: vars.$dark-shade-75;
-    @include vars.fake-bold;
   }
 }
 

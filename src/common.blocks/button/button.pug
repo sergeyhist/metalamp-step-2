@@ -7,11 +7,12 @@ mixin button(options)
       ...(options.height && {style: 'height:'+options.height+'px'})
     };
     let contentAttrs = {
+      ...(options.link && {href: options.link}),
       ...(options.theme && {class: 'button__content_theme_'+options.theme}),
       ...(options.height && {style: 'line-height:'+(+options.height-4)+'px'})
     };
 
   button.button&attributes(buttonAttrs)
-    .button__content&attributes(contentAttrs) #{options.text}
+    a.button__content&attributes(contentAttrs) #{options.text}
     if isArrowButton
       span.button__arrow.material-icons arrow_forward
