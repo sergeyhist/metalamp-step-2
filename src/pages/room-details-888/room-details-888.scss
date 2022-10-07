@@ -5,22 +5,44 @@
     @include vars.general-background;
   }
 
-  &__content {
-    display: flex;
-    gap: 70px;
-    padding-inline: 140px;
-    padding-block: 70px;
-  }
-
   &__elements {
     display: grid;
-    gap: 30px;
+    grid-template-areas: 'info poll payment' 'comments comments payment' 'rules cancel payment';
+    padding-inline: 140px;
+    padding-block: 70px;
+    column-gap: 70px;
+    row-gap: 30px;
+    transition: .3s;
   }
 
   &__element {
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    &:nth-child(1) {
+      grid-area: info;
+    }
+
+    &:nth-child(2) {
+      grid-area: poll;
+    }
+
+    &:nth-child(3) {
+      grid-area: comments;
+    }
+
+    &:nth-child(4) {
+      grid-area: rules;
+    }
+
+    &:nth-child(5) {
+      grid-area: cancel;
+    }
+
+    &:nth-child(6) {
+      grid-area: payment;
+    }
   }
 
   &__wrapper {
@@ -54,11 +76,50 @@
   }
 }
 
-@media (0 < width < 710px) {
+@media (675px < width < 1340px) {
+  .page {
+    &__elements {
+      padding-inline: 20px;
+    }
+  }
+}
+
+@media (0 < width < 1200px) {
+  .page {
+    &__elements {
+      grid-template-areas: 'info poll' 'comments comments' 'rules cancel' 'payment payment';
+      grid-template-columns: 1fr 1fr;
+      column-gap: 30px;
+    }
+
+    &__element {
+      &:last-child {
+        justify-self: center;
+      }
+    }
+  }
+}
+
+@media (0 < width < 675px) {
   .page {
     &__images {
       grid-template-areas: 'image-1 image-1' 'image-2 image-3';
       grid-template-columns: 1fr 1fr;
+    }
+
+    &__elements {
+      display: flex;
+      flex-direction: column;
+      padding-block: 40px;
+      padding-inline: 10px;
+    }
+
+    &__element {
+      align-items: center;
+    }
+
+    &__title {
+      align-self: flex-start;
     }
   }
 }

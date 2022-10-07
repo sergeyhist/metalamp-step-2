@@ -126,7 +126,7 @@
     font-size: 12px;
 
     &.-current- {
-      border-radius: 22px;
+      border-radius: 50%;
       background: vars.$secondary-gradient;
       color: white;
 
@@ -143,7 +143,7 @@
     }
 
     &.-focus-:not(.-range-to-):not(.-range-from-):not(.-selected-) {
-      border-radius: 22px;
+      border-radius: 50%;
       background: vars.$dark-shade-10;
 
       &.-in-range- {
