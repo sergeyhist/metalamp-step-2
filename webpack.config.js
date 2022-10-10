@@ -30,8 +30,8 @@ module.exports = {
   entry: allEntries,
   output: {
     filename: '[name].[fullhash].js',
-    path: path.join(__dirname, './dist'),
-    publicPath: '/'
+    path: path.join(__dirname, '../hist-webpages/toxin-hotel'),
+    publicPath: './'
   },
   resolve: {
     alias: {
