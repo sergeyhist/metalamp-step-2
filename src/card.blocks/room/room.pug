@@ -4,9 +4,12 @@ mixin room(options)
   -
     const rooms = require('assets/json/rooms.json');
     const room = rooms.find(obj => {return obj.number == options.number});
+    let imagesAttrs = {
+      ...(options.active === true && {class: 'room__images_focused'})
+    };
 
   .room(data-number=room.number)
-    .room__images(tabindex='0')
+    .room__images(tabindex='0')&attributes(imagesAttrs)
       .room__sidebox.room__prev(tabindex='0')
         .material-icons.unselect expand_more
       .room__sidebox.room__next(tabindex='0')

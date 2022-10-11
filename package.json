@@ -1,7 +1,8 @@
 {
   "scripts": {
-    "build": "webpack",
-    "start": "webpack serve --open"
+    "dev": "webpack --mode development -o './dist'",
+    "prod": "webpack --mode production -o '../hist-webpages/toxin-hotel'",
+    "server": "webpack serve --mode development --static './server-assets'"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",

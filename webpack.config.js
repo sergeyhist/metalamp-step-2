@@ -4,12 +4,13 @@ const PugPlugin = require('pug-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const {log} = require('console');
+
 let uiKitPages = [];
 let mainPages = []
 let allEntries = {
   main: './src/index.js'
 };
+
 fs.readdirSync('./src/ui-kit/').forEach(folder => {
   fs.readdirSync('./src/ui-kit/'+folder).forEach(file =>
     file.includes('.pug') ? uiKitPages.push('./src/ui-kit/'+folder+'/'+file) : file.includes('.js') ? allEntries[folder] = './src/ui-kit/'+folder+'/'+file : ''
@@ -22,16 +23,10 @@ fs.readdirSync('./src/pages/').forEach(folder => {
 });
 
 module.exports = {
-  mode: 'development',
   devtool: 'inline-source-map',
-  devServer: {
-    static: './dist'
-  },
   entry: allEntries,
   output: {
-    filename: '[name].[fullhash].js',
-    path: path.join(__dirname, '../hist-webpages/toxin-hotel'),
-    publicPath: './'
+    filename: '[name].[fullhash].js'
   },
   resolve: {
     alias: {
@@ -72,7 +67,7 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       },
       {
-        test: /\.(png|svg|jpg|gif|jpeg)$/,
+        test: /\.(png|svg|jpg|gif|jpeg|ico)$/,
         type: 'asset/resource',
         generator: {
           filename: 'assets/images/[name].[hash].[ext]'

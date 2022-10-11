@@ -11,7 +11,7 @@
     height: 150px;
     border-radius: 4px 4px 0 0;
 
-    &:focus-within .room__sidebox, &:hover .room__sidebox {
+    &:focus-within .room__sidebox, &:hover .room__sidebox, &_focused .room__sidebox {
       opacity: 1;
       visibility: visible;
     }

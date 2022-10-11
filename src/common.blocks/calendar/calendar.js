@@ -10,6 +10,13 @@ for (let element of calendarElements) {
   let calendarInputs = element.querySelectorAll('.calendar__input');
   let inputFields = element.querySelectorAll('input');
   let calendarDatepicker = element.querySelector('.calendar__datepicker');
+  let switchVisibility = (datepicker, onlyRemove) => {
+    if (!datepicker.classList.contains('calendar__datepicker_visible') && onlyRemove != true) {
+      datepicker.classList.add('calendar__datepicker_visible');
+    } else {
+      datepicker.classList.remove('calendar__datepicker_visible');
+    };
+  };
 
   let confirmButton = {
     content: 'применить',
@@ -28,6 +35,7 @@ for (let element of calendarElements) {
       } else {
         inputFields[0].value = dp.formatDate(dp.selectedDates[0], 'dd MMM')+' - '+dp.formatDate(dp.selectedDates[1], 'dd MMM');
       };
+      switchVisibility(calendarDatepicker, true);
     }
   };
 
@@ -50,14 +58,6 @@ for (let element of calendarElements) {
 
 
   for (let input of calendarInputs) {
-    let switchVisibility = (datepicker) => {
-      if (!datepicker.classList.contains('calendar__datepicker_visible')) {
-        datepicker.classList.add('calendar__datepicker_visible');
-      } else {
-        datepicker.classList.remove('calendar__datepicker_visible');
-      };
-    };
-
     input.onclick = () => {
       switchVisibility(calendarDatepicker);  
     };

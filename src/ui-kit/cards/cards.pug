@@ -12,11 +12,12 @@ html(lang="ru")
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="icon" href=require("assets/images/favicon.ico") type="image/x-icon")
     title Cards
   body
     .page__main
       .page__logo
-        +logo({image: 'icon.png'})
+        +logo({image: 'icon'})
       .page__block
         +search
         +registration
@@ -41,7 +42,8 @@ html(lang="ru")
           })
         .page__rooms
           +room({
-            number: 888
+            number: 888,
+            active: true
           })
           +room({
             number: 840
